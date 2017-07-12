@@ -10,6 +10,7 @@ import UIKit
 import Firebase
 import Alamofire
 import GooglePlaces
+import SwiftyJSON
 
 
 @UIApplicationMain
@@ -24,14 +25,31 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         //GMSPlacesClient.provideAPIKey("AIzaSyAg0qIZOgb4PR8pYdgB1HRZKD2FWJDcG9M")
         
-        let url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=-33.8670,151.1957&radius=500&types=food&name=cruise&key=AIzaSyAg0qIZOgb4PR8pYdgB1HRZKD2FWJDcG9M"
+        let url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=-33.8670,151.1957&radius=50000&types=food&name=cruise&key=AIzaSyAg0qIZOgb4PR8pYdgB1HRZKD2FWJDcG9M"
         
         Alamofire.request(url).validate().responseJSON() { response in
             //print(response.request)
             //print(request(url).response)
-            print(response.result.value)
-            print(response.result.error)
+           // print(response.result.value)
+            //print(response.result.error)
             //print(response.request as Any)
+            switch response.result {
+            case .success:
+                if let value = response.result.value {
+                    let json = JSON(value)
+                    let array = json["results"].arrayValue
+                    print("About to print array")
+                    for result in array {
+                        print(result["geometry"]["location"]["lat"].doubleValue)
+                    }
+                    // Do what you need to with JSON here!
+                    // The rest is all boiler plate code you'll use for API requests
+                    
+                    
+                }
+            case .failure(let error):
+                print(error)
+            }
             }
         
         
