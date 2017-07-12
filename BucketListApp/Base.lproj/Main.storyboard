@@ -26,7 +26,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jFQ-Yr-JXP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-774" y="316"/>
+            <point key="canvasLocation" x="-967" y="764"/>
         </scene>
         <!--MapPageViewController-->
         <scene sceneID="0aW-o6-l1T">
@@ -59,7 +59,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nn0-0s-DM5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="485.60000000000002" y="-73.313343328335833"/>
+            <point key="canvasLocation" x="-1730" y="765"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="Aah-L4-8J0">
@@ -71,7 +71,7 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="hHs-mO-O1r" kind="relationship" relationship="viewControllers" id="DYY-aU-a4i"/>
+                        <segue destination="GPL-gR-dpk" kind="relationship" relationship="viewControllers" id="pZd-Xw-E66"/>
                         <segue destination="sBS-UC-7ex" kind="relationship" relationship="viewControllers" id="1Qf-GZ-pGo"/>
                         <segue destination="ST7-uX-7kI" kind="relationship" relationship="viewControllers" id="bNN-x0-PNq"/>
                     </connections>
@@ -80,18 +80,136 @@
             </objects>
             <point key="canvasLocation" x="-1729" y="-73"/>
         </scene>
-        <!--MainPage-->
-        <scene sceneID="kAy-EN-nW2">
+        <!--MainPageViewController-->
+        <scene sceneID="iqo-3H-EHf">
             <objects>
-                <viewControllerPlaceholder storyboardName="MainPage" id="hHs-mO-O1r" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="GIe-n5-Lcs"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="3SZ-Is-Qtd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController title="MainPageViewController" id="PRt-dn-Jmx" customClass="MainPageViewController" customModule="BucketListApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="tAL-8v-PUv"/>
+                        <viewControllerLayoutGuide type="bottom" id="XHQ-hS-1wN"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ucp-0v-0eM">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="nTe-oN-hCn">
+                                <rect key="frame" x="0.0" y="50" width="375" height="484"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="gbT-1t-sqJ">
+                                    <size key="itemSize" width="118" height="118"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="collectionViewCell" id="VOM-uU-MWb" customClass="CollectionViewCell" customModule="BucketListApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="118" height="118"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="118" height="118"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MmW-pK-yjl">
+                                                    <rect key="frame" x="36" y="44" width="46" height="30"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <state key="normal" title="Button"/>
+                                                    <connections>
+                                                        <segue destination="aQ4-8L-245" kind="show" identifier="viewCategory" id="AaT-iu-2uH">
+                                                            <nil key="action"/>
+                                                        </segue>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                        </view>
+                                        <color key="backgroundColor" red="0.90264435259999998" green="0.96569136779999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <connections>
+                                            <outlet property="titleButton" destination="MmW-pK-yjl" id="63X-zx-bww"/>
+                                            <outlet property="titleButtonPressed" destination="MmW-pK-yjl" id="hdU-XE-R0w"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="addCollectionViewCell" id="llp-ml-4rJ" customClass="AddCollectionViewCell" customModule="BucketListApp" customModuleProvider="target">
+                                        <rect key="frame" x="128.5" y="0.0" width="118" height="118"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="118" height="118"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1aW-yG-byL">
+                                                    <rect key="frame" x="0.0" y="3" width="118" height="115"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-UltraLight" family="Helvetica Neue" pointSize="90"/>
+                                                    <state key="normal" title="+"/>
+                                                    <connections>
+                                                        <action selector="addButtonTapped:" destination="llp-ml-4rJ" eventType="touchUpInside" id="Qzc-Rt-eDR"/>
+                                                        <segue destination="rRG-P3-gac" kind="show" identifier="newCategory" id="1xH-m3-FL4">
+                                                            <nil key="action"/>
+                                                        </segue>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                        </view>
+                                        <color key="backgroundColor" red="0.90264435259999998" green="0.96569136779999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="1aW-yG-byL" secondAttribute="bottom" id="KD4-mZ-RzG"/>
+                                            <constraint firstAttribute="trailing" secondItem="1aW-yG-byL" secondAttribute="trailing" id="Rcr-i6-CxF"/>
+                                            <constraint firstItem="1aW-yG-byL" firstAttribute="leading" secondItem="llp-ml-4rJ" secondAttribute="leading" id="ubW-Uz-kzA"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="addButton" destination="1aW-yG-byL" id="fyn-vG-6bK"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Mx2-32-ac1"/>
+                    <connections>
+                        <outlet property="collectionView" destination="nTe-oN-hCn" id="ov7-rR-zlE"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LQf-Qy-S2b" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-882.39999999999998" y="-880.20989505247383"/>
+            <point key="canvasLocation" x="-2506" y="1645"/>
+        </scene>
+        <!--ViewCategory-->
+        <scene sceneID="cfP-SC-LU5">
+            <objects>
+                <viewControllerPlaceholder storyboardName="ViewCategory" id="aQ4-8L-245" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FCO-UZ-Okj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1911" y="2015"/>
+        </scene>
+        <!--NewCategory-->
+        <scene sceneID="YLq-Vp-MwS">
+            <objects>
+                <viewControllerPlaceholder storyboardName="NewCategory" id="rRG-P3-gac" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Apy-Ig-X0O" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-3144" y="2015"/>
+        </scene>
+        <!--Home-->
+        <scene sceneID="PE5-ZL-NQw">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="GPL-gR-dpk" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Home" image="tab_home_black" selectedImage="tab_home_black" id="Y50-Xo-UiI"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="uej-Nl-FNA">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="PRt-dn-Jmx" kind="relationship" relationship="rootViewController" id="xga-tM-fWN"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Cn5-i0-jfb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2484" y="763"/>
         </scene>
     </scenes>
     <resources>
         <image name="btn_options_black" width="24" height="24"/>
+        <image name="tab_home_black" width="25" height="25"/>
     </resources>
 </document>

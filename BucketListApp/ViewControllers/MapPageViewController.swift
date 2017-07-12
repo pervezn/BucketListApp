@@ -15,9 +15,24 @@ class MapPageViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let initialLocation = CLLocation(latitude: 41.888543, longitude: -87.635444) //change this to the person's initial location
-        centerMapOnLocation(location: initialLocation)
+        
+        let span:MKCoordinateSpan = MKCoordinateSpanMake(0.1, 0.1)
+        let location: CLLocationCoordinate2D = CLLocationCoordinate2DMake(41.888543, -87.635444)
+       // let initialLocation = CLLocation(latitude: 41.888543, longitude: -87.635444) //change this to the person's initial location
+        let region: MKCoordinateRegion = MKCoordinateRegionMake(location, span)
+        mapView.setRegion(region, animated: true)
+        
+        let annotation = MKPointAnnotation()
+        
+        annotation.coordinate = location
+        annotation.title = "Hello there!"
+        mapView.addAnnotation(annotation)
+        
+       // centerMapOnLocation(location: location) //right when you open the map it will go to this initial location
+        
+        
     }
+    
     let regionRadius: CLLocationDistance = 1000
     func centerMapOnLocation(location: CLLocation) {
         let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate,

@@ -11,5 +11,9 @@ target 'BucketListApp' do
   pod 'FirebaseUI/Auth'
   pod 'Firebase/Database'
   pod 'Firebase/Storage'
+  pod 'Alamofire'
+  pod 'SwiftyJSON'
+  pod 'GooglePlaces'
+  
 
 end
