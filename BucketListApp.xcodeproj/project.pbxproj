@@ -14,6 +14,7 @@
 		330F88D01F1533CF0040D87B /* NewCategoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330F88CF1F1533CF0040D87B /* NewCategoryTableViewController.swift */; };
 		330F88D21F1534190040D87B /* NewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330F88D11F1534190040D87B /* NewTableViewCell.swift */; };
 		330F88D41F1534270040D87B /* AddNewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330F88D31F1534270040D87B /* AddNewTableViewCell.swift */; };
+		33264B161F16726900133F71 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 33264B151F16726900133F71 /* GoogleService-Info.plist */; };
 		33C254AD1F132FFE0029B421 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33C254AC1F132FFE0029B421 /* AppDelegate.swift */; };
 		33C254B21F132FFE0029B421 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33C254B01F132FFE0029B421 /* Main.storyboard */; };
 		33C254B41F132FFE0029B421 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 33C254B31F132FFE0029B421 /* Assets.xcassets */; };
@@ -25,9 +26,12 @@
 		33C254CA1F1408460029B421 /* MapPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33C254C91F1408460029B421 /* MapPageViewController.swift */; };
 		33C254CC1F14085C0029B421 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33C254CB1F14085C0029B421 /* SettingsViewController.swift */; };
 		33C254CF1F140B650029B421 /* MainPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33C254CD1F140B650029B421 /* MainPage.storyboard */; };
+		F24117E64CFFE33E59211AC8 /* Pods_BucketListApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B3A676D854B696AD9BF419C /* Pods_BucketListApp.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		02AB812EABD4D7025FDDD571 /* Pods-BucketListApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BucketListApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-BucketListApp/Pods-BucketListApp.release.xcconfig"; sourceTree = "<group>"; };
+		060C25BA38F186323B1BDB75 /* Pods-BucketListApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BucketListApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BucketListApp/Pods-BucketListApp.debug.xcconfig"; sourceTree = "<group>"; };
 		330F88C01F140D660040D87B /* ViewCategory.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ViewCategory.storyboard; sourceTree = "<group>"; };
 		330F88C31F140D910040D87B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/NewCategory.storyboard; sourceTree = "<group>"; };
 		330F88CB1F140EDF0040D87B /* ViewCategoryTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewCategoryTableViewController.swift; path = Helpers/ViewCategoryTableViewController.swift; sourceTree = "<group>"; };
@@ -35,6 +39,7 @@
 		330F88CF1F1533CF0040D87B /* NewCategoryTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NewCategoryTableViewController.swift; path = Helpers/NewCategoryTableViewController.swift; sourceTree = "<group>"; };
 		330F88D11F1534190040D87B /* NewTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NewTableViewCell.swift; path = Helpers/NewTableViewCell.swift; sourceTree = "<group>"; };
 		330F88D31F1534270040D87B /* AddNewTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddNewTableViewCell.swift; path = Helpers/AddNewTableViewCell.swift; sourceTree = "<group>"; };
+		33264B151F16726900133F71 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		33C254A91F132FFE0029B421 /* BucketListApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BucketListApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		33C254AC1F132FFE0029B421 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		33C254B11F132FFE0029B421 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -48,6 +53,7 @@
 		33C254C91F1408460029B421 /* MapPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapPageViewController.swift; path = ViewControllers/MapPageViewController.swift; sourceTree = "<group>"; };
 		33C254CB1F14085C0029B421 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsViewController.swift; path = ViewControllers/SettingsViewController.swift; sourceTree = "<group>"; };
 		33C254CE1F140B650029B421 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainPage.storyboard; sourceTree = "<group>"; };
+		9B3A676D854B696AD9BF419C /* Pods_BucketListApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BucketListApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +61,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F24117E64CFFE33E59211AC8 /* Pods_BucketListApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -66,6 +73,8 @@
 			children = (
 				33C254AB1F132FFE0029B421 /* BucketListApp */,
 				33C254AA1F132FFE0029B421 /* Products */,
+				B27565EDDE77CF43C63D3151 /* Pods */,
+				78D917C606DCCE412DC13F51 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -80,6 +89,7 @@
 		33C254AB1F132FFE0029B421 /* BucketListApp */ = {
 			isa = PBXGroup;
 			children = (
+				33264B151F16726900133F71 /* GoogleService-Info.plist */,
 				33C254AC1F132FFE0029B421 /* AppDelegate.swift */,
 				33C254B01F132FFE0029B421 /* Main.storyboard */,
 				33C254CD1F140B650029B421 /* MainPage.storyboard */,
@@ -127,6 +137,23 @@
 			name = Extensions;
 			sourceTree = "<group>";
 		};
+		78D917C606DCCE412DC13F51 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9B3A676D854B696AD9BF419C /* Pods_BucketListApp.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B27565EDDE77CF43C63D3151 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				060C25BA38F186323B1BDB75 /* Pods-BucketListApp.debug.xcconfig */,
+				02AB812EABD4D7025FDDD571 /* Pods-BucketListApp.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -134,9 +161,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 33C254BB1F132FFE0029B421 /* Build configuration list for PBXNativeTarget "BucketListApp" */;
 			buildPhases = (
+				7FF112FE401EE1F1A4FB3AD4 /* [CP] Check Pods Manifest.lock */,
 				33C254A51F132FFE0029B421 /* Sources */,
 				33C254A61F132FFE0029B421 /* Frameworks */,
 				33C254A71F132FFE0029B421 /* Resources */,
+				55A3C46DF024EF403625371B /* [CP] Embed Pods Frameworks */,
+				B9E70B8D9FB93956AE5857CA /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -193,10 +223,59 @@
 				330F88C41F140D910040D87B /* NewCategory.storyboard in Resources */,
 				33C254B41F132FFE0029B421 /* Assets.xcassets in Resources */,
 				33C254B21F132FFE0029B421 /* Main.storyboard in Resources */,
+				33264B161F16726900133F71 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		55A3C46DF024EF403625371B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BucketListApp/Pods-BucketListApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7FF112FE401EE1F1A4FB3AD4 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		B9E70B8D9FB93956AE5857CA /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BucketListApp/Pods-BucketListApp-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		33C254A51F132FFE0029B421 /* Sources */ = {
@@ -351,6 +430,7 @@
 		};
 		33C254BC1F132FFE0029B421 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 060C25BA38F186323B1BDB75 /* Pods-BucketListApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 4YEH54R3V3;
@@ -364,6 +444,7 @@
 		};
 		33C254BD1F132FFE0029B421 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 02AB812EABD4D7025FDDD571 /* Pods-BucketListApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 4YEH54R3V3;
