@@ -14,6 +14,7 @@ target 'BucketListApp' do
   pod 'Alamofire'
   pod 'SwiftyJSON'
   pod 'GooglePlaces'
+  pod 'GooglePlacePicker'
   
 
 end

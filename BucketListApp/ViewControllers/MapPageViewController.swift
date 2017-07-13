@@ -8,11 +8,19 @@
 
 import UIKit
 import MapKit
+import Alamofire
+import SwiftyJSON
+import GooglePlaces
+import GooglePlacePicker
 
 class MapPageViewController: UIViewController {
 
     @IBOutlet weak var mapView: MKMapView!
     
+     var placesClient: GMSPlacesClient!
+    let url = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=landmarks+in+chicago&key=AIzaSyAg0qIZOgb4PR8pYdgB1HRZKD2FWJDcG9M"
+
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -28,9 +36,28 @@ class MapPageViewController: UIViewController {
         annotation.title = "Hello there!"
         mapView.addAnnotation(annotation)
         
+        Alamofire.request(url).validate().responseJSON() { response in
+            
+            //print(response.result.value)
+            let info = JSON(response.result.value)
+            
+            let placesArray = info["results"].arrayValue
+            
+            for place in placesArray {
+                let newPlace = Places(json: place)
+            }
+            print(placesArray)
+        }
+        
+       
+        
        // centerMapOnLocation(location: location) //right when you open the map it will go to this initial location
         
         
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
     }
     
     let regionRadius: CLLocationDistance = 1000

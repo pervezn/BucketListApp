@@ -15,6 +15,7 @@
 		330F88D21F1534190040D87B /* NewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330F88D11F1534190040D87B /* NewTableViewCell.swift */; };
 		330F88D41F1534270040D87B /* AddNewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330F88D31F1534270040D87B /* AddNewTableViewCell.swift */; };
 		33264B161F16726900133F71 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 33264B151F16726900133F71 /* GoogleService-Info.plist */; };
+		33264B181F17CE2100133F71 /* Places.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33264B171F17CE2100133F71 /* Places.swift */; };
 		33C254AD1F132FFE0029B421 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33C254AC1F132FFE0029B421 /* AppDelegate.swift */; };
 		33C254B21F132FFE0029B421 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33C254B01F132FFE0029B421 /* Main.storyboard */; };
 		33C254B41F132FFE0029B421 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 33C254B31F132FFE0029B421 /* Assets.xcassets */; };
@@ -40,6 +41,7 @@
 		330F88D11F1534190040D87B /* NewTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NewTableViewCell.swift; path = Helpers/NewTableViewCell.swift; sourceTree = "<group>"; };
 		330F88D31F1534270040D87B /* AddNewTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddNewTableViewCell.swift; path = Helpers/AddNewTableViewCell.swift; sourceTree = "<group>"; };
 		33264B151F16726900133F71 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		33264B171F17CE2100133F71 /* Places.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Places.swift; path = Models/Places.swift; sourceTree = "<group>"; };
 		33C254A91F132FFE0029B421 /* BucketListApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BucketListApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		33C254AC1F132FFE0029B421 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		33C254B11F132FFE0029B421 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -68,6 +70,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		33264B191F17CE2F00133F71 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				33264B171F17CE2100133F71 /* Places.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
 		33C254A01F132FFE0029B421 = {
 			isa = PBXGroup;
 			children = (
@@ -101,6 +111,7 @@
 				33C254C31F13C1CC0029B421 /* Helpers */,
 				33C254C01F13C19B0029B421 /* ViewControllers */,
 				33C254C81F13D9BE0029B421 /* Extensions */,
+				33264B191F17CE2F00133F71 /* Models */,
 			);
 			path = BucketListApp;
 			sourceTree = "<group>";
@@ -286,6 +297,7 @@
 				33C254BF1F13C1940029B421 /* MainPageViewController.swift in Sources */,
 				330F88D41F1534270040D87B /* AddNewTableViewCell.swift in Sources */,
 				330F88CE1F147C500040D87B /* ViewCategoryTableViewCell.swift in Sources */,
+				33264B181F17CE2100133F71 /* Places.swift in Sources */,
 				330F88D21F1534190040D87B /* NewTableViewCell.swift in Sources */,
 				33C254AD1F132FFE0029B421 /* AppDelegate.swift in Sources */,
 				330F88D01F1533CF0040D87B /* NewCategoryTableViewController.swift in Sources */,

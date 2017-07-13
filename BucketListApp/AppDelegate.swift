@@ -10,6 +10,7 @@ import UIKit
 import Firebase
 import Alamofire
 import GooglePlaces
+import GooglePlacePicker
 import SwiftyJSON
 
 
@@ -23,11 +24,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         FirebaseApp.configure()
         
-        //GMSPlacesClient.provideAPIKey("AIzaSyAg0qIZOgb4PR8pYdgB1HRZKD2FWJDcG9M")
+//        GMSPlacesClient.provideAPIKey("AIzaSyAg0qIZOgb4PR8pYdgB1HRZKD2FWJDcG9M")
+//        GMSServices.provideAPIKey("AIzaSyAg0qIZOgb4PR8pYdgB1HRZKD2FWJDcG9M")
         
         let url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=-33.8670,151.1957&radius=50000&types=food&name=cruise&key=AIzaSyAg0qIZOgb4PR8pYdgB1HRZKD2FWJDcG9M"
         
-        Alamofire.request(url).validate().responseJSON() { response in
+       /* Alamofire.request(url).validate().responseJSON() { response in
             //print(response.request)
             //print(request(url).response)
            // print(response.result.value)
@@ -50,7 +52,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             case .failure(let error):
                 print(error)
             }
-            }
+            }*/
         
         
             
