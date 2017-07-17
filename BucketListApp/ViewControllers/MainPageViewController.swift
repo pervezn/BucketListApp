@@ -10,9 +10,10 @@ import UIKit
 
 class MainPageViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
-    var arrayOfListNames = ["Restaurants", "citites", "Parks", "Countries", "Arenas","Restaurants", "citites", "Parks", "Countries", "Arenas"]
+    var arrayOfListNames = ["Restaurants", "citites", "Parks", "Countries", "Arenas"]
 
     @IBOutlet weak var collectionView: UICollectionView!
+    
     
     
     override func viewDidLoad() {
@@ -20,6 +21,10 @@ class MainPageViewController: UIViewController, UICollectionViewDelegate, UIColl
         self.collectionView.delegate = self
         collectionView.dataSource = self
         // Do any additional setup after loading the view.
+        
+        self.navigationItem.rightBarButtonItem = self.editButtonItem
+        
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -46,7 +51,7 @@ class MainPageViewController: UIViewController, UICollectionViewDelegate, UIColl
         if indexPath.row != arrayOfListNames.count - 1 {
            // print(arrayOfListNames.count)
             cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectionViewCell", for: indexPath) as!CollectionViewCell
-            //print("here")
+            //cell.delegate = self
         } else {
             cell = collectionView.dequeueReusableCell(withReuseIdentifier: "addCollectionViewCell", for: indexPath) as! AddCollectionViewCell
         }
@@ -70,10 +75,42 @@ class MainPageViewController: UIViewController, UICollectionViewDelegate, UIColl
         }
     }
     
+    override func setEditing(_ editing: Bool, animated: Bool) {
+        super.setEditing(editing, animated: animated)
+        
+        //addButton.isEnabled = !editing
+        if let indexPaths = collectionView?.indexPathsForVisibleItems {
+            for indexPath in indexPaths {
+                if let cell = collectionView?.cellForItem(at: indexPath) as? CollectionViewCell {
+                    cell.isEditing = editing
+                }
+            }
+        }
+    }
+    
     @IBAction func unwindToListNotesViewController(_ segue: UIStoryboardSegue) {
         
         // for now, simply defining the method is sufficient.
         // we'll add code later
         
+    }
+}
+
+extension MainPageViewController: CollectionViewDelegate {
+    func delete(cell: CollectionViewCell) {
+        if let indexPath = collectionView?.indexPath(for: cell) {
+            //1. delte the cell from our data source
+            
+            //arrayOfListNames[indexPath.section].(..imageNames..).remove(at: indexPath.item)
+            
+            //2. delete the cell from out collection view
+            collectionView.deleteItems(at: [indexPath])
+        }
+    }
+}
+
+extension MainPageViewController: ViewCategoryDelegate {
+    func didTapCompleteButton(_ completeButton: UIButton, on cell: ViewCategoryTableViewCell) {
+        print("did tap complete button")
     }
 }

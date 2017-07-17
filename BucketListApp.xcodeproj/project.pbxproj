@@ -27,6 +27,7 @@
 		33C254CA1F1408460029B421 /* MapPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33C254C91F1408460029B421 /* MapPageViewController.swift */; };
 		33C254CC1F14085C0029B421 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33C254CB1F14085C0029B421 /* SettingsViewController.swift */; };
 		33C254CF1F140B650029B421 /* MainPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33C254CD1F140B650029B421 /* MainPage.storyboard */; };
+		33FE87351F19494B008FAE24 /* Url+location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FE87341F19494B008FAE24 /* Url+location.swift */; };
 		F24117E64CFFE33E59211AC8 /* Pods_BucketListApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B3A676D854B696AD9BF419C /* Pods_BucketListApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -55,6 +56,7 @@
 		33C254C91F1408460029B421 /* MapPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapPageViewController.swift; path = ViewControllers/MapPageViewController.swift; sourceTree = "<group>"; };
 		33C254CB1F14085C0029B421 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsViewController.swift; path = ViewControllers/SettingsViewController.swift; sourceTree = "<group>"; };
 		33C254CE1F140B650029B421 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainPage.storyboard; sourceTree = "<group>"; };
+		33FE87341F19494B008FAE24 /* Url+location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Url+location.swift"; path = "Extensions/Url+location.swift"; sourceTree = "<group>"; };
 		9B3A676D854B696AD9BF419C /* Pods_BucketListApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BucketListApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -144,6 +146,7 @@
 			isa = PBXGroup;
 			children = (
 				33C254C61F13D9B90029B421 /* CollectonView+Utility.swift */,
+				33FE87341F19494B008FAE24 /* Url+location.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -297,6 +300,7 @@
 				33C254BF1F13C1940029B421 /* MainPageViewController.swift in Sources */,
 				330F88D41F1534270040D87B /* AddNewTableViewCell.swift in Sources */,
 				330F88CE1F147C500040D87B /* ViewCategoryTableViewCell.swift in Sources */,
+				33FE87351F19494B008FAE24 /* Url+location.swift in Sources */,
 				33264B181F17CE2100133F71 /* Places.swift in Sources */,
 				330F88D21F1534190040D87B /* NewTableViewCell.swift in Sources */,
 				33C254AD1F132FFE0029B421 /* AppDelegate.swift in Sources */,

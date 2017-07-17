@@ -13,6 +13,21 @@ import SwiftyJSON
 import GooglePlaces
 import GooglePlacePicker
 
+//enum searchType {
+//    case nearbySearch, textSearch, radarSearch, placeAutocomplete, queryAutocomplete
+//
+//}
+//
+//enum parameters {
+//    case root
+//    case
+//    case key(key: String)
+//    
+//    
+//    
+//    , location, radius, rankby, query, keyword, name, opennow, type
+//}
+
 class MapPageViewController: UIViewController {
 
     @IBOutlet weak var mapView: MKMapView!
@@ -20,7 +35,7 @@ class MapPageViewController: UIViewController {
      var placesClient: GMSPlacesClient!
     let url = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=landmarks+in+chicago&key=AIzaSyAg0qIZOgb4PR8pYdgB1HRZKD2FWJDcG9M"
 
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -35,6 +50,9 @@ class MapPageViewController: UIViewController {
         annotation.coordinate = location
         annotation.title = "Hello there!"
         mapView.addAnnotation(annotation)
+        
+        
+        
         
         Alamofire.request(url).validate().responseJSON() { response in
             

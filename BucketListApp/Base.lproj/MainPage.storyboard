@@ -88,7 +88,9 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
-                    <navigationItem key="navigationItem" id="wgy-M1-Tam"/>
+                    <navigationItem key="navigationItem" id="wgy-M1-Tam">
+                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="1g3-SC-76K"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="2Ky-mh-HPq" id="flQ-y3-gt9"/>
                     </connections>
@@ -118,7 +120,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="eIw-q3-tdM" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="4ZK-8E-wKz">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="4ZK-8E-wKz">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

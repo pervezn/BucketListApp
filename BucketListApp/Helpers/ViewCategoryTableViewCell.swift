@@ -8,9 +8,14 @@
 
 import UIKit
 
+
+protocol ViewCategoryDelegate: class {
+    func didTapCompleteButton(_ completeButton: UIButton, on cell: ViewCategoryTableViewCell)
+}
+
 class ViewCategoryTableViewCell: UITableViewCell {
 
-   
+    weak var delegate: ViewCategoryTableViewCell?
     
     @IBOutlet weak var completeButton: UIButton!
     @IBOutlet weak var titleLabel: UILabel!
@@ -26,8 +31,8 @@ class ViewCategoryTableViewCell: UITableViewCell {
 //        // Configure the view for the selected state
 //    }
     
-    @IBAction func completeButtonPressed(_ sender: Any) {
-        
+    @IBAction func completeButtonPressed(_ sender: UIButton) {
+     //   delegate?.didTapCompleteButton(sender, on: self)
         
         
     }

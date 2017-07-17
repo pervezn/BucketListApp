@@ -36,9 +36,10 @@
                                             <rect key="frame" x="35" y="4" width="41" height="36"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
-                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dby-fg-1XZ">
-                                            <rect key="frame" x="41" y="9" width="29" height="26"/>
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dby-fg-1XZ">
+                                            <rect key="frame" x="41" y="5" width="30" height="34"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <state key="selected" image="gIcon-60"/>
                                             <connections>
                                                 <action selector="completeButtonPressed:" destination="AF2-wV-hAp" eventType="touchUpInside" id="AJi-Q8-V9k"/>
                                             </connections>
@@ -69,5 +70,6 @@
     </scenes>
     <resources>
         <image name="Icon-60" width="60" height="60"/>
+        <image name="gIcon-60" width="60" height="60"/>
     </resources>
 </document>

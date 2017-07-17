@@ -8,9 +8,16 @@
 
 import UIKit
 
+protocol AddNewCellDelegate: class {
+    func didPressAddButton(_ addListItemButton: UIButton, on cell: AddNewTableViewCell)
+}
+
 class AddNewTableViewCell: UITableViewCell {
 
     @IBOutlet weak var addListItemButton: UIButton!
+    weak var delegate: AddNewCellDelegate?
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -23,6 +30,7 @@ class AddNewTableViewCell: UITableViewCell {
     }
     
     @IBAction func AddListItemButtonPressed(_ sender: Any) {
+        delegate?.didPressAddButton(sender as! UIButton, on: self)
         
     }
 

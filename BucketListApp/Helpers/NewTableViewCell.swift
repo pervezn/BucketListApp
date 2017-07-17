@@ -12,6 +12,15 @@ class NewTableViewCell: UITableViewCell {
 
     @IBOutlet weak var listItemTextField: UITextField!
     
+    
+//    var editing: Bool = false {
+//        didSet {
+//            self.
+//        }
+//    }
+    
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

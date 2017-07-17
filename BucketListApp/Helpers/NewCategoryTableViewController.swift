@@ -12,7 +12,7 @@ class NewCategoryTableViewController: UIViewController, UITableViewDelegate, UIT
 
     @IBOutlet weak var newTableView: UITableView!
     
-    var arrayOfListItems = ["Picnic", "Bike Ride"]
+    var arrayOfListItems = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,6 +62,7 @@ class NewCategoryTableViewController: UIViewController, UITableViewDelegate, UIT
             return cell
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "addNewTableViewCell", for: indexPath) as! AddNewTableViewCell
+            cell.delegate = self
             return cell
 
         }
@@ -85,9 +86,45 @@ class NewCategoryTableViewController: UIViewController, UITableViewDelegate, UIT
         return true
     }
     */
-
-   
     
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        // 2
+        if editingStyle == .delete {
+            // 3
+           // print("the before indexPath is: \(indexPath.row)")
+            arrayOfListItems.remove(at: indexPath.row)
+           // print("the after indexPath is: \(indexPath.row)")
+            self.newTableView.reloadData()
+        }
+    }
+}
 
-
+extension NewCategoryTableViewController: AddNewCellDelegate {
+    func didPressAddButton(_ addListItemButton: UIButton, on cell: AddNewTableViewCell) {
+       
+        guard let indexPath = newTableView.indexPath(for: cell)
+            else {
+            //    print("in the else statement")
+        
+                return }
+       // print("outside first else")
+        //gets the indexPath for the new cell we're making (?)
+        
+       // let newCell = NewTableViewCell()
+        
+//        guard let cell = self.newTableView.cellForRow(at: indexPath) as? NewTableViewCell
+//            else {
+//                print("in the 2nd else statement")
+//
+//                return }
+        
+        arrayOfListItems.insert("added", at: indexPath.row)
+        
+        self.newTableView.reloadData()
+        print("\(indexPath)")
+//        DispatchQueue.main.async {
+//            self.configureCell(cell, with: newCell)
+//        }
+        
+    }
 }
