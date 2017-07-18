@@ -137,7 +137,7 @@
                                                         </segue>
                                                     </connections>
                                                 </button>
-                                                <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bZS-aN-WsR">
+                                                <visualEffectView hidden="YES" opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bZS-aN-WsR">
                                                     <rect key="frame" x="8" y="8" width="20" height="20"/>
                                                     <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="1l2-ha-U40">
                                                         <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>

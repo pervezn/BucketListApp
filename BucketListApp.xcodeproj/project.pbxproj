@@ -26,7 +26,13 @@
 		33C254C71F13D9B90029B421 /* CollectonView+Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33C254C61F13D9B90029B421 /* CollectonView+Utility.swift */; };
 		33C254CA1F1408460029B421 /* MapPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33C254C91F1408460029B421 /* MapPageViewController.swift */; };
 		33C254CC1F14085C0029B421 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33C254CB1F14085C0029B421 /* SettingsViewController.swift */; };
-		33C254CF1F140B650029B421 /* MainPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33C254CD1F140B650029B421 /* MainPage.storyboard */; };
+		33FB67E51F1D18BF001B63E8 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FB67E41F1D18BF001B63E8 /* LoginViewController.swift */; };
+		33FB67E71F1D1A72001B63E8 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33FB67E61F1D1A72001B63E8 /* Login.storyboard */; };
+		33FB67EA1F1D38CA001B63E8 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FB67E91F1D38CA001B63E8 /* User.swift */; };
+		33FB67EC1F1D3CE4001B63E8 /* CreateUsernameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FB67EB1F1D3CE4001B63E8 /* CreateUsernameViewController.swift */; };
+		33FB67EE1F1D4300001B63E8 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FB67ED1F1D4300001B63E8 /* UserService.swift */; };
+		33FB67F11F1D6073001B63E8 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FB67F01F1D6073001B63E8 /* Constants.swift */; };
+		33FB67F31F1D60E2001B63E8 /* Storyboard+Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FB67F21F1D60E2001B63E8 /* Storyboard+Utility.swift */; };
 		33FE87351F19494B008FAE24 /* Url+location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FE87341F19494B008FAE24 /* Url+location.swift */; };
 		F24117E64CFFE33E59211AC8 /* Pods_BucketListApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B3A676D854B696AD9BF419C /* Pods_BucketListApp.framework */; };
 /* End PBXBuildFile section */
@@ -41,21 +47,27 @@
 		330F88CF1F1533CF0040D87B /* NewCategoryTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NewCategoryTableViewController.swift; path = Helpers/NewCategoryTableViewController.swift; sourceTree = "<group>"; };
 		330F88D11F1534190040D87B /* NewTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NewTableViewCell.swift; path = Helpers/NewTableViewCell.swift; sourceTree = "<group>"; };
 		330F88D31F1534270040D87B /* AddNewTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddNewTableViewCell.swift; path = Helpers/AddNewTableViewCell.swift; sourceTree = "<group>"; };
-		33264B151F16726900133F71 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		33264B151F16726900133F71 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "BucketListApp/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		33264B171F17CE2100133F71 /* Places.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Places.swift; path = Models/Places.swift; sourceTree = "<group>"; };
 		33C254A91F132FFE0029B421 /* BucketListApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BucketListApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		33C254AC1F132FFE0029B421 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		33C254AC1F132FFE0029B421 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = BucketListApp/AppDelegate.swift; sourceTree = "<group>"; };
 		33C254B11F132FFE0029B421 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		33C254B31F132FFE0029B421 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		33C254B31F132FFE0029B421 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = BucketListApp/Assets.xcassets; sourceTree = "<group>"; };
 		33C254B61F132FFE0029B421 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		33C254B81F132FFE0029B421 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		33C254B81F132FFE0029B421 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = BucketListApp/Info.plist; sourceTree = "<group>"; };
 		33C254BE1F13C1940029B421 /* MainPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainPageViewController.swift; path = ViewControllers/MainPageViewController.swift; sourceTree = "<group>"; };
 		33C254C11F13C1C20029B421 /* CollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CollectionViewCell.swift; path = Helpers/CollectionViewCell.swift; sourceTree = "<group>"; };
 		33C254C41F13CD120029B421 /* AddCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddCollectionViewCell.swift; path = Helpers/AddCollectionViewCell.swift; sourceTree = "<group>"; };
 		33C254C61F13D9B90029B421 /* CollectonView+Utility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "CollectonView+Utility.swift"; path = "Extensions/CollectonView+Utility.swift"; sourceTree = "<group>"; };
 		33C254C91F1408460029B421 /* MapPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapPageViewController.swift; path = ViewControllers/MapPageViewController.swift; sourceTree = "<group>"; };
 		33C254CB1F14085C0029B421 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsViewController.swift; path = ViewControllers/SettingsViewController.swift; sourceTree = "<group>"; };
-		33C254CE1F140B650029B421 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainPage.storyboard; sourceTree = "<group>"; };
+		33FB67E41F1D18BF001B63E8 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = ViewControllers/LoginViewController.swift; sourceTree = "<group>"; };
+		33FB67E61F1D1A72001B63E8 /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Login.storyboard; path = Storyboards/Login.storyboard; sourceTree = "<group>"; };
+		33FB67E91F1D38CA001B63E8 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = Models/User.swift; sourceTree = "<group>"; };
+		33FB67EB1F1D3CE4001B63E8 /* CreateUsernameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CreateUsernameViewController.swift; path = ViewControllers/CreateUsernameViewController.swift; sourceTree = "<group>"; };
+		33FB67ED1F1D4300001B63E8 /* UserService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserService.swift; path = Services/UserService.swift; sourceTree = "<group>"; };
+		33FB67F01F1D6073001B63E8 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		33FB67F21F1D60E2001B63E8 /* Storyboard+Utility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Storyboard+Utility.swift"; path = "Extensions/Storyboard+Utility.swift"; sourceTree = "<group>"; };
 		33FE87341F19494B008FAE24 /* Url+location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Url+location.swift"; path = "Extensions/Url+location.swift"; sourceTree = "<group>"; };
 		9B3A676D854B696AD9BF419C /* Pods_BucketListApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BucketListApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -76,6 +88,7 @@
 			isa = PBXGroup;
 			children = (
 				33264B171F17CE2100133F71 /* Places.swift */,
+				33FB67E91F1D38CA001B63E8 /* User.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -84,6 +97,11 @@
 			isa = PBXGroup;
 			children = (
 				33C254AB1F132FFE0029B421 /* BucketListApp */,
+				33264B151F16726900133F71 /* GoogleService-Info.plist */,
+				33C254AC1F132FFE0029B421 /* AppDelegate.swift */,
+				33C254B31F132FFE0029B421 /* Assets.xcassets */,
+				33C254B51F132FFE0029B421 /* LaunchScreen.storyboard */,
+				33C254B81F132FFE0029B421 /* Info.plist */,
 				33C254AA1F132FFE0029B421 /* Products */,
 				B27565EDDE77CF43C63D3151 /* Pods */,
 				78D917C606DCCE412DC13F51 /* Frameworks */,
@@ -101,19 +119,13 @@
 		33C254AB1F132FFE0029B421 /* BucketListApp */ = {
 			isa = PBXGroup;
 			children = (
-				33264B151F16726900133F71 /* GoogleService-Info.plist */,
-				33C254AC1F132FFE0029B421 /* AppDelegate.swift */,
-				33C254B01F132FFE0029B421 /* Main.storyboard */,
-				33C254CD1F140B650029B421 /* MainPage.storyboard */,
-				330F88C21F140D910040D87B /* NewCategory.storyboard */,
-				330F88C01F140D660040D87B /* ViewCategory.storyboard */,
-				33C254B31F132FFE0029B421 /* Assets.xcassets */,
-				33C254B51F132FFE0029B421 /* LaunchScreen.storyboard */,
-				33C254B81F132FFE0029B421 /* Info.plist */,
+				33FB67E81F1D1A7C001B63E8 /* Stroyboards */,
 				33C254C31F13C1CC0029B421 /* Helpers */,
 				33C254C01F13C19B0029B421 /* ViewControllers */,
 				33C254C81F13D9BE0029B421 /* Extensions */,
 				33264B191F17CE2F00133F71 /* Models */,
+				33FB67EF1F1D4305001B63E8 /* Services */,
+				33FB67F01F1D6073001B63E8 /* Constants.swift */,
 			);
 			path = BucketListApp;
 			sourceTree = "<group>";
@@ -124,6 +136,9 @@
 				33C254BE1F13C1940029B421 /* MainPageViewController.swift */,
 				33C254C91F1408460029B421 /* MapPageViewController.swift */,
 				33C254CB1F14085C0029B421 /* SettingsViewController.swift */,
+				33FB67E41F1D18BF001B63E8 /* LoginViewController.swift */,
+				33FB67F21F1D60E2001B63E8 /* Storyboard+Utility.swift */,
+				33FB67EB1F1D3CE4001B63E8 /* CreateUsernameViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -149,6 +164,25 @@
 				33FE87341F19494B008FAE24 /* Url+location.swift */,
 			);
 			name = Extensions;
+			sourceTree = "<group>";
+		};
+		33FB67E81F1D1A7C001B63E8 /* Stroyboards */ = {
+			isa = PBXGroup;
+			children = (
+				33C254B01F132FFE0029B421 /* Main.storyboard */,
+				330F88C21F140D910040D87B /* NewCategory.storyboard */,
+				330F88C01F140D660040D87B /* ViewCategory.storyboard */,
+				33FB67E61F1D1A72001B63E8 /* Login.storyboard */,
+			);
+			name = Stroyboards;
+			sourceTree = "<group>";
+		};
+		33FB67EF1F1D4305001B63E8 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				33FB67ED1F1D4300001B63E8 /* UserService.swift */,
+			);
+			name = Services;
 			sourceTree = "<group>";
 		};
 		78D917C606DCCE412DC13F51 /* Frameworks */ = {
@@ -232,8 +266,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				330F88C11F140D660040D87B /* ViewCategory.storyboard in Resources */,
-				33C254CF1F140B650029B421 /* MainPage.storyboard in Resources */,
 				33C254B71F132FFE0029B421 /* LaunchScreen.storyboard in Resources */,
+				33FB67E71F1D1A72001B63E8 /* Login.storyboard in Resources */,
 				330F88C41F140D910040D87B /* NewCategory.storyboard in Resources */,
 				33C254B41F132FFE0029B421 /* Assets.xcassets in Resources */,
 				33C254B21F132FFE0029B421 /* Main.storyboard in Resources */,
@@ -297,19 +331,25 @@
 			buildActionMask = 2147483647;
 			files = (
 				330F88CC1F140EDF0040D87B /* ViewCategoryTableViewController.swift in Sources */,
+				33FB67F11F1D6073001B63E8 /* Constants.swift in Sources */,
 				33C254BF1F13C1940029B421 /* MainPageViewController.swift in Sources */,
+				33FB67EE1F1D4300001B63E8 /* UserService.swift in Sources */,
 				330F88D41F1534270040D87B /* AddNewTableViewCell.swift in Sources */,
+				33FB67E51F1D18BF001B63E8 /* LoginViewController.swift in Sources */,
+				33FB67EA1F1D38CA001B63E8 /* User.swift in Sources */,
 				330F88CE1F147C500040D87B /* ViewCategoryTableViewCell.swift in Sources */,
 				33FE87351F19494B008FAE24 /* Url+location.swift in Sources */,
 				33264B181F17CE2100133F71 /* Places.swift in Sources */,
 				330F88D21F1534190040D87B /* NewTableViewCell.swift in Sources */,
 				33C254AD1F132FFE0029B421 /* AppDelegate.swift in Sources */,
+				33FB67EC1F1D3CE4001B63E8 /* CreateUsernameViewController.swift in Sources */,
 				330F88D01F1533CF0040D87B /* NewCategoryTableViewController.swift in Sources */,
 				33C254CC1F14085C0029B421 /* SettingsViewController.swift in Sources */,
 				33C254CA1F1408460029B421 /* MapPageViewController.swift in Sources */,
 				33C254C51F13CD120029B421 /* AddCollectionViewCell.swift in Sources */,
 				33C254C21F13C1C20029B421 /* CollectionViewCell.swift in Sources */,
 				33C254C71F13D9B90029B421 /* CollectonView+Utility.swift in Sources */,
+				33FB67F31F1D60E2001B63E8 /* Storyboard+Utility.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -338,14 +378,7 @@
 				33C254B61F132FFE0029B421 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-		33C254CD1F140B650029B421 /* MainPage.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				33C254CE1F140B650029B421 /* Base */,
-			);
-			name = MainPage.storyboard;
+			path = BucketListApp;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

@@ -20,13 +20,7 @@ class CollectionViewCell: UICollectionViewCell {
     
     weak var delegate : CollectionViewDelegate?
     
-    var imageName: String! {
-        didSet {
-            deleteButtonBackgroundView.layer.cornerRadius = deleteButtonBackgroundView.bounds.width / 2.0
-            deleteButtonBackgroundView.layer.masksToBounds = true
-            deleteButtonBackgroundView.isHidden = !isEditing
-        }
-    }
+
     
     var isEditing: Bool = false {
         didSet {

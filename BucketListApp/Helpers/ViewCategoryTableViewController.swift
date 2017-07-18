@@ -18,7 +18,7 @@ class ViewCategoryTableViewController: UITableViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
     
-        print("in ViewDidLoad")
+        //print("in ViewDidLoad")
     
         
         viewTableView.delegate = self

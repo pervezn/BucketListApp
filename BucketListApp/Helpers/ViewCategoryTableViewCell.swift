@@ -15,7 +15,7 @@ protocol ViewCategoryDelegate: class {
 
 class ViewCategoryTableViewCell: UITableViewCell {
 
-    weak var delegate: ViewCategoryTableViewCell?
+    weak var delegate: ViewCategoryDelegate?
     
     @IBOutlet weak var completeButton: UIButton!
     @IBOutlet weak var titleLabel: UILabel!
@@ -32,7 +32,7 @@ class ViewCategoryTableViewCell: UITableViewCell {
 //    }
     
     @IBAction func completeButtonPressed(_ sender: UIButton) {
-     //   delegate?.didTapCompleteButton(sender, on: self)
+       delegate?.didTapCompleteButton(sender, on: self)
         
         
     }

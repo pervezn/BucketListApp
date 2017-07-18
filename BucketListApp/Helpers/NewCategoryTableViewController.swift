@@ -71,9 +71,9 @@ class NewCategoryTableViewController: UIViewController, UITableViewDelegate, UIT
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let identifier = segue.identifier {
             if identifier == "cancel" {
-                print("Cancel button tapped")
+               // print("Cancel button tapped")
             } else if identifier == "save" {
-                print("Save button tapped")
+               // print("Save button tapped")
             }
         }
     }

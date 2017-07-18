@@ -46,30 +46,35 @@ class MainPageViewController: UIViewController, UICollectionViewDelegate, UIColl
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
 //        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectionViewCell", for: indexPath) as!CollectionViewCell
-        var cell = UICollectionViewCell()
+
+        
+        
         // print(arrayOfListNames.count)
         if indexPath.row != arrayOfListNames.count - 1 {
            // print(arrayOfListNames.count)
-            cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectionViewCell", for: indexPath) as!CollectionViewCell
-            //cell.delegate = self
+          let  cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectionViewCell", for: indexPath) as!CollectionViewCell
+            cell.delegate = self
+            cell.deleteButtonBackgroundView.layer.cornerRadius = cell.deleteButtonBackgroundView.bounds.width / 2.0
+            cell.deleteButtonBackgroundView.layer.masksToBounds = true
+            cell.deleteButtonBackgroundView.isHidden = !isEditing
+            return cell
         } else {
-            cell = collectionView.dequeueReusableCell(withReuseIdentifier: "addCollectionViewCell", for: indexPath) as! AddCollectionViewCell
+           let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "addCollectionViewCell", for: indexPath) as! AddCollectionViewCell
+            return cell
         }
-        
-        return cell
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        print("in prepare")
+       // print("in prepare")
         // 1
         if let identifier = segue.identifier {
             if identifier == "viewCategory" {
-                print("Transitioning to the view Catergory View Controller")
+                //print("Transitioning to the view Catergory View Controller")
             } else if identifier == "newCategory" {
-                print("Transitioning to the new Catergory View Controller")
+               // print("Transitioning to the new Catergory View Controller")
             } else if identifier == "cancel" {
-                print("Cancel button tapped")
+               // print("Cancel button tapped")
             } else if identifier == "save" {
-                print("Save button tapped")
+               // print("Save button tapped")
             }
             
         }
@@ -98,14 +103,15 @@ class MainPageViewController: UIViewController, UICollectionViewDelegate, UIColl
 
 extension MainPageViewController: CollectionViewDelegate {
     func delete(cell: CollectionViewCell) {
-        if let indexPath = collectionView?.indexPath(for: cell) {
-            //1. delte the cell from our data source
-            
-            //arrayOfListNames[indexPath.section].(..imageNames..).remove(at: indexPath.item)
-            
-            //2. delete the cell from out collection view
-            collectionView.deleteItems(at: [indexPath])
-        }
+//        if let indexPath = collectionView?.indexPath(for: cell) {
+//            //1. delte the cell from our data source
+//            
+//            //arrayOfListNames[indexPath.section].(..imageNames..).remove(at: indexPath.item)
+//            
+//            //2. delete the cell from out collection view
+//            collectionView.deleteItems(at: [indexPath])
+//        }
+        print("in delete function")
     }
 }
 
