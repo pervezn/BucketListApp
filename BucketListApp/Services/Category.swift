@@ -13,15 +13,8 @@ import FirebaseDatabase.FIRDataSnapshot
 class Category {
     // MARK: - Singleton
     // 1
-    static var _arrayOfCategoryNames: [String]? = []
+    static var arrayOfCategoryNames: [String] = []
     
-    static var arrayOfCategoryNames: [String] {
-        // 3
-        guard let catNamesArray = _arrayOfCategoryNames else {
-            fatalError("Error: current user doesn't exist")
-        }
-    return catNamesArray
-    }
     
 //    var key: String?
 //    let user: User

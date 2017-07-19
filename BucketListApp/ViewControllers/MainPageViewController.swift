@@ -67,7 +67,7 @@ class MainPageViewController: UIViewController, UICollectionViewDelegate, UIColl
         }
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) { //transitions from the viewCategory and newCetegory view controllers bakc ot the main page view controller. Also transitions back to the main Page view controller after you press cancel or save, but that's not being registered.
        // print("in prepare")
         // 1
         if let identifier = segue.identifier {
@@ -76,7 +76,7 @@ class MainPageViewController: UIViewController, UICollectionViewDelegate, UIColl
             } else if identifier == "newCategory" {
                print("Transitioning to the new Catergory View Controller")
             }
-            else if identifier == "cancel" {
+            else if identifier == "cancel" { //cancel and save do not print
                 print("Cancel button tapped")
             } else if identifier == "save" {
                print("Save button tapped")
@@ -98,12 +98,17 @@ class MainPageViewController: UIViewController, UICollectionViewDelegate, UIColl
         }
     }
     
-    @IBAction func unwindToListNotesViewController(_ segue: UIStoryboardSegue) {
-        
-        // for now, simply defining the method is sufficient.
-        // we'll add code later
-        
-    }
+    @IBAction func unwindToMainPageViewController(_ segue: UIStoryboardSegue) {
+        print("in unwind segue")
+//         if let identifier = segue.identifier { //prints
+//                if identifier == "cancel" {
+//                    print("Cancel button tapped")
+//                } else if identifier == "save" {
+//                    print("Save button tapped")
+//                    
+//                }
+//            }
+        }
 }
 
 extension MainPageViewController: CollectionViewDelegate {
@@ -116,7 +121,7 @@ extension MainPageViewController: CollectionViewDelegate {
 //            //2. delete the cell from out collection view
 //            collectionView.deleteItems(at: [indexPath])
 //        }
-        print("in delete function")
+       // print("in delete function")
     }
 }
 
