@@ -33,6 +33,8 @@
 		33FB67EE1F1D4300001B63E8 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FB67ED1F1D4300001B63E8 /* UserService.swift */; };
 		33FB67F11F1D6073001B63E8 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FB67F01F1D6073001B63E8 /* Constants.swift */; };
 		33FB67F31F1D60E2001B63E8 /* Storyboard+Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FB67F21F1D60E2001B63E8 /* Storyboard+Utility.swift */; };
+		33FB67F51F1E574C001B63E8 /* CategoryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FB67F41F1E574C001B63E8 /* CategoryService.swift */; };
+		33FB67F71F1E59F8001B63E8 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FB67F61F1E59F8001B63E8 /* Category.swift */; };
 		33FE87351F19494B008FAE24 /* Url+location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FE87341F19494B008FAE24 /* Url+location.swift */; };
 		F24117E64CFFE33E59211AC8 /* Pods_BucketListApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B3A676D854B696AD9BF419C /* Pods_BucketListApp.framework */; };
 /* End PBXBuildFile section */
@@ -68,6 +70,8 @@
 		33FB67ED1F1D4300001B63E8 /* UserService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserService.swift; path = Services/UserService.swift; sourceTree = "<group>"; };
 		33FB67F01F1D6073001B63E8 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		33FB67F21F1D60E2001B63E8 /* Storyboard+Utility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Storyboard+Utility.swift"; path = "Extensions/Storyboard+Utility.swift"; sourceTree = "<group>"; };
+		33FB67F41F1E574C001B63E8 /* CategoryService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CategoryService.swift; path = Services/CategoryService.swift; sourceTree = "<group>"; };
+		33FB67F61F1E59F8001B63E8 /* Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Category.swift; path = Services/Category.swift; sourceTree = "<group>"; };
 		33FE87341F19494B008FAE24 /* Url+location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Url+location.swift"; path = "Extensions/Url+location.swift"; sourceTree = "<group>"; };
 		9B3A676D854B696AD9BF419C /* Pods_BucketListApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BucketListApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -89,6 +93,7 @@
 			children = (
 				33264B171F17CE2100133F71 /* Places.swift */,
 				33FB67E91F1D38CA001B63E8 /* User.swift */,
+				33FB67F61F1E59F8001B63E8 /* Category.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -137,7 +142,6 @@
 				33C254C91F1408460029B421 /* MapPageViewController.swift */,
 				33C254CB1F14085C0029B421 /* SettingsViewController.swift */,
 				33FB67E41F1D18BF001B63E8 /* LoginViewController.swift */,
-				33FB67F21F1D60E2001B63E8 /* Storyboard+Utility.swift */,
 				33FB67EB1F1D3CE4001B63E8 /* CreateUsernameViewController.swift */,
 			);
 			name = ViewControllers;
@@ -161,6 +165,7 @@
 			isa = PBXGroup;
 			children = (
 				33C254C61F13D9B90029B421 /* CollectonView+Utility.swift */,
+				33FB67F21F1D60E2001B63E8 /* Storyboard+Utility.swift */,
 				33FE87341F19494B008FAE24 /* Url+location.swift */,
 			);
 			name = Extensions;
@@ -181,6 +186,7 @@
 			isa = PBXGroup;
 			children = (
 				33FB67ED1F1D4300001B63E8 /* UserService.swift */,
+				33FB67F41F1E574C001B63E8 /* CategoryService.swift */,
 			);
 			name = Services;
 			sourceTree = "<group>";
@@ -333,6 +339,7 @@
 				330F88CC1F140EDF0040D87B /* ViewCategoryTableViewController.swift in Sources */,
 				33FB67F11F1D6073001B63E8 /* Constants.swift in Sources */,
 				33C254BF1F13C1940029B421 /* MainPageViewController.swift in Sources */,
+				33FB67F51F1E574C001B63E8 /* CategoryService.swift in Sources */,
 				33FB67EE1F1D4300001B63E8 /* UserService.swift in Sources */,
 				330F88D41F1534270040D87B /* AddNewTableViewCell.swift in Sources */,
 				33FB67E51F1D18BF001B63E8 /* LoginViewController.swift in Sources */,
@@ -350,6 +357,7 @@
 				33C254C21F13C1C20029B421 /* CollectionViewCell.swift in Sources */,
 				33C254C71F13D9B90029B421 /* CollectonView+Utility.swift in Sources */,
 				33FB67F31F1D60E2001B63E8 /* Storyboard+Utility.swift in Sources */,
+				33FB67F71F1E59F8001B63E8 /* Category.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

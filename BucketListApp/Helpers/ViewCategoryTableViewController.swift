@@ -10,7 +10,7 @@ import UIKit
 
 class ViewCategoryTableViewController: UITableViewController{
 
-    var namesOfCategories = ["1", "2", "3"]
+    var namesOfCategories = [String]()
     
     @IBOutlet var viewTableView: UITableView!
     
@@ -57,7 +57,7 @@ class ViewCategoryTableViewController: UITableViewController{
         
 
        // cell.titleLabel.text = "Yay - it's working!" //why doesn't it register my title label?
-    var randomName = ViewCategoryTableViewCell()
+    let randomName = ViewCategoryTableViewCell()
        // cell.titleLabel.text = "Title Label"
         randomName.titleLabel?.text = "Table Label"
         return cell

@@ -88,12 +88,16 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="4os-Gc-7qz">
                             <connections>
+                                <action selector="saveButtonPressed:" destination="aao-vF-Yep" id="gGO-z7-tyB"/>
                                 <segue destination="7xq-gS-Py8" kind="unwind" identifier="save" unwindAction="unwindToListNotesViewController:" id="Lj7-GJ-ZFU"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="categoryNameTextField" destination="eA9-gH-fPd" id="ZvG-er-ooL"/>
+                        <outlet property="listItemTextField" destination="eA9-gH-fPd" id="jcR-15-ENX"/>
                         <outlet property="newTableView" destination="3JI-WH-MFT" id="loE-XF-3h4"/>
+                        <outlet property="saveButton" destination="4os-Gc-7qz" id="BAi-Oa-r4f"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7qy-Je-qNu" userLabel="First Responder" sceneMemberID="firstResponder"/>

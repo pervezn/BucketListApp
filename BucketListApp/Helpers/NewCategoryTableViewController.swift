@@ -7,12 +7,18 @@
 //
 
 import UIKit
+import FirebaseDatabase
 
 class NewCategoryTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
+    @IBOutlet weak var categoryNameTextField: UITextField!
+    @IBOutlet weak var listItemTextField: UITextField!
     @IBOutlet weak var newTableView: UITableView!
     
     var arrayOfListItems = [String]()
+    var ref: DatabaseReference?
+    
+    @IBOutlet weak var saveButton: UIBarButtonItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -68,12 +74,19 @@ class NewCategoryTableViewController: UIViewController, UITableViewDelegate, UIT
         }
     }
 
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    func prepare(for segue: UIStoryboardSegue, sender: Any?, _ firUser: FIRUser) {
         if let identifier = segue.identifier {
             if identifier == "cancel" {
-               // print("Cancel button tapped")
+               print("Cancel button tapped")
             } else if identifier == "save" {
-               // print("Save button tapped")
+                print("Save button tapped")
+                
+                CategoryService.makeCategoryNames(firUser, catNameArray: Category.arrayOfCategoryNames)//add the name of the category
+                
+                CategoryService.makeCategory(firUser,catName: categoryNameTextField.text!, listItemArray: Category.arrayOfCategoryNames) //add the items on the list
+                if categoryNameTextField.text != "" {
+                    ref?.child("categoryName").child(firUser.uid).setValue(categoryNameTextField.text)
+                }
             }
         }
     }
@@ -98,7 +111,6 @@ class NewCategoryTableViewController: UIViewController, UITableViewDelegate, UIT
         }
     }
 }
-
 extension NewCategoryTableViewController: AddNewCellDelegate {
     func didPressAddButton(_ addListItemButton: UIButton, on cell: AddNewTableViewCell) {
        

@@ -10,10 +10,10 @@ import UIKit
 
 class MainPageViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
-    var arrayOfListNames = ["Restaurants", "citites", "Parks", "Countries", "Arenas"]
+
 
     @IBOutlet weak var collectionView: UICollectionView!
-    
+    var numberOfCollection1 = Category.arrayOfCategoryNames.count + 1
     
     
     override func viewDidLoad() {
@@ -34,7 +34,8 @@ class MainPageViewController: UIViewController, UICollectionViewDelegate, UIColl
     
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return arrayOfListNames.count
+        return numberOfCollection1
+    
         
     }
 
@@ -44,15 +45,17 @@ class MainPageViewController: UIViewController, UICollectionViewDelegate, UIColl
     
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        print("number of category names is: \(Category.arrayOfCategoryNames.count)")
+        if Category.arrayOfCategoryNames.count + 1 == numberOfCollection1 {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "addCollectionViewCell", for: indexPath) as! AddCollectionViewCell
+            print("in first if")
+            return cell
+       }
+        print("in cellForRowAt")
         
-//        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectionViewCell", for: indexPath) as!CollectionViewCell
-
-        
-        
-        // print(arrayOfListNames.count)
-        if indexPath.row != arrayOfListNames.count - 1 {
-           // print(arrayOfListNames.count)
-          let  cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectionViewCell", for: indexPath) as!CollectionViewCell
+        if indexPath.row != Category.arrayOfCategoryNames.count - 1 { //if it's not the last cell
+            //print("number of category names is: \(Category.arrayOfCategoryNames.count)---Part 2")
+            let  cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectionViewCell", for: indexPath) as!CollectionViewCell
             cell.delegate = self
             cell.deleteButtonBackgroundView.layer.cornerRadius = cell.deleteButtonBackgroundView.bounds.width / 2.0
             cell.deleteButtonBackgroundView.layer.masksToBounds = true
@@ -63,18 +66,20 @@ class MainPageViewController: UIViewController, UICollectionViewDelegate, UIColl
             return cell
         }
     }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
        // print("in prepare")
         // 1
         if let identifier = segue.identifier {
             if identifier == "viewCategory" {
-                //print("Transitioning to the view Catergory View Controller")
+                print("Transitioning to the view Catergory View Controller")
             } else if identifier == "newCategory" {
-               // print("Transitioning to the new Catergory View Controller")
-            } else if identifier == "cancel" {
-               // print("Cancel button tapped")
+               print("Transitioning to the new Catergory View Controller")
+            }
+            else if identifier == "cancel" {
+                print("Cancel button tapped")
             } else if identifier == "save" {
-               // print("Save button tapped")
+               print("Save button tapped")
             }
             
         }
