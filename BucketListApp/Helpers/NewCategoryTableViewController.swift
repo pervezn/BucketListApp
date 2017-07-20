@@ -20,7 +20,7 @@ class NewCategoryTableViewController: UIViewController, UITableViewDelegate, UIT
     @IBOutlet weak var listItemTextField: UITextField!
     @IBOutlet weak var newTableView: UITableView!
     
-    var arrayOfListItems = [String]()
+    var arrayOfListItems: [String] = []
     var ref: DatabaseReference?
     
     @IBOutlet weak var saveButton: UIBarButtonItem!
@@ -32,7 +32,7 @@ class NewCategoryTableViewController: UIViewController, UITableViewDelegate, UIT
         // self.clearsSelectionOnViewWillAppear = false
         
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        // self.navigationItem.rightBarButtonItem = self.editButtonItem
         
         newTableView.delegate = self
         newTableView.dataSource = self
@@ -88,17 +88,22 @@ class NewCategoryTableViewController: UIViewController, UITableViewDelegate, UIT
                // print("Save button tapped")
                 let current = Auth.auth().currentUser
                 
-                Category.arrayOfCategoryNames.append(categoryNameTextField.text!)
-                CategoryService.makeCategoryNames(current!, catNameArray: Category.arrayOfCategoryNames)//add the name of the category
-                //print("\(Category.arrayOfCategoryNames)")
+            Category.arrayOfCategoryNames.append(categoryNameTextField.text!)
                 
-                CategoryService.makeCategory(current!,catName: categoryNameTextField.text!, listItemArray: Category.arrayOfCategoryNames) //add the items on the list
+            arrayOfListItems.append(listItemTextField.text!)
                 
-                if categoryNameTextField.text != "" {
-                    ref?.child("categoryName").child(User.current.uid).setValue(categoryNameTextField.text)
+            CategoryService.makeCategoryNames(current!, catNameArray: Category.arrayOfCategoryNames)//add the name of the category
+               
+            print("arrayOfCategoryNames values: \(Category.arrayOfCategoryNames) and number of things in this array is: \(Category.arrayOfCategoryNames.count)")
+                
+            CategoryService.makeCategory(current!,catName: categoryNameTextField.text!, listItemArray: arrayOfListItems) //add the items on the list
+                
+            if categoryNameTextField.text != "" {
+                ref?.child("categoryName").child(User.current.uid).setValue(categoryNameTextField.text)
                     
                 }
-               // print("second time: \(Category.arrayOfCategoryNames)")
+                
+                print("second time: \(Category.arrayOfCategoryNames)")
             }
         }
     }
@@ -131,24 +136,12 @@ extension NewCategoryTableViewController: AddNewCellDelegate {
                 //    print("in the else statement")
                 
                 return }
-        // print("outside first else")
-        //gets the indexPath for the new cell we're making (?)
-        
-        // let newCell = NewTableViewCell()
-        
-        //        guard let cell = self.newTableView.cellForRow(at: indexPath) as? NewTableViewCell
-        //            else {
-        //                print("in the 2nd else statement")
-        //
-        //                return }
+      
         
         arrayOfListItems.insert("added", at: indexPath.row)
         
         self.newTableView.reloadData()
-        print("\(indexPath)")
-        //        DispatchQueue.main.async {
-        //            self.configureCell(cell, with: newCell)
-        //        }
+     
         
     }
 }

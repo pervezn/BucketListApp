@@ -56,10 +56,10 @@ class ViewCategoryTableViewController: UITableViewController{
         let cell = tableView.dequeueReusableCell(withIdentifier: "viewCategoryTableViewCell", for: indexPath)
         
 
-       // cell.titleLabel.text = "Yay - it's working!" //why doesn't it register my title label?
+       
     let randomName = ViewCategoryTableViewCell()
-       // cell.titleLabel.text = "Title Label"
-        randomName.titleLabel?.text = "Table Label"
+       
+        randomName.itemLabel?.text = "Table Label"
         return cell
     }
 }

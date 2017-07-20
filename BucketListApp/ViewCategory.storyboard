@@ -49,7 +49,6 @@
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="completeButton" destination="dby-fg-1XZ" id="jUr-pT-XgG"/>
-                                    <outlet property="titleLabel" destination="wQF-Au-Jw0" id="uBb-Nk-9TU"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>

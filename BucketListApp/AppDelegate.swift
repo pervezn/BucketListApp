@@ -9,9 +9,12 @@
 import UIKit
 import Firebase
 import Alamofire
-import GooglePlaces
-import GooglePlacePicker
+//import GooglePlaces
+//import GooglePlacePicker
 import SwiftyJSON
+import FirebaseAuthUI
+import FirebaseAuth
+import FirebaseDatabase
 
 
 @UIApplicationMain
@@ -24,6 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         FirebaseApp.configure()
         
+        //do show method from category service
 //        GMSPlacesClient.provideAPIKey("AIzaSyAg0qIZOgb4PR8pYdgB1HRZKD2FWJDcG9M")
 //        GMSServices.provideAPIKey("AIzaSyAg0qIZOgb4PR8pYdgB1HRZKD2FWJDcG9M")
         
@@ -67,6 +71,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //            }
         
        configureInitialRootViewController(for: window)
+
             
         return true
     }

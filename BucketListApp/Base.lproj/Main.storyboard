@@ -377,7 +377,7 @@
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="completeButton" destination="rsu-ft-XWU" id="0b0-D1-ZZk"/>
-                                    <outlet property="titleLabel" destination="x5T-PP-jta" id="xE0-A4-rOi"/>
+                                    <outlet property="itemLabel" destination="x5T-PP-jta" id="IhN-LI-X0B"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>

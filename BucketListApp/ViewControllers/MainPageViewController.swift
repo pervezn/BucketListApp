@@ -7,6 +7,10 @@
 //
 
 import UIKit
+import FirebaseAuthUI
+import FirebaseAuth
+import FirebaseDatabase
+import Firebase
 
 class MainPageViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
@@ -22,9 +26,19 @@ class MainPageViewController: UIViewController, UICollectionViewDelegate, UIColl
         collectionView.dataSource = self
         // Do any additional setup after loading the view.
         
+    CategoryService.showCategoryNames(Auth.auth().currentUser!) { (arrayList) in
+           // print("arrayList is: \(arrayList)")
+        if let arrayList = arrayList {
+            Category.arrayOfCategoryNames = arrayList
+            //print("Catgory.arrayOfCategoryNames is: \(Category.arrayOfCategoryNames)")
+            }
+        }
+        
         self.navigationItem.rightBarButtonItem = self.editButtonItem
         
+        print("arrayOfCategoryNames values: \(Category.arrayOfCategoryNames) and number of things in this array is: \(Category.arrayOfCategoryNames.count)")
         
+    
     }
 
     override func didReceiveMemoryWarning() {
@@ -48,10 +62,10 @@ class MainPageViewController: UIViewController, UICollectionViewDelegate, UIColl
         print("number of category names is: \(Category.arrayOfCategoryNames.count)")
         if Category.arrayOfCategoryNames.count + 1 == numberOfCollection1 {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "addCollectionViewCell", for: indexPath) as! AddCollectionViewCell
-            print("in first if")
+            //print("in first if")
             return cell
        }
-        print("in cellForRowAt")
+       // print("in cellForRowAt")
         
         if indexPath.row != Category.arrayOfCategoryNames.count - 1 { //if it's not the last cell
             //print("number of category names is: \(Category.arrayOfCategoryNames.count)---Part 2")
@@ -99,15 +113,6 @@ class MainPageViewController: UIViewController, UICollectionViewDelegate, UIColl
     }
     
     @IBAction func unwindToMainPageViewController(_ segue: UIStoryboardSegue) {
-        print("in unwind segue")
-//         if let identifier = segue.identifier { //prints
-//                if identifier == "cancel" {
-//                    print("Cancel button tapped")
-//                } else if identifier == "save" {
-//                    print("Save button tapped")
-//                    
-//                }
-//            }
         }
 }
 

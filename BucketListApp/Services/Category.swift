@@ -16,6 +16,7 @@ class Category {
     static var arrayOfCategoryNames: [String] = []
     
     
+    
 //    var key: String?
 //    let user: User
 //    var listItemArray: [String]
