@@ -13,14 +13,21 @@ import FirebaseAuthUI
 import Firebase
 //typealias FIRUser = FirebaseAuth.User
 
+var arrayOfListItems: [String] = []
+
+var arrayOfListItems2: [ListItem] = []
+
+var listItemIDsArray: [String] = []
 
 class NewCategoryTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    
+    
     @IBOutlet weak var categoryNameTextField: UITextField!
-    @IBOutlet weak var listItemTextField: UITextField!
+
     @IBOutlet weak var newTableView: UITableView!
     
-    var arrayOfListItems: [String] = []
+    
     var ref: DatabaseReference?
     
     @IBOutlet weak var saveButton: UIBarButtonItem!
@@ -36,7 +43,7 @@ class NewCategoryTableViewController: UIViewController, UITableViewDelegate, UIT
         
         newTableView.delegate = self
         newTableView.dataSource = self
-        
+    
         //self.newTableView.register(UITableViewCell.self, forCellReuseIdentifier: "newTableViewCell")
         
     }
@@ -64,6 +71,7 @@ class NewCategoryTableViewController: UIViewController, UITableViewDelegate, UIT
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
+
         //var cell = UITableViewCell()
         
         //if indexPath.row != arrayOfListItems.count - 1
@@ -88,22 +96,9 @@ class NewCategoryTableViewController: UIViewController, UITableViewDelegate, UIT
                // print("Save button tapped")
                 let current = Auth.auth().currentUser
                 
-            Category.arrayOfCategoryNames.append(categoryNameTextField.text!)
                 
-            arrayOfListItems.append(listItemTextField.text!)
+                CategoryService.makeCategory(current!, catTitle: categoryNameTextField.text!)
                 
-            CategoryService.makeCategoryNames(current!, catNameArray: Category.arrayOfCategoryNames)//add the name of the category
-               
-            print("arrayOfCategoryNames values: \(Category.arrayOfCategoryNames) and number of things in this array is: \(Category.arrayOfCategoryNames.count)")
-                
-            CategoryService.makeCategory(current!,catName: categoryNameTextField.text!, listItemArray: arrayOfListItems) //add the items on the list
-                
-            if categoryNameTextField.text != "" {
-                ref?.child("categoryName").child(User.current.uid).setValue(categoryNameTextField.text)
-                    
-                }
-                
-                print("second time: \(Category.arrayOfCategoryNames)")
             }
         }
     }
@@ -129,19 +124,26 @@ class NewCategoryTableViewController: UIViewController, UITableViewDelegate, UIT
     }
 }
 extension NewCategoryTableViewController: AddNewCellDelegate {
+    
+    
     func didPressAddButton(_ addListItemButton: UIButton, on cell: AddNewTableViewCell) {
         
         guard let indexPath = newTableView.indexPath(for: cell)
-            else {
-                //    print("in the else statement")
-                
-                return }
+            else { return }
       
         
-        arrayOfListItems.insert("added", at: indexPath.row)
-        
-        self.newTableView.reloadData()
-     
+//       arrayOfListItems.insert("added", at: indexPath.row)
+//        self.newTableView.reloadData()
+//     
+//    let current = Auth.auth().currentUser
+//        
+//        let category = Category(snapshot: 
+//        
+//        
+//        for i in category.listItemsIDs {
+//            ListItemService.makeListItems(current!, category.listItemIDs[i], listItemArray: arrayOfListItems2)
+//        }
+//        print("arrayOfListItem2 is: \(arrayOfListItems2)")
         
     }
 }

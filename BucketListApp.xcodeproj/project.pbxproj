@@ -35,6 +35,8 @@
 		33FB67F31F1D60E2001B63E8 /* Storyboard+Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FB67F21F1D60E2001B63E8 /* Storyboard+Utility.swift */; };
 		33FB67F51F1E574C001B63E8 /* CategoryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FB67F41F1E574C001B63E8 /* CategoryService.swift */; };
 		33FB67F71F1E59F8001B63E8 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FB67F61F1E59F8001B63E8 /* Category.swift */; };
+		33FB67F91F214AB8001B63E8 /* ListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FB67F81F214AB8001B63E8 /* ListItem.swift */; };
+		33FB67FB1F214C35001B63E8 /* ListItemService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FB67FA1F214C35001B63E8 /* ListItemService.swift */; };
 		33FE87351F19494B008FAE24 /* Url+location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FE87341F19494B008FAE24 /* Url+location.swift */; };
 		F24117E64CFFE33E59211AC8 /* Pods_BucketListApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B3A676D854B696AD9BF419C /* Pods_BucketListApp.framework */; };
 /* End PBXBuildFile section */
@@ -72,6 +74,8 @@
 		33FB67F21F1D60E2001B63E8 /* Storyboard+Utility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Storyboard+Utility.swift"; path = "Extensions/Storyboard+Utility.swift"; sourceTree = "<group>"; };
 		33FB67F41F1E574C001B63E8 /* CategoryService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CategoryService.swift; path = Services/CategoryService.swift; sourceTree = "<group>"; };
 		33FB67F61F1E59F8001B63E8 /* Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Category.swift; path = Services/Category.swift; sourceTree = "<group>"; };
+		33FB67F81F214AB8001B63E8 /* ListItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ListItem.swift; path = Models/ListItem.swift; sourceTree = "<group>"; };
+		33FB67FA1F214C35001B63E8 /* ListItemService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ListItemService.swift; path = Services/ListItemService.swift; sourceTree = "<group>"; };
 		33FE87341F19494B008FAE24 /* Url+location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Url+location.swift"; path = "Extensions/Url+location.swift"; sourceTree = "<group>"; };
 		9B3A676D854B696AD9BF419C /* Pods_BucketListApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BucketListApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -94,6 +98,7 @@
 				33264B171F17CE2100133F71 /* Places.swift */,
 				33FB67E91F1D38CA001B63E8 /* User.swift */,
 				33FB67F61F1E59F8001B63E8 /* Category.swift */,
+				33FB67F81F214AB8001B63E8 /* ListItem.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -187,6 +192,7 @@
 			children = (
 				33FB67ED1F1D4300001B63E8 /* UserService.swift */,
 				33FB67F41F1E574C001B63E8 /* CategoryService.swift */,
+				33FB67FA1F214C35001B63E8 /* ListItemService.swift */,
 			);
 			name = Services;
 			sourceTree = "<group>";
@@ -337,6 +343,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				330F88CC1F140EDF0040D87B /* ViewCategoryTableViewController.swift in Sources */,
+				33FB67F91F214AB8001B63E8 /* ListItem.swift in Sources */,
 				33FB67F11F1D6073001B63E8 /* Constants.swift in Sources */,
 				33C254BF1F13C1940029B421 /* MainPageViewController.swift in Sources */,
 				33FB67F51F1E574C001B63E8 /* CategoryService.swift in Sources */,
@@ -347,6 +354,7 @@
 				330F88CE1F147C500040D87B /* ViewCategoryTableViewCell.swift in Sources */,
 				33FE87351F19494B008FAE24 /* Url+location.swift in Sources */,
 				33264B181F17CE2100133F71 /* Places.swift in Sources */,
+				33FB67FB1F214C35001B63E8 /* ListItemService.swift in Sources */,
 				330F88D21F1534190040D87B /* NewTableViewCell.swift in Sources */,
 				33C254AD1F132FFE0029B421 /* AppDelegate.swift in Sources */,
 				33FB67EC1F1D3CE4001B63E8 /* CreateUsernameViewController.swift in Sources */,

@@ -13,17 +13,20 @@ import FirebaseDatabase
 
 struct UserService {
     static func create(_ firUser: FIRUser, username: String, completion: @escaping (User?) -> Void) {
-        let userAttrs = ["username": username]
+        let empty = [String]()
+        let userAttrs = ["username": username,"categories" : empty] as [String : Any]
         
         let ref = Database.database().reference().child("users").child(firUser.uid)
         ref.setValue(userAttrs) { (error, ref) in
             if let error = error {
                 assertionFailure(error.localizedDescription)
+                print("in error")
                 return completion(nil)
             }
             
             ref.observeSingleEvent(of: .value, with: { (snapshot) in
                 let user = User(snapshot: snapshot)
+                
                 completion(user)
             })
         }

@@ -8,11 +8,17 @@
 
 import UIKit
 
+
+protocol NewCellDelegate: class {
+    func addListItem(_ listItemTextField: UITextField, on cell: NewTableViewCell)
+}
+
 class NewTableViewCell: UITableViewCell {
+
 
     @IBOutlet weak var listItemTextField: UITextField!
     
-    
+    weak var delegate: NewTableViewCell?
 //    var editing: Bool = false {
 //        didSet {
 //            self.

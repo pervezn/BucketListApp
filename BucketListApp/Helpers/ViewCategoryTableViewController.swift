@@ -10,7 +10,6 @@ import UIKit
 
 class ViewCategoryTableViewController: UITableViewController{
 
-    var namesOfCategories = [String]()
     
     @IBOutlet var viewTableView: UITableView!
     
@@ -48,7 +47,7 @@ class ViewCategoryTableViewController: UITableViewController{
         // #warning Incomplete implementation, return the number of rows
         
        
-        return namesOfCategories.count
+        return arrayOfListItems.count
     }
 
     

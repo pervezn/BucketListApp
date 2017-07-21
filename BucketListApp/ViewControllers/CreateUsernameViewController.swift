@@ -35,16 +35,19 @@ class CreateUsernameViewController: UIViewController {
             let username = usernameTextField.text,
             !username.isEmpty else { return }
         
-        UserService.create(firUser, username: username) { (user) in
-                guard let user = user else { return }
-                    print("Created new user: \(user.username)")
-                }
+//        UserService.create(firUser, username: username) { (user) in
+//                guard let user = user else { return }
+//                    print("Created new user: \(user.username)")
+//                }
         
         UserService.create(firUser, username: username) { (user) in
             guard let user = user else {
                 // handle error
+                print("in guard")
                 return
             }
+            
+            print("here")
             
             User.setCurrent(user, writeToUserDefaults: true)
             

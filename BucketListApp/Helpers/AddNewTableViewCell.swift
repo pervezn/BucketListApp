@@ -12,6 +12,8 @@ protocol AddNewCellDelegate: class {
     func didPressAddButton(_ addListItemButton: UIButton, on cell: AddNewTableViewCell)
 }
 
+
+
 class AddNewTableViewCell: UITableViewCell {
 
     @IBOutlet weak var addListItemButton: UIButton!

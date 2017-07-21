@@ -33,12 +33,14 @@ class User: NSObject {
     
     let uid: String
     let username: String
+    var categories: [String]?
     
     // MARK: - Init
     
-    init(uid: String, username: String) {
+    init(uid: String, username: String, categories: [String]) {
         self.uid = uid
         self.username = username
+        self.categories = categories
         super.init()
     }
     
@@ -53,13 +55,14 @@ class User: NSObject {
         super.init()
     }
     
-    init?(snapshot: DataSnapshot) {
+    init?(snapshot: DataSnapshot) { // I don't have a dictionary, so what does this do?
         guard let dict = snapshot.value as? [String : Any],
             let username = dict["username"] as? String
             else { return nil }
         
         self.uid = snapshot.key
         self.username = username
+        //self.categories = categories
         super.init()
     }
     
@@ -84,5 +87,6 @@ extension User: NSCoding {
     func encode(with aCoder: NSCoder) {
         aCoder.encode(uid, forKey: Constants.UserDefaults.uid)
         aCoder.encode(username, forKey: Constants.UserDefaults.username)
+        
     }
 }

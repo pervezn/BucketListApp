@@ -17,7 +17,7 @@ class MainPageViewController: UIViewController, UICollectionViewDelegate, UIColl
 
 
     @IBOutlet weak var collectionView: UICollectionView!
-    var numberOfCollection1 = Category.arrayOfCategoryNames.count + 1
+    var numberOfCollection1 = arrayOfCategoryNames.count + 1
     
     
     override func viewDidLoad() {
@@ -29,14 +29,14 @@ class MainPageViewController: UIViewController, UICollectionViewDelegate, UIColl
     CategoryService.showCategoryNames(Auth.auth().currentUser!) { (arrayList) in
            // print("arrayList is: \(arrayList)")
         if let arrayList = arrayList {
-            Category.arrayOfCategoryNames = arrayList
+            arrayOfCategoryNames = arrayList
             //print("Catgory.arrayOfCategoryNames is: \(Category.arrayOfCategoryNames)")
             }
         }
         
         self.navigationItem.rightBarButtonItem = self.editButtonItem
         
-        print("arrayOfCategoryNames values: \(Category.arrayOfCategoryNames) and number of things in this array is: \(Category.arrayOfCategoryNames.count)")
+        //print("arrayOfCategoryNames values: \(arrayOfCategoryNames) and number of things in this array is: \(arrayOfCategoryNames.count)")
         
     
     }
@@ -59,15 +59,15 @@ class MainPageViewController: UIViewController, UICollectionViewDelegate, UIColl
     
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        print("number of category names is: \(Category.arrayOfCategoryNames.count)")
-        if Category.arrayOfCategoryNames.count + 1 == numberOfCollection1 {
+        print("number of category names is: \(arrayOfCategoryNames.count)")
+        if arrayOfCategoryNames.count + 1 == numberOfCollection1 {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "addCollectionViewCell", for: indexPath) as! AddCollectionViewCell
             //print("in first if")
             return cell
        }
        // print("in cellForRowAt")
         
-        if indexPath.row != Category.arrayOfCategoryNames.count - 1 { //if it's not the last cell
+        if indexPath.row != arrayOfCategoryNames.count - 1 { //if it's not the last cell
             //print("number of category names is: \(Category.arrayOfCategoryNames.count)---Part 2")
             let  cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectionViewCell", for: indexPath) as!CollectionViewCell
             cell.delegate = self

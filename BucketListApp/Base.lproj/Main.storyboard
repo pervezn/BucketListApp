@@ -253,7 +253,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="categoryTitle" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Grv-QE-sa8">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="categoryTitle" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Grv-QE-sa8" userLabel="Catergory Name Text Field">
                                 <rect key="frame" x="76" y="87" width="222" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
@@ -268,7 +268,7 @@
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="newTableViewCell" id="CwU-tE-h6W" customClass="NewTableViewCell" customModule="BucketListApp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="CwU-tE-h6W" id="uGX-vl-Iiz">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="CwU-tE-h6W" id="uGX-vl-Iiz" customClass="AddNewTableViewCell" customModule="BucketListApp" customModuleProvider="target">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
@@ -282,7 +282,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="listItemTextField" destination="SSf-pF-jjz" id="rIf-XO-qlW"/>
+                                            <outlet property="listItemTextField" destination="SSf-pF-jjz" id="PbU-p3-txx"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="addNewTableViewCell" id="rz9-WO-HuQ" customClass="AddNewTableViewCell" customModule="BucketListApp" customModuleProvider="target">
@@ -326,8 +326,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="categoryNameTextField" destination="Grv-QE-sa8" id="AMS-Ca-bnU"/>
-                        <outlet property="listItemTextField" destination="Grv-QE-sa8" id="G79-QT-kKR"/>
+                        <outlet property="categoryNameTextField" destination="Grv-QE-sa8" id="rws-aq-ziX"/>
                         <outlet property="newTableView" destination="H8F-Y9-yOs" id="v7L-b7-B51"/>
                         <outlet property="saveButton" destination="Zgz-D5-APG" id="5rQ-NE-mxI"/>
                     </connections>
