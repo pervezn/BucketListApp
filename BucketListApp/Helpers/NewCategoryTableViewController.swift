@@ -22,6 +22,7 @@ var listItemIDsArray: [String] = []
 class NewCategoryTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     
+    @IBOutlet weak var addButton: UIButton!
     
     @IBOutlet weak var categoryNameTextField: UITextField!
 
@@ -122,6 +123,11 @@ class NewCategoryTableViewController: UIViewController, UITableViewDelegate, UIT
             self.newTableView.reloadData()
         }
     }
+    
+    @IBAction func pressedAddButton(_ sender: Any) {
+        print("pressed add button")
+    }
+    
 }
 extension NewCategoryTableViewController: AddNewCellDelegate {
     
@@ -132,11 +138,12 @@ extension NewCategoryTableViewController: AddNewCellDelegate {
             else { return }
       
         
-//       arrayOfListItems.insert("added", at: indexPath.row)
-//        self.newTableView.reloadData()
-//     
-//    let current = Auth.auth().currentUser
-//        
+       arrayOfListItems.insert("added", at: indexPath.row)
+        self.newTableView.reloadData()
+//
+        let current = Auth.auth().currentUser
+        
+       //        
 //        let category = Category(snapshot: 
 //        
 //        

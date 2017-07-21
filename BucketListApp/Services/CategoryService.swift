@@ -91,7 +91,7 @@ struct CategoryService {
                 userRef.setValue(dict2)
             }
         }) //added to User
-     
+        ListItemService.makeListItems(firUser, catID: catID, itemTitle: "item 1", address: "xx")
     }
 
     //3

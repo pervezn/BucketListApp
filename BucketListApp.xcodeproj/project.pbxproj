@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		330F88C11F140D660040D87B /* ViewCategory.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 330F88C01F140D660040D87B /* ViewCategory.storyboard */; };
-		330F88C41F140D910040D87B /* NewCategory.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 330F88C21F140D910040D87B /* NewCategory.storyboard */; };
 		330F88CC1F140EDF0040D87B /* ViewCategoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330F88CB1F140EDF0040D87B /* ViewCategoryTableViewController.swift */; };
 		330F88CE1F147C500040D87B /* ViewCategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330F88CD1F147C500040D87B /* ViewCategoryTableViewCell.swift */; };
 		330F88D01F1533CF0040D87B /* NewCategoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330F88CF1F1533CF0040D87B /* NewCategoryTableViewController.swift */; };
@@ -44,8 +42,6 @@
 /* Begin PBXFileReference section */
 		02AB812EABD4D7025FDDD571 /* Pods-BucketListApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BucketListApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-BucketListApp/Pods-BucketListApp.release.xcconfig"; sourceTree = "<group>"; };
 		060C25BA38F186323B1BDB75 /* Pods-BucketListApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BucketListApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BucketListApp/Pods-BucketListApp.debug.xcconfig"; sourceTree = "<group>"; };
-		330F88C01F140D660040D87B /* ViewCategory.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ViewCategory.storyboard; sourceTree = "<group>"; };
-		330F88C31F140D910040D87B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/NewCategory.storyboard; sourceTree = "<group>"; };
 		330F88CB1F140EDF0040D87B /* ViewCategoryTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewCategoryTableViewController.swift; path = Helpers/ViewCategoryTableViewController.swift; sourceTree = "<group>"; };
 		330F88CD1F147C500040D87B /* ViewCategoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewCategoryTableViewCell.swift; path = Helpers/ViewCategoryTableViewCell.swift; sourceTree = "<group>"; };
 		330F88CF1F1533CF0040D87B /* NewCategoryTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NewCategoryTableViewController.swift; path = Helpers/NewCategoryTableViewController.swift; sourceTree = "<group>"; };
@@ -180,8 +176,6 @@
 			isa = PBXGroup;
 			children = (
 				33C254B01F132FFE0029B421 /* Main.storyboard */,
-				330F88C21F140D910040D87B /* NewCategory.storyboard */,
-				330F88C01F140D660040D87B /* ViewCategory.storyboard */,
 				33FB67E61F1D1A72001B63E8 /* Login.storyboard */,
 			);
 			name = Stroyboards;
@@ -277,10 +271,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				330F88C11F140D660040D87B /* ViewCategory.storyboard in Resources */,
 				33C254B71F132FFE0029B421 /* LaunchScreen.storyboard in Resources */,
 				33FB67E71F1D1A72001B63E8 /* Login.storyboard in Resources */,
-				330F88C41F140D910040D87B /* NewCategory.storyboard in Resources */,
 				33C254B41F132FFE0029B421 /* Assets.xcassets in Resources */,
 				33C254B21F132FFE0029B421 /* Main.storyboard in Resources */,
 				33264B161F16726900133F71 /* GoogleService-Info.plist in Resources */,
@@ -372,14 +364,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		330F88C21F140D910040D87B /* NewCategory.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				330F88C31F140D910040D87B /* Base */,
-			);
-			name = NewCategory.storyboard;
-			sourceTree = "<group>";
-		};
 		33C254B01F132FFE0029B421 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
