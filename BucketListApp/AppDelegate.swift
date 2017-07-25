@@ -9,24 +9,23 @@
 import UIKit
 import Firebase
 import Alamofire
-//import GooglePlaces
-//import GooglePlacePicker
 import SwiftyJSON
 import FirebaseAuthUI
 import FirebaseAuth
 import FirebaseDatabase
+import GoogleMaps
 
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         FirebaseApp.configure()
-        
+        GMSServices.provideAPIKey("AIzaSyAg0qIZOgb4PR8pYdgB1HRZKD2FWJDcG9M")
         //do show method from category service
 //        GMSPlacesClient.provideAPIKey("AIzaSyAg0qIZOgb4PR8pYdgB1HRZKD2FWJDcG9M")
 //        GMSServices.provideAPIKey("AIzaSyAg0qIZOgb4PR8pYdgB1HRZKD2FWJDcG9M")
@@ -105,17 +104,17 @@ extension AppDelegate {
         let defaults = UserDefaults.standard
         let initialViewController: UIViewController
         
-//        if Auth.auth().currentUser != nil,
-//            let userData = defaults.object(forKey: Constants.UserDefaults.currentUser) as? Data,
-//            let user = NSKeyedUnarchiver.unarchiveObject(with: userData) as? User {
-//            
-//            User.setCurrent(user)
-//            
-//            initialViewController = UIStoryboard.initialViewController(for: .main)
-//        } else {
-//            
-//        }
-        initialViewController = UIStoryboard.initialViewController(for: .login)
+        if Auth.auth().currentUser != nil,
+            let userData = defaults.object(forKey: Constants.UserDefaults.currentUser) as? Data,
+            let user = NSKeyedUnarchiver.unarchiveObject(with: userData) as? User {
+           
+            User.setCurrent(user)
+            
+            initialViewController = UIStoryboard.initialViewController(for: .main)
+       } else {
+            initialViewController = UIStoryboard.initialViewController(for: .login)
+       }
+        
         window?.rootViewController = initialViewController
         window?.makeKeyAndVisible()
     }

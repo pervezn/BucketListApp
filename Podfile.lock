@@ -42,6 +42,7 @@ PODS:
     - GooglePlaces (= 2.3.1)
   - GooglePlaces (2.3.1):
     - GoogleMaps/Base (= 2.3.1)
+  - GooglePlacesSearchController (0.1.7)
   - GoogleToolboxForMac/DebugUtils (2.1.1):
     - GoogleToolboxForMac/Defines (= 2.1.1)
   - GoogleToolboxForMac/Defines (2.1.1)
@@ -64,6 +65,7 @@ DEPENDENCIES:
   - FirebaseUI/Auth
   - GooglePlacePicker
   - GooglePlaces
+  - GooglePlacesSearchController
   - SwiftyJSON
 
 SPEC CHECKSUMS:
@@ -79,10 +81,11 @@ SPEC CHECKSUMS:
   GoogleMaps: c66a71058b9b1294bcdd5463a68e357fa50c079f
   GooglePlacePicker: fc3564ac7a2ce314e78e42bfc1e16822ad1e5488
   GooglePlaces: 4a7b22debfa1af65017b82943431822607e45201
+  GooglePlacesSearchController: 0ac4fedf1582d2e44329c417a6eed80ccf62d716
   GoogleToolboxForMac: 8e329f1b599f2512c6b10676d45736bcc2cbbeb0
   GTMSessionFetcher: 5ad62e8200fa00ed011fe5e08d27fef72c5b1429
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
 
-PODFILE CHECKSUM: 5766c5a24bc25d27aac0e86a66f11793a8e2b6f2
+PODFILE CHECKSUM: 94d142d70f3ae97cfdb835afb36f1b8ff2426ada
 
 COCOAPODS: 1.2.1

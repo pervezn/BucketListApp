@@ -21,7 +21,7 @@ struct ListItemService {
         })
     }
 
-    static func makeListItems(_ firUser: FIRUser, catID: String, itemTitle: String, address: String) {
+    static func makeListItems(_ firUser: FIRUser, catID: String, itemTitle: String, address: String, completion: @escaping (ListItem?) -> Void) {
         
         let listItemRef = Database.database().reference().child("listItem").child(firUser.uid).child(catID).childByAutoId()//one item
         
@@ -31,6 +31,9 @@ struct ListItemService {
         
         listItemRef.setValue(dict)
      updateCategoryItems(listItemID: listItemRef.key, catID: catID)
+    let listIt = ListItem(itemTitle: itemTitle, address: address, key: listItemRef.key)
+        
+        completion(listIt)
     }
     
     static func updateCategoryItems(/*category: Category,*/ listItemID: String, catID: String) {

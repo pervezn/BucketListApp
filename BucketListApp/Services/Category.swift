@@ -45,7 +45,7 @@ class Category {
         self.key = snapshot.key
         self.categoryTitle = title
         self.listItemIDs = itemIDs
-        
-        
+ 
     }
+
 }

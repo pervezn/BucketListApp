@@ -34,7 +34,7 @@ struct CategoryService {
             // makes it so that you can convert the DatabaseReference types
         })
         
-        print("in showCategoryNames")
+       // print("in showCategoryNames")
     }
     
     //2
@@ -46,10 +46,10 @@ struct CategoryService {
             let category = Category(snapshot: snapshot)
                 completion(category)
         }) 
-        print("in showCategory")
+      //  print("in showCategory")
     }
     
-    static func makeCategory(_ firUser: FIRUser, catTitle: String) {
+    static func makeCategory(_ firUser: FIRUser, catTitle: String, completion: @escaping (Category?) -> Void) {
         
         let categoryRef = Database.database().reference().child("category").childByAutoId() //this gets the Category ID
         
@@ -60,8 +60,14 @@ struct CategoryService {
         dict["itemsArray"] = itemIdArray
         
         categoryRef.setValue(dict)// created it in Catergory still need to add to User
+        
+            
         updateUserCategories(firUser, catID: categoryRef.key)
-        print("in makeCategory")
+       // print("in makeCategory")
+        let cat = Category(categoryTitle: catTitle, listItemsArray: arrayOfListItems2, listItemIDs: itemIdArray, key: categoryRef.key)
+        
+        completion(cat)
+        
     }
     
     static func updateUserCategories(_ firUser: FIRUser,  catID: String) {
@@ -91,7 +97,9 @@ struct CategoryService {
                 userRef.setValue(dict2)
             }
         }) //added to User
-        ListItemService.makeListItems(firUser, catID: catID, itemTitle: "item 1", address: "xx")
+        //ListItemService.makeListItems(firUser, catID: catID, itemTitle: "item 1", address: "xx", completion: { (listItem) in
+             //   arrayOfListItems2.append(listItem!)
+      //  })
     }
 
     //3
@@ -115,7 +123,7 @@ struct CategoryService {
                 catNameRef.setValue(catNameArray)
             }
         }
-        print("in makeCategoryNames")
+    //    print("in makeCategoryNames")
     }
 }
     //4

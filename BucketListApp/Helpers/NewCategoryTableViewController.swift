@@ -11,6 +11,7 @@ import FirebaseDatabase
 import FirebaseAuth
 import FirebaseAuthUI
 import Firebase
+
 //typealias FIRUser = FirebaseAuth.User
 
 var arrayOfListItems: [String] = []
@@ -28,6 +29,13 @@ class NewCategoryTableViewController: UIViewController, UITableViewDelegate, UIT
 
     @IBOutlet weak var newTableView: UITableView!
     
+    @IBOutlet weak var saveProgressButton: UIButton!
+    
+    @IBOutlet weak var instructionLabel: UILabel!
+    
+    var locName : String?
+    var locAddress : String?
+    var locPlace : Places?
     
     var ref: DatabaseReference?
     
@@ -58,16 +66,16 @@ class NewCategoryTableViewController: UIViewController, UITableViewDelegate, UIT
     
     func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 2
+        return 1 //2
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        if section == 1 {
+      /*  if section == 1 {
             return 1
-        } else {
-            return arrayOfListItems.count
-        }
+        } else {*/
+            return arrayOfListItems2.count
+       // }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -76,42 +84,49 @@ class NewCategoryTableViewController: UIViewController, UITableViewDelegate, UIT
         //var cell = UITableViewCell()
         
         //if indexPath.row != arrayOfListItems.count - 1
-        if indexPath.section == 0
-        {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "newTableViewCell", for: indexPath) as! NewTableViewCell
+        //if indexPath.section == 0
+      //  {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "newTableViewCell", for: indexPath) as! NewTableViewCell
+        cell.locationAddressDisplay.text = locAddress
+        cell.locationNameDisplay.text = locName
+        
+      //  print("locName in cellForRowAt is: \(locName)")
+      //  print("locAddress in cellForRowAt is: \(locAddress)")
+      //  print("locationAddressDisplay.text is: \(cell.locationAddressDisplay.text)")
+      //  print("lcoationNameDisplay.text is: \(cell.locationNameDisplay.text)")
             return cell
-        } else {
+      /*  } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "addNewTableViewCell", for: indexPath) as! AddNewTableViewCell
             cell.delegate = self
             return cell
             
-        }
+        }*/
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         //, _ firUser: FIRUser
-        if let identifier = segue.identifier {  //FIXME: nothing prints
+        if let identifier = segue.identifier {
             if identifier == "cancel" {
                // print("Cancel button tapped")
             } else if identifier == "save" {
                // print("Save button tapped")
-                let current = Auth.auth().currentUser
-                
-                
-                CategoryService.makeCategory(current!, catTitle: categoryNameTextField.text!)
-                
+        
             }
         }
     }
     
-    
-    /*
-     // Override to support conditional editing of the table view.
-     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-     // Return false if you do not want the specified item to be editable.
-     return true
-     }
-     */
+    @IBAction func unwindToNewCategoryTableViewController(_ segue: UIStoryboardSegue) {
+        
+       locName = UserDefaults.standard.string(forKey: "locationName")
+       locAddress = UserDefaults.standard.string(forKey: "locationAddress")
+       print("UserDefault LocationName: \(UserDefaults.standard.string(forKey: "locationName"))")
+        print("locName is: \(locName)")
+        print("locAddress is: \(locAddress)")
+
+        //Comce Back To This After You Populate Collection View
+        
+        
+    }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         // 2
@@ -126,8 +141,28 @@ class NewCategoryTableViewController: UIViewController, UITableViewDelegate, UIT
     
     @IBAction func pressedAddButton(_ sender: Any) {
         print("pressed add button")
+        
+       /* guard let indexPath = newTableView.indexPath(for: cell)
+            else { return }
+        
+        arrayOfListItems.insert("added", at: indexPath.row)
+        self.newTableView.reloadData()*/
+        arrayOfListItems.append("added")
+        self.newTableView.reloadData()
     }
     
+    @IBAction func pressedSaveProgressButton(_ sender: Any) {
+        let current = Auth.auth().currentUser
+        
+        CategoryService.makeCategory(current!, catTitle: categoryNameTextField.text!, completion: { (category) in
+            arrayOfCategories.append(category!)
+            //print("\(category)")
+        })
+        
+        self.saveProgressButton.isHidden = true
+        self.instructionLabel.isHidden = false
+        self.addButton.isHidden = false
+    }
 }
 extension NewCategoryTableViewController: AddNewCellDelegate {
     
@@ -138,8 +173,8 @@ extension NewCategoryTableViewController: AddNewCellDelegate {
             else { return }
       
         
-       arrayOfListItems.insert("added", at: indexPath.row)
-        self.newTableView.reloadData()
+//       arrayOfListItems.insert("added", at: indexPath.row)
+//       self.newTableView.reloadData()
 //
         let current = Auth.auth().currentUser
         
@@ -153,4 +188,6 @@ extension NewCategoryTableViewController: AddNewCellDelegate {
 //        print("arrayOfListItem2 is: \(arrayOfListItems2)")
         
     }
+    
+    
 }

@@ -16,7 +16,11 @@ protocol NewCellDelegate: class {
 class NewTableViewCell: UITableViewCell {
 
 
-    @IBOutlet weak var listItemTextField: UITextField!
+    @IBOutlet weak var locationNameDisplay: UILabel!
+    @IBOutlet weak var locationAddressDisplay: UILabel!
+    
+    var view = AddLocationMapViewController()
+    
     
     weak var delegate: NewTableViewCell?
 //    var editing: Bool = false {
@@ -30,6 +34,7 @@ class NewTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+       // print("in Nib")      
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

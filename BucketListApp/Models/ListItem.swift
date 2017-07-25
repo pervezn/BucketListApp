@@ -33,4 +33,12 @@ class ListItem {
         self.itemTitle = title
         self.address = address
     }
+    
+    //create an initializer that takes a place
+    init(place: Places, key: String)
+    {
+        itemTitle = place.name
+        address = place.formatted_Address
+        self.key = key
+    }
 }

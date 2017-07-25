@@ -12,27 +12,31 @@ import FirebaseAuth
 import FirebaseDatabase
 import Firebase
 
+var arrayOfCategories: [Category] = []
+
 class MainPageViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
 
 
     @IBOutlet weak var collectionView: UICollectionView!
-    var numberOfCollection1 = arrayOfCategoryNames.count + 1
+    var numberOfCollection1 = arrayOfCategories.count + 1
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.collectionView.delegate = self
         collectionView.dataSource = self
+        
+        
         // Do any additional setup after loading the view.
         
-    CategoryService.showCategoryNames(Auth.auth().currentUser!) { (arrayList) in
+    /*CategoryService.showCategoryNames(Auth.auth().currentUser!) { (arrayList) in
            // print("arrayList is: \(arrayList)")
         if let arrayList = arrayList {
             arrayOfCategoryNames = arrayList
-            //print("Catgory.arrayOfCategoryNames is: \(Category.arrayOfCategoryNames)")
+            print("in Main Page Show Category Name")
             }
-        }
+        }*/
         
         self.navigationItem.rightBarButtonItem = self.editButtonItem
         
@@ -48,27 +52,22 @@ class MainPageViewController: UIViewController, UICollectionViewDelegate, UIColl
     
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return numberOfCollection1
-    
+        if section == 0 {
+            return arrayOfCategories.count
+        } else {
+            return 1
+        }
         
     }
 
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 1
+        return 2
     }
     
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        print("number of category names is: \(arrayOfCategoryNames.count)")
-        if arrayOfCategoryNames.count + 1 == numberOfCollection1 {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "addCollectionViewCell", for: indexPath) as! AddCollectionViewCell
-            //print("in first if")
-            return cell
-       }
-       // print("in cellForRowAt")
-        
-        if indexPath.row != arrayOfCategoryNames.count - 1 { //if it's not the last cell
-            //print("number of category names is: \(Category.arrayOfCategoryNames.count)---Part 2")
+      
+        if indexPath.section == 0 {
             let  cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectionViewCell", for: indexPath) as!CollectionViewCell
             cell.delegate = self
             cell.deleteButtonBackgroundView.layer.cornerRadius = cell.deleteButtonBackgroundView.bounds.width / 2.0
@@ -76,9 +75,10 @@ class MainPageViewController: UIViewController, UICollectionViewDelegate, UIColl
             cell.deleteButtonBackgroundView.isHidden = !isEditing
             return cell
         } else {
-           let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "addCollectionViewCell", for: indexPath) as! AddCollectionViewCell
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "addCollectionViewCell", for: indexPath) as! AddCollectionViewCell
             return cell
         }
+        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) { //transitions from the viewCategory and newCetegory view controllers bakc ot the main page view controller. Also transitions back to the main Page view controller after you press cancel or save, but that's not being registered.
@@ -86,14 +86,14 @@ class MainPageViewController: UIViewController, UICollectionViewDelegate, UIColl
         // 1
         if let identifier = segue.identifier {
             if identifier == "viewCategory" {
-                print("Transitioning to the view Catergory View Controller")
+               // print("Transitioning to the view Catergory View Controller")
             } else if identifier == "newCategory" {
-               print("Transitioning to the new Catergory View Controller")
+              // print("Transitioning to the new Catergory View Controller")
             }
             else if identifier == "cancel" { //cancel and save do not print
-                print("Cancel button tapped")
+                //print("Cancel button tapped")
             } else if identifier == "save" {
-               print("Save button tapped")
+               //print("Save button tapped")
             }
             
         }
@@ -113,6 +113,9 @@ class MainPageViewController: UIViewController, UICollectionViewDelegate, UIColl
     }
     
     @IBAction func unwindToMainPageViewController(_ segue: UIStoryboardSegue) {
+       // print("in unwindToMainPageViewController")
+        collectionView.reloadData()
+        
         }
 }
 

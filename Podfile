@@ -15,6 +15,6 @@ target 'BucketListApp' do
   pod 'SwiftyJSON'
   pod 'GooglePlaces'
   pod 'GooglePlacePicker'
-  
+  pod 'GooglePlacesSearchController'
 
 end

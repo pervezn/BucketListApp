@@ -14,12 +14,12 @@ class Places {
     let formatted_Address: String
     let lat: Double
     let lng: Double
-    let id: String
+    let id: String?
     let name: String
     
     // MARK: - Init
     
-    init(formatted_Address: String, lat: Double, lng: Double, id: String, name: String) {
+    init(formatted_Address: String, lat: Double, lng: Double, id: String?, name: String) {
         self.id = id
         self.name = name
         self.formatted_Address = formatted_Address
@@ -40,7 +40,10 @@ class Places {
         self.lat = lat
         self.lng = lng
     }
-    
+   //Uncoment this to make a list item: You get a thread bad access error though...
+    convenience init(formatted_Address: String, lat: Double, lng: Double, name: String){
+        self.init(formatted_Address: formatted_Address, lat: lat, lng: lng,id: nil, name: name)
+    }
    
 }
 
