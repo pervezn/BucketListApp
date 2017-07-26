@@ -38,13 +38,21 @@ class Category {
 //    
     init?(snapshot: DataSnapshot) {
         guard let dict = snapshot.value as? [String : Any],
-            let title = dict["title"] as? String,
-            let itemIDs = dict["listItemIDs"] as? [String]
-            else { return nil }
+            let title = dict["title"] as? String
+                        else { return nil }
         
-        self.key = snapshot.key
-        self.categoryTitle = title
-        self.listItemIDs = itemIDs
+        if let itemIDs = dict["itemsArray"] as? [String] {
+            self.key = snapshot.key
+            self.categoryTitle = title
+            self.listItemIDs = itemIDs
+        }else {
+            self.key = snapshot.key
+            self.categoryTitle = title
+            self.listItemIDs = [String]()
+        }
+
+        
+        
  
     }
 

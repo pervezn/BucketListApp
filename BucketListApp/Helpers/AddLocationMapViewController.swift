@@ -117,7 +117,7 @@ class AddLocationMapViewController: UIViewController
         UserDefaults.standard.set(locationAddress.text, forKey: "locationAddress")
             
         let place = Places(formatted_Address: locationAddress.text!, lat: lat, lng: long, name: locationName.text!)
-            ListItemService.makeListItems(current!, catID: arrayOfCategories[arrayOfCategories.count-1].key, itemTitle: locationName.text!, address: locationAddress.text!, completion:  { (listItem) in
+        ListItemService.makeListItems(current!, catID: arrayOfCategories[arrayOfCategories.count-1].key, itemTitle: locationName.text!, address: locationAddress.text!, completion:  { (listItem) in
                 arrayOfListItems2.append(listItem!)
             })
             print("arrayOfListItem2 is: \(arrayOfListItems2.count)")

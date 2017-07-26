@@ -26,23 +26,28 @@ class MainPageViewController: UIViewController, UICollectionViewDelegate, UIColl
         super.viewDidLoad()
         self.collectionView.delegate = self
         collectionView.dataSource = self
-        
-        
-        // Do any additional setup after loading the view.
-        
-    /*CategoryService.showCategoryNames(Auth.auth().currentUser!) { (arrayList) in
-           // print("arrayList is: \(arrayList)")
-        if let arrayList = arrayList {
-            arrayOfCategoryNames = arrayList
-            print("in Main Page Show Category Name")
+        print("here 1")
+        let current = Auth.auth().currentUser
+        CategoryService.showCategory(current!) { (category) in
+            print("here 2")
+            print("in show Category")
+            //print("category.count is: \(category?.count)")
+            if let cat = category {
+            print("category.count is: \(category?.count)")
+            arrayOfCategories = cat
+            self.collectionView.reloadData()
+            //print("arrayOfCategories is: \(arrayOfCategories.count)")
             }
-        }*/
+           // print("arrayOfCategories is: \(arrayOfCategories.count)")
+        }
+        
+        print("here 3")
+            print("arrayOfCategories is: \(arrayOfCategories.count)")
+    
+        print("here 4")
+        
         
         self.navigationItem.rightBarButtonItem = self.editButtonItem
-        
-        //print("arrayOfCategoryNames values: \(arrayOfCategoryNames) and number of things in this array is: \(arrayOfCategoryNames.count)")
-        
-    
     }
 
     override func didReceiveMemoryWarning() {
@@ -73,6 +78,10 @@ class MainPageViewController: UIViewController, UICollectionViewDelegate, UIColl
             cell.deleteButtonBackgroundView.layer.cornerRadius = cell.deleteButtonBackgroundView.bounds.width / 2.0
             cell.deleteButtonBackgroundView.layer.masksToBounds = true
             cell.deleteButtonBackgroundView.isHidden = !isEditing
+           cell.titleButton.setTitle(arrayOfCategories[indexPath.row].categoryTitle, for: [])
+            
+            
+            print("titleButton.titleLabel.text is: \(cell.titleButton.titleLabel?.text)")
             return cell
         } else {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "addCollectionViewCell", for: indexPath) as! AddCollectionViewCell
@@ -138,3 +147,4 @@ extension MainPageViewController: ViewCategoryDelegate {
         print("did tap complete button")
     }
 }
+

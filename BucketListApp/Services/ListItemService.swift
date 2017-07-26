@@ -37,7 +37,7 @@ struct ListItemService {
     }
     
     static func updateCategoryItems(/*category: Category,*/ listItemID: String, catID: String) {
-            let categoryRef = Database.database().reference().child("category").child(catID)
+            let categoryRef = Database.database().reference().child("category").child(User.current.uid).child(catID)
             categoryRef.observeSingleEvent(of: .value, with: { (snapshot)in
                 if let dict = snapshot.value as? [String : Any],
                 let catTitle = dict["title"] as? String,

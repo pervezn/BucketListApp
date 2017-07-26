@@ -87,8 +87,8 @@ class NewCategoryTableViewController: UIViewController, UITableViewDelegate, UIT
         //if indexPath.section == 0
       //  {
         let cell = tableView.dequeueReusableCell(withIdentifier: "newTableViewCell", for: indexPath) as! NewTableViewCell
-        cell.locationAddressDisplay.text = locAddress
-        cell.locationNameDisplay.text = locName
+        cell.locationAddressDisplay.text = arrayOfListItems2[indexPath.row].address //locAddress
+        cell.locationNameDisplay.text = arrayOfListItems2[indexPath.row].itemTitle  //locName
         
       //  print("locName in cellForRowAt is: \(locName)")
       //  print("locAddress in cellForRowAt is: \(locAddress)")
@@ -123,7 +123,7 @@ class NewCategoryTableViewController: UIViewController, UITableViewDelegate, UIT
         print("locName is: \(locName)")
         print("locAddress is: \(locAddress)")
 
-        //Comce Back To This After You Populate Collection View
+        newTableView.reloadData()
         
         
     }

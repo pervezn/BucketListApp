@@ -52,13 +52,16 @@ class ViewCategoryTableViewController: UITableViewController{
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "viewCategoryTableViewCell", for: indexPath)
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "viewCategoryTableViewCell", for: indexPath) as! ViewCategoryTableViewCell
+        
+        cell.itemLabel.text = arrayOfListItems2[indexPath.row].itemTitle
+        cell.itemAddress.text = arrayOfListItems2[indexPath.row].address
+        
+        
         
 
-       
-    let randomName = ViewCategoryTableViewCell()
-       
-        randomName.itemLabel?.text = "Table Label"
-        return cell
+       return cell
+   
     }
 }

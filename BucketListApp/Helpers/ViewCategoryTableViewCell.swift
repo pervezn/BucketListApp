@@ -19,6 +19,7 @@ class ViewCategoryTableViewCell: UITableViewCell {
     
     @IBOutlet weak var completeButton: UIButton!
     @IBOutlet weak var itemLabel: UILabel!
+    @IBOutlet weak var itemAddress: UILabel!
     
     
 

@@ -38,20 +38,34 @@ struct CategoryService {
     }
     
     //2
-    static func showCategory(_ firUser: FIRUser, catID: String, completion: @escaping (Category?) -> Void) {
+    static func showCategory(_ firUser: FIRUser, completion: @escaping ([Category]?) -> Void) {
         
-        //print("cat name is \(catName)")
-        let categoryRef = Database.database().reference().child("category").child(catID)
+       
+        
+        let categoryRef = Database.database().reference().child("category").child(firUser.uid)
         categoryRef.observeSingleEvent(of: .value, with: { (snapshot) in
-            let category = Category(snapshot: snapshot)
-                completion(category)
+            guard let snapshot = snapshot.children.allObjects as? [DataSnapshot]
+                else { return completion([]) }
+            
+            var emptyArray = [Category]()
+            print(snapshot.count)
+            for eachCat in snapshot {
+                if let category = Category(snapshot: eachCat) {
+              //  print("in for loop")
+                
+                emptyArray.append(category)
+               // print("emptyArray is: \(emptyArray.count)")
+               // print("\(category.categoryTitle)")
+                }
+            }
+            completion(emptyArray)
         }) 
       //  print("in showCategory")
     }
     
     static func makeCategory(_ firUser: FIRUser, catTitle: String, completion: @escaping (Category?) -> Void) {
         
-        let categoryRef = Database.database().reference().child("category").childByAutoId() //this gets the Category ID
+        let categoryRef = Database.database().reference().child("category").child(firUser.uid).childByAutoId() //this gets the Category ID
         
         var dict : [String : Any] = Dictionary()
         dict["title"] = catTitle
