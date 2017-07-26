@@ -7,6 +7,9 @@
 //
 
 import UIKit
+import FirebaseAuth
+import FirebaseAuthUI
+import Firebase
 
 class ViewCategoryTableViewController: UITableViewController{
 
@@ -22,6 +25,7 @@ class ViewCategoryTableViewController: UITableViewController{
         
         viewTableView.delegate = self
         viewTableView.dataSource = self
+        
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -47,7 +51,7 @@ class ViewCategoryTableViewController: UITableViewController{
         // #warning Incomplete implementation, return the number of rows
         
        
-        return arrayOfListItems.count
+        return arrayOfListItems2.count
     }
 
     
@@ -57,9 +61,8 @@ class ViewCategoryTableViewController: UITableViewController{
         
         cell.itemLabel.text = arrayOfListItems2[indexPath.row].itemTitle
         cell.itemAddress.text = arrayOfListItems2[indexPath.row].address
-        
-        
-        
+    
+       // print("collectionIndex is: \(collectionIndex)")
 
        return cell
    

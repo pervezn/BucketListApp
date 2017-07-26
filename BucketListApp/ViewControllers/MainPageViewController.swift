@@ -26,25 +26,16 @@ class MainPageViewController: UIViewController, UICollectionViewDelegate, UIColl
         super.viewDidLoad()
         self.collectionView.delegate = self
         collectionView.dataSource = self
-        print("here 1")
+       
         let current = Auth.auth().currentUser
+        
         CategoryService.showCategory(current!) { (category) in
-            print("here 2")
-            print("in show Category")
-            //print("category.count is: \(category?.count)")
             if let cat = category {
-            print("category.count is: \(category?.count)")
             arrayOfCategories = cat
             self.collectionView.reloadData()
-            //print("arrayOfCategories is: \(arrayOfCategories.count)")
             }
-           // print("arrayOfCategories is: \(arrayOfCategories.count)")
         }
-        
-        print("here 3")
-            print("arrayOfCategories is: \(arrayOfCategories.count)")
-    
-        print("here 4")
+      
         
         
         self.navigationItem.rightBarButtonItem = self.editButtonItem
@@ -96,6 +87,19 @@ class MainPageViewController: UIViewController, UICollectionViewDelegate, UIColl
         if let identifier = segue.identifier {
             if identifier == "viewCategory" {
                // print("Transitioning to the view Catergory View Controller")
+               /*
+                let current = Auth.auth().currentUser
+                let cell = sender as? CollectionViewCell
+                //print("collectionIndex is: \(collectionIndex)")
+                var index = collectionView.indexPath(for: cell!)
+                
+                ListItemService.showListItems(current!, catID: arrayOfCategories[(index?.row)!].key) { (listItem) in
+                    if let liIt = listItem {
+                        arrayOfListItems2 = liIt
+                        //viewTableView.reloadData()
+                    }
+                }
+                */ //Work for Thursday!!!
             } else if identifier == "newCategory" {
               // print("Transitioning to the new Catergory View Controller")
             }
@@ -104,7 +108,6 @@ class MainPageViewController: UIViewController, UICollectionViewDelegate, UIColl
             } else if identifier == "save" {
                //print("Save button tapped")
             }
-            
         }
     }
     

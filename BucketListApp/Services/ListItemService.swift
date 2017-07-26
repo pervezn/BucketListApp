@@ -11,13 +11,21 @@ import FirebaseDatabase
 
 struct ListItemService {
     
-    static func showListItems(_ firUser: FIRUser, catID: String, listItemID: String, completion: @escaping (ListItem) -> Void) {
+    static func showListItems(_ firUser: FIRUser, catID: String, /*listItemID: String,*/ completion: @escaping ([ListItem]?) -> Void) {
         
         let listItemRef = Database.database().reference().child("listItem").child(firUser.uid).child(catID)
         
         listItemRef.observeSingleEvent(of: .value, with: { (snapshot) in
-            let items = ListItem(snapshot: snapshot)
-                completion(items!)
+            guard let snapshot = snapshot.children.allObjects as? [DataSnapshot]
+                else { return completion([]) }
+            
+            var emptyArray = [ListItem]()
+            for eachListItem in snapshot {
+                if let items = ListItem(snapshot: eachListItem) {
+                emptyArray.append(items)
+                }
+            }
+            completion(emptyArray)
         })
     }
 

@@ -52,6 +52,7 @@ class NewCategoryTableViewController: UIViewController, UITableViewDelegate, UIT
         
         newTableView.delegate = self
         newTableView.dataSource = self
+        
     
         //self.newTableView.register(UITableViewCell.self, forCellReuseIdentifier: "newTableViewCell")
         

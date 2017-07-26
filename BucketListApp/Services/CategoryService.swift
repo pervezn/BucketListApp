@@ -40,9 +40,8 @@ struct CategoryService {
     //2
     static func showCategory(_ firUser: FIRUser, completion: @escaping ([Category]?) -> Void) {
         
-       
-        
         let categoryRef = Database.database().reference().child("category").child(firUser.uid)
+        
         categoryRef.observeSingleEvent(of: .value, with: { (snapshot) in
             guard let snapshot = snapshot.children.allObjects as? [DataSnapshot]
                 else { return completion([]) }
@@ -51,11 +50,7 @@ struct CategoryService {
             print(snapshot.count)
             for eachCat in snapshot {
                 if let category = Category(snapshot: eachCat) {
-              //  print("in for loop")
-                
                 emptyArray.append(category)
-               // print("emptyArray is: \(emptyArray.count)")
-               // print("\(category.categoryTitle)")
                 }
             }
             completion(emptyArray)
