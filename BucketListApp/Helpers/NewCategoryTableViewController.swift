@@ -135,6 +135,7 @@ class NewCategoryTableViewController: UIViewController, UITableViewDelegate, UIT
             // 3
             // print("the before indexPath is: \(indexPath.row)")
             arrayOfListItems.remove(at: indexPath.row)
+            print("in table View")
             // print("the after indexPath is: \(indexPath.row)")
             self.newTableView.reloadData()
         }
