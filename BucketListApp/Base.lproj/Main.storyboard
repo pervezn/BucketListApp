@@ -229,7 +229,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="GPL-gR-dpk" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="" image="tab_home_black" selectedImage="tab_home_black" id="Y50-Xo-UiI"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="uej-Nl-FNA">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="uej-Nl-FNA">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

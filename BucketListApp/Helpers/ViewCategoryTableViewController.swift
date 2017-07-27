@@ -13,6 +13,7 @@ import Firebase
 
 class ViewCategoryTableViewController: UITableViewController{
 
+    var currentCategory : Category?
     
     @IBOutlet var viewTableView: UITableView!
     
@@ -38,6 +39,17 @@ class ViewCategoryTableViewController: UITableViewController{
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        // 2
+        if editingStyle == .delete {
+            
+            removeListItem(category: currentCategory!, listItem: arrayOfListItems2[indexPath.row])
+            
+            arrayOfListItems2.remove(at: indexPath.row)
+            self.viewTableView.reloadData()
+        }
+    }
 
     // MARK: - Table view data source
 
@@ -53,7 +65,24 @@ class ViewCategoryTableViewController: UITableViewController{
        
         return arrayOfListItems2.count
     }
-
+    func removeListItem(category: Category, listItem: ListItem) {
+        
+        let current = Auth.auth().currentUser
+        
+         let listItemRef = Database.database().reference().child("listItem").child((current?.uid)!).child(category.key).child(listItem.key)
+        
+        let listItemRef2 = Database.database().reference().child("category").child((current?.uid)!).child(category.key).child("itemsArray")
+        
+        for i in 0...(currentCategory?.listItemIDs.count)! - 1 {
+            if currentCategory?.listItemIDs[i] == listItem.key {
+                currentCategory?.listItemIDs.remove(at: i)
+                break
+            }
+        }
+        
+        listItemRef.removeValue()
+        listItemRef2.setValue(currentCategory?.listItemIDs)
+    }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         

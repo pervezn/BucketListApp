@@ -134,7 +134,7 @@ class NewCategoryTableViewController: UIViewController, UITableViewDelegate, UIT
         if editingStyle == .delete {
             // 3
             // print("the before indexPath is: \(indexPath.row)")
-            arrayOfListItems.remove(at: indexPath.row)
+            arrayOfListItems2.remove(at: indexPath.row)
             print("in table View")
             // print("the after indexPath is: \(indexPath.row)")
             self.newTableView.reloadData()

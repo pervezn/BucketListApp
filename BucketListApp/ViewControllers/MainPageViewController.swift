@@ -109,6 +109,7 @@ class MainPageViewController: UIViewController, UICollectionViewDelegate, UIColl
                     if let liIt = listItem {
                         arrayOfListItems2 = liIt
                         viewCategory.viewTableView.reloadData()
+                        viewCategory.currentCategory = currentCategory
                     }
                 }
                 //Work for Thursday!!!
@@ -141,19 +142,31 @@ class MainPageViewController: UIViewController, UICollectionViewDelegate, UIColl
         collectionView.reloadData()
         
     }
+    
+    func removeCategory(category: Category) {
+        let current = Auth.auth().currentUser
+        
+        let catRef = Database.database().reference().child("category").child((current?.uid)!).child(category.key) //removes category
+        
+        let catRef2 = Database.database().reference().child("listItem").child((current?.uid)!).child(category.key) //removing categoryReference in listItems
+        
+        
+        
+        catRef.removeValue()
+    }
 }
 
 extension MainPageViewController: CollectionViewDelegate {
     func delete(cell: CollectionViewCell) {
-        //        if let indexPath = collectionView?.indexPath(for: cell) {
-        //            //1. delte the cell from our data source
-        //
-        //            //arrayOfListNames[indexPath.section].(..imageNames..).remove(at: indexPath.item)
-        //
-        //            //2. delete the cell from out collection view
-        //            collectionView.deleteItems(at: [indexPath])
-        //        }
-        // print("in delete function")
+        if let indexPath = collectionView?.indexPath(for: cell) {
+                    //1. delte the cell from our data source
+        
+                    
+        
+                    //2. delete the cell from out collection view
+                    collectionView.deleteItems(at: [indexPath])
+        }
+         print("in delete function")
     }
 }
 
