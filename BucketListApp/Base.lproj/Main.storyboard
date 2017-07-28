@@ -132,7 +132,6 @@
                                                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
                                                     <connections>
-                                                        <action selector="deleteButtonTapped:" destination="VOM-uU-MWb" eventType="touchUpInside" id="eX9-nh-IN6"/>
                                                         <segue destination="4F4-mc-jqu" kind="show" identifier="viewCategory" id="fvi-XX-Nz0"/>
                                                     </connections>
                                                 </button>
@@ -144,7 +143,10 @@
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mMV-pm-Vd2">
                                                                 <rect key="frame" x="4" y="4" width="12" height="12"/>
-                                                                <state key="normal" image="Icon-60"/>
+                                                                <state key="normal" title="deleteButton" image="Icon-60"/>
+                                                                <connections>
+                                                                    <action selector="deleteButtonTapped:" destination="VOM-uU-MWb" eventType="touchUpInside" id="V46-aP-6Vg"/>
+                                                                </connections>
                                                             </button>
                                                         </subviews>
                                                         <constraints>
@@ -168,7 +170,8 @@
                                             <constraint firstItem="bZS-aN-WsR" firstAttribute="leading" secondItem="VOM-uU-MWb" secondAttribute="leading" constant="8" id="p5b-sJ-8To"/>
                                         </constraints>
                                         <connections>
-                                            <outlet property="deleteButtonBackgroundView" destination="bZS-aN-WsR" id="dL7-o7-1HC"/>
+                                            <outlet property="deleteButton" destination="mMV-pm-Vd2" id="sHJ-zW-hbJ"/>
+                                            <outlet property="deleteButtonBackgroundView" destination="bZS-aN-WsR" id="WG2-HO-017"/>
                                             <outlet property="titleButton" destination="MmW-pK-yjl" id="63X-zx-bww"/>
                                             <outlet property="titleButtonPressed" destination="MmW-pK-yjl" id="hdU-XE-R0w"/>
                                         </connections>

@@ -15,6 +15,7 @@ protocol CollectionViewDelegate: class {
 class CollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var titleButton: UIButton!
+    @IBOutlet weak var deleteButton: UIButton!
     @IBOutlet weak var titleButtonPressed: UIButton!
     @IBOutlet weak var deleteButtonBackgroundView: UIVisualEffectView!
     
@@ -29,6 +30,7 @@ class CollectionViewCell: UICollectionViewCell {
     }
     
     @IBAction func deleteButtonTapped(_ sender: Any) {
+        print("in delete button tapped")
         delegate?.delete(cell: self)
     }
    

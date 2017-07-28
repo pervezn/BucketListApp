@@ -85,14 +85,14 @@ struct CategoryService {
             if let dict = snapshot.value as? [String : Any],
             let categories = dict["categories"] as? [String],
             let username = dict["username"] as? String {
-                
+                print("here 1")
                 var newArray = [String]()
                 newArray.append(contentsOf: categories)
                 newArray.append(catID)
                 
                 var dict2 : [String : Any] = Dictionary()
                 dict2["username"] = username
-                dict2["catergories"] = newArray
+                dict2["categories"] = newArray
                 
                 userRef.setValue(dict2)
             } else {
@@ -101,7 +101,9 @@ struct CategoryService {
                 var newArray : [String] = [catID]
                 var dict2 : [String : Any] = Dictionary()
                 dict2["username"] = username
-                dict2["catergories"] = newArray
+                dict2["categories"] = newArray
+                
+                print("here 2")
                 
                 userRef.setValue(dict2)
             }

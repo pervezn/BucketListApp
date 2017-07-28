@@ -55,14 +55,20 @@ class User: NSObject {
         super.init()
     }
     
-    init?(snapshot: DataSnapshot) { // I don't have a dictionary, so what does this do?
+    init?(snapshot: DataSnapshot) {
         guard let dict = snapshot.value as? [String : Any],
             let username = dict["username"] as? String
+            //let categories = dict["categories"] as? [String]
+            
             else { return nil }
+        
+        if let categories = dict["categories"] as? [String] {
+            self.categories = categories
+        }
         
         self.uid = snapshot.key
         self.username = username
-        //self.categories = categories
+       // self.categories = categories
         super.init()
     }
     

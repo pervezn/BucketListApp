@@ -49,6 +49,7 @@ class MainPageViewController: UIViewController, UICollectionViewDelegate, UIColl
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if section == 0 {
+            print("arrayOfCategories.count in numberOfItemsInSection is: \(arrayOfCategories.count)")
             return arrayOfCategories.count
         } else {
             return 1
@@ -145,26 +146,57 @@ class MainPageViewController: UIViewController, UICollectionViewDelegate, UIColl
     
     func removeCategory(category: Category) {
         let current = Auth.auth().currentUser
-        
+       // FIRUser.cre
+    
         let catRef = Database.database().reference().child("category").child((current?.uid)!).child(category.key) //removes category
         
         let catRef2 = Database.database().reference().child("listItem").child((current?.uid)!).child(category.key) //removing categoryReference in listItems
+        let catRef3 = Database.database().reference().child("users").child((current?.uid)!).child("categories") //removing categories from
         
+        var catArraySub = [""]
+        //print("User.current.categories?.count is:\(User.current.categories)")
+    //need a different way to access the user
+        
+        catRef3.observeSingleEvent(of: .value, with: { (snapshot) in
+            guard let catArray = snapshot.value as? [String] else {
+                //print("error: array doesn't exist")
+                return
+            }
+            
+            for i in 0...(catArray.count) - 1 {
+                if catArray[i] == category.key {
+                    catArraySub = catArray
+                    catArraySub.remove(at: i)
+                    break
+                }
+            }
+            
+             catRef3.setValue(catArraySub) //still doesn't work
+        })
         
         
         catRef.removeValue()
+        catRef2.removeValue()
+       
     }
 }
 
 extension MainPageViewController: CollectionViewDelegate {
     func delete(cell: CollectionViewCell) {
+        print("in delete function")
         if let indexPath = collectionView?.indexPath(for: cell) {
                     //1. delte the cell from our data source
-        
-                    
-        
-                    //2. delete the cell from out collection view
-                    collectionView.deleteItems(at: [indexPath])
+            
+            
+            print("number of items in collectionView is: \(collectionView.numberOfItems(inSection: 0))")
+            removeCategory(category: arrayOfCategories[indexPath.item])
+            arrayOfCategories.remove(at: indexPath.item)
+            print("error indexPath is: \(indexPath)")
+            
+            
+            //2. delete the cell from out collection view
+            collectionView.reloadData()
+            print("arrayOfCategories.count in delete is: \(arrayOfCategories.count)")
         }
          print("in delete function")
     }
@@ -175,4 +207,26 @@ extension MainPageViewController: ViewCategoryDelegate {
         print("did tap complete button")
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
