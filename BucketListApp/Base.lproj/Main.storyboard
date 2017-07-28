@@ -477,34 +477,48 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="70.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="List Item" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x5T-PP-jta">
-                                            <rect key="frame" x="99" y="13" width="239" height="21"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Icon-60" translatesAutoresizingMaskIntoConstraints="NO" id="vSU-A1-FCK">
-                                            <rect key="frame" x="33" y="17" width="41" height="36"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        </imageView>
-                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rsu-ft-XWU">
-                                            <rect key="frame" x="39" y="18" width="30" height="34"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="rJC-KI-LoP">
+                                            <rect key="frame" x="99" y="13" width="239" height="47"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="List Item" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x5T-PP-jta">
+                                                    <rect key="frame" x="0.0" y="0.0" width="239" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="21" id="jL6-b7-g3Y"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="List Address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Gp-ZH-wEr">
+                                                    <rect key="frame" x="0.0" y="27" width="239" height="20"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </stackView>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rsu-ft-XWU">
+                                            <rect key="frame" x="18" y="13" width="43" height="41"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="43" id="iY5-wl-YPY"/>
+                                            </constraints>
+                                            <state key="normal" image="Icon-60"/>
                                             <state key="selected" image="gIcon-60"/>
                                             <connections>
-                                                <action selector="completeButtonPressed:" destination="1RH-68-43A" eventType="touchUpInside" id="cd7-Zb-3j2"/>
+                                                <action selector="completeButtonPressed:" destination="1RH-68-43A" eventType="touchUpInside" id="vw9-7k-AoB"/>
                                             </connections>
                                         </button>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="List Address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Gp-ZH-wEr">
-                                            <rect key="frame" x="99" y="41" width="239" height="21"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
                                     </subviews>
                                     <color key="backgroundColor" red="0.90264435259999998" green="0.96569136779999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    <constraints>
+                                        <constraint firstAttribute="bottomMargin" secondItem="rJC-KI-LoP" secondAttribute="bottom" constant="2.5" id="1CV-ic-Eoi"/>
+                                        <constraint firstItem="rsu-ft-XWU" firstAttribute="leading" secondItem="Me8-U5-99k" secondAttribute="leadingMargin" constant="10" id="GeJ-Fv-McM"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="rJC-KI-LoP" secondAttribute="trailing" constant="29" id="TPh-tS-May"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="rsu-ft-XWU" secondAttribute="bottom" constant="8.5" id="dv8-0g-BPz"/>
+                                        <constraint firstItem="rsu-ft-XWU" firstAttribute="top" secondItem="rJC-KI-LoP" secondAttribute="top" id="uhP-uy-Hmg"/>
+                                        <constraint firstItem="rsu-ft-XWU" firstAttribute="top" secondItem="Me8-U5-99k" secondAttribute="topMargin" constant="5" id="w75-Kh-KRi"/>
+                                        <constraint firstItem="rJC-KI-LoP" firstAttribute="leading" secondItem="rsu-ft-XWU" secondAttribute="trailing" constant="38" id="zLe-vJ-EW8"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="completeButton" destination="rsu-ft-XWU" id="0b0-D1-ZZk"/>
@@ -525,7 +539,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lv0-sk-bMd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1911" y="2427"/>
+            <point key="canvasLocation" x="-1911.2" y="2426.5367316341831"/>
         </scene>
     </scenes>
     <resources>

@@ -183,30 +183,32 @@ class MainPageViewController: UIViewController, UICollectionViewDelegate, UIColl
 
 extension MainPageViewController: CollectionViewDelegate {
     func delete(cell: CollectionViewCell) {
-        print("in delete function")
+        //print("in delete function")
         if let indexPath = collectionView?.indexPath(for: cell) {
                     //1. delte the cell from our data source
             
             
-            print("number of items in collectionView is: \(collectionView.numberOfItems(inSection: 0))")
+            //print("number of items in collectionView is: \(collectionView.numberOfItems(inSection: 0))")
             removeCategory(category: arrayOfCategories[indexPath.item])
             arrayOfCategories.remove(at: indexPath.item)
-            print("error indexPath is: \(indexPath)")
+            //print("error indexPath is: \(indexPath)")
             
             
             //2. delete the cell from out collection view
             collectionView.reloadData()
-            print("arrayOfCategories.count in delete is: \(arrayOfCategories.count)")
+            //print("arrayOfCategories.count in delete is: \(arrayOfCategories.count)")
         }
-         print("in delete function")
+         //print("in delete function")
     }
 }
 
-extension MainPageViewController: ViewCategoryDelegate {
-    func didTapCompleteButton(_ completeButton: UIButton, on cell: ViewCategoryTableViewCell) {
-        print("did tap complete button")
-    }
-}
+//extension MainPageViewController: ViewCategoryCellDelegate {
+//    func didTapCompleteButton(_ completeButton: UIButton, on cell: ViewCategoryTableViewCell) {
+//        print("did tap complete button")
+//    
+//        
+//    }
+//}
 
 
 
