@@ -44,7 +44,7 @@ class MapPageViewController: UIViewController {
          //menu = AZDropdownMenu(titles: titleArray)
 
        // menu = AZDropdownMenu(titles: titleArray)
-        let button = UIBarButtonItem(image: UIImage(named: "menuButton"), style: .plain, target: self, action: "showDropdown")
+        let button = UIBarButtonItem(image: UIImage(named: "iconmonstr-menu-2-32"), style: .plain, target: self, action: "showDropdown")
         
         navigationItem.rightBarButtonItem = button
         
@@ -184,7 +184,7 @@ extension MapPageViewController {
             var pinArray = [ListItem]()
              let current = Auth.auth().currentUser
             print("indePath.row is: \(indexPath.row)")
-            ListItemService.showListItems(current!, catID: arrayOfCategories[indexPath.row].key) { (listItem) in
+            ListItemService.showListItems(current!, catID: arrayOfCategories[indexPath.row - 1].key) { (listItem) in
                 if let liIt = listItem {
                     self?.pinArray = liIt
                     print("pinArray in completion is: \(self?.pinArray.count)")
@@ -243,11 +243,11 @@ extension MapPageViewController {
     
     fileprivate func createDummyDatasource() -> [AZDropdownMenuItemData] {
         var dataSource: [AZDropdownMenuItemData] = []
-        dataSource.append(AZDropdownMenuItemData(title:"Action With Icon 1", icon:UIImage(imageLiteralResourceName: "menuButton")))
-        dataSource.append(AZDropdownMenuItemData(title:"Action With Icon 2", icon:UIImage(imageLiteralResourceName: "menuButton")))
-        dataSource.append(AZDropdownMenuItemData(title:"Action With Icon 3", icon:UIImage(imageLiteralResourceName: "menuButton")))
-        dataSource.append(AZDropdownMenuItemData(title:"Action With Icon 4", icon:UIImage(imageLiteralResourceName: "menuButton")))
-        dataSource.append(AZDropdownMenuItemData(title:"Action With Icon 5", icon:UIImage(imageLiteralResourceName: "menuButton")))
+        dataSource.append(AZDropdownMenuItemData(title:"Action With Icon 1", icon:UIImage(imageLiteralResourceName: "iconmonstr-menu-2-32")))
+        dataSource.append(AZDropdownMenuItemData(title:"Action With Icon 2", icon:UIImage(imageLiteralResourceName: "iconmonstr-menu-2-32")))
+        dataSource.append(AZDropdownMenuItemData(title:"Action With Icon 3", icon:UIImage(imageLiteralResourceName: "iconmonstr-menu-2-32")))
+        dataSource.append(AZDropdownMenuItemData(title:"Action With Icon 4", icon:UIImage(imageLiteralResourceName: "iconmonstr-menu-2-32")))
+        dataSource.append(AZDropdownMenuItemData(title:"Action With Icon 5", icon:UIImage(imageLiteralResourceName: "iconmonstr-menu-2-32")))
         return dataSource
     }
     
