@@ -16,5 +16,6 @@ target 'BucketListApp' do
   pod 'GooglePlaces'
   pod 'GooglePlacePicker'
   pod 'GooglePlacesSearchController'
+  pod 'AZDropdownMenu'
 
 end

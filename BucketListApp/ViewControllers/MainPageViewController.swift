@@ -109,8 +109,10 @@ class MainPageViewController: UIViewController, UICollectionViewDelegate, UIColl
                 ListItemService.showListItems(current!, catID: currentCategory.key) { (listItem) in
                     if let liIt = listItem {
                         arrayOfListItems2 = liIt
+                        //print("In the main \(arrayOfListItems2.count)")
                         viewCategory.viewTableView.reloadData()
                         viewCategory.currentCategory = currentCategory
+                       
                     }
                 }
                 //Work for Thursday!!!

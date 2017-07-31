@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>AZDropdownMenu.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Alamofire.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -42,22 +47,22 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>0BA6525597C1B817693051CCA494E16A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>0BF8C0A4C4529A64DD548D1B3A3B8414</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>107A9565F9DF88517DFD3E28C05B2B96</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>22B867B490A10F9E10B5C4BF391B2094</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>3380590F973AFAFA30255D504B7DEDAC</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>3689EED9ED38776D0FCEED4D9B9E5B87</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -73,6 +78,11 @@
 			<true/>
 		</dict>
 		<key>D424923B38A9B9256D68251269F79873</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F8FC750026278522EBD48CA7ED3AFB03</key>
 		<dict>
 			<key>primary</key>
 			<true/>

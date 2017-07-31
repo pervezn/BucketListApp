@@ -61,7 +61,7 @@ class ViewCategoryTableViewController: UITableViewController{
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        
+        print("Array count: \(arrayOfListItems2.count)")
        
         return arrayOfListItems2.count
     }

@@ -1,5 +1,6 @@
 PODS:
   - Alamofire (4.5.0)
+  - AZDropdownMenu (1.1.2)
   - Firebase/Auth (4.0.3):
     - Firebase/Core
     - FirebaseAuth (= 4.0.0)
@@ -58,6 +59,7 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire
+  - AZDropdownMenu
   - Firebase/Auth
   - Firebase/Core
   - Firebase/Database
@@ -70,6 +72,7 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   Alamofire: f28cdffd29de33a7bfa022cbd63ae95a27fae140
+  AZDropdownMenu: 411c1b445fd29bb1e56b219131aaf294ba21b9b6
   Firebase: 9e33fdfbca37cab635c693883caa90a4475b842b
   FirebaseAnalytics: ad41720e3e67fc63fbe3d2948d3e26932a8de311
   FirebaseAuth: ebb6abcbabae00fc47446d690c19ce68d8484fde
@@ -86,6 +89,6 @@ SPEC CHECKSUMS:
   GTMSessionFetcher: 5ad62e8200fa00ed011fe5e08d27fef72c5b1429
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
 
-PODFILE CHECKSUM: 94d142d70f3ae97cfdb835afb36f1b8ff2426ada
+PODFILE CHECKSUM: 5220a9b19f2f2fbc9745995c7debd5a2f0805474
 
 COCOAPODS: 1.2.1

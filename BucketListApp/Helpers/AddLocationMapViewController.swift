@@ -19,6 +19,7 @@ import Firebase
 //import CoreLocation  //Reason 1
 //import GoogleMaps
  
+var arrayOfPlaces = [Places]()
 
 class AddLocationMapViewController: UIViewController
 
@@ -54,8 +55,6 @@ class AddLocationMapViewController: UIViewController
         } else {
             print("2: does not caontain an Int")
         }*/
-       // locationAddress.text = "address"
-        //locationName.text = "name"
         
         resultsViewController = GMSAutocompleteResultsViewController()
         resultsViewController?.delegate = self
@@ -71,15 +70,21 @@ class AddLocationMapViewController: UIViewController
         
         // Keep the navigation bar visible.
         
-       controller.didSelectGooglePlace { (place) -> Void in
+       controller.didSelectGooglePlace { (place) -> Void in //allows you to select a location in the search bar.
             //print(place.description)
             //print(place.formattedAddress)
             self.locationAddress.text = place.formattedAddress
-          //  print("Place coordinate: \(place.coordinate)")
+        
             self.lat = place.coordinate.latitude
             self.long = place.coordinate.longitude
+        print("Place latitude coordinate: \(place.coordinate.latitude)")
+        print("Place longitude coordinate: \(place.coordinate.longitude)")
         
+        let location: CLLocationCoordinate2D = CLLocationCoordinate2DMake(self.lat, self.long)
+        let annotation = MKPointAnnotation()
         
+        annotation.coordinate = location
+        self.locationMapView.addAnnotation(annotation)
         
            /* let position1 = place.coordinate
             self.marker = GMSMarker(position: position1)
@@ -110,32 +115,14 @@ class AddLocationMapViewController: UIViewController
         if segue.identifier == "unwindToNewCategoryTableViewController" {
         let current = Auth.auth().currentUser
         UserDefaults.standard.set(locationName.text, forKey: "locationName")
-        
-       // print("locationName.text is: \(locationName.text)")
-       //print("locationAddress.text is: \(locationAddress.text)")
-        
-        UserDefaults.standard.set(locationAddress.text, forKey: "locationAddress")
             
         let place = Places(formatted_Address: locationAddress.text!, lat: lat, lng: long, name: locationName.text!)
-        ListItemService.makeListItems(current!, catID: arrayOfCategories[arrayOfCategories.count-1].key, itemTitle: locationName.text!, address: locationAddress.text!, completion:  { (listItem) in
+        ListItemService.makeListItems(current!, catID: arrayOfCategories[arrayOfCategories.count-1].key, lat: lat, lng: long, itemTitle: locationName.text!, address: locationAddress.text!, completion:  { (listItem) in
                 arrayOfListItems2.append(listItem!)
             })
-            print("arrayOfListItem2 is: \(arrayOfListItems2.count)")
+           // print("arrayOfListItem2 is: \(arrayOfListItems2.count)")
         }
     }
-    
-        
-   // }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
 
@@ -147,7 +134,7 @@ extension AddLocationMapViewController: GMSAutocompleteResultsViewControllerDele
         // Do something with the selected place.
        // print("Place bla name: \(place.name)")
        // print("Place address: \(place.formattedAddress)")
-       // print("Place attributions: \(place.attributions)")
+        print("Place attributions: \(place.attributions)")
         
         addressText = place.formattedAddress!
         //print("\(locationAddress.text)")

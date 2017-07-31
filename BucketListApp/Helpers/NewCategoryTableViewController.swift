@@ -110,8 +110,9 @@ class NewCategoryTableViewController: UIViewController, UITableViewDelegate, UIT
             if identifier == "cancel" {
                // print("Cancel button tapped")
             } else if identifier == "save" {
-               // print("Save button tapped")
+               //print("Save button tapped")
         
+                arrayOfListItems2 = []
             }
         }
     }
