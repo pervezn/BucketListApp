@@ -29,7 +29,7 @@ struct ListItemService {
         })
     }
 
-    static func makeListItems(_ firUser: FIRUser, catID: String, lat: Double, lng: Double, itemTitle: String, address: String, completion: @escaping (ListItem?) -> Void) {
+    static func makeListItems(_ firUser: FIRUser, catID: String, lat: Double, lng: Double, isChecked: Bool, itemTitle: String, address: String, completion: @escaping (ListItem?) -> Void) {
         
         let listItemRef = Database.database().reference().child("listItem").child(firUser.uid).child(catID).childByAutoId()//one item
         
@@ -38,11 +38,12 @@ struct ListItemService {
         dict["address"] = address
         dict["latitude"] = lat
         dict["longitude"] = lng
+        dict["complete?"] = isChecked
         
         listItemRef.setValue(dict)
      updateCategoryItems(listItemID: listItemRef.key, catID: catID)
     
-    let listIt = ListItem(itemTitle: itemTitle, address: address, key: listItemRef.key, lat: lat, lng: lng)
+    let listIt = ListItem(itemTitle: itemTitle, address: address, key: listItemRef.key, lat: lat, lng: lng, isChecked: false)
         
         completion(listIt)
     }

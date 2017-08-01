@@ -138,7 +138,7 @@ class AddLocationMapViewController: UIViewController, UITextFieldDelegate
         UserDefaults.standard.set(locationName.text, forKey: "locationName")
             
         let place = Places(formatted_Address: locationAddress.text!, lat: lat, lng: long, name: locationName.text!)
-        ListItemService.makeListItems(current!, catID: arrayOfCategories[arrayOfCategories.count-1].key, lat: lat, lng: long, itemTitle: locationName.text!, address: locationAddress.text!, completion:  { (listItem) in
+        ListItemService.makeListItems(current!, catID: arrayOfCategories[arrayOfCategories.count-1].key, lat: lat, lng: long, isChecked: false, itemTitle: locationName.text!, address: locationAddress.text!, completion:  { (listItem) in
                 arrayOfListItems2.append(listItem!)
             })
             }
