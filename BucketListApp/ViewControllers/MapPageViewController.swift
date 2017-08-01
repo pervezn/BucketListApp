@@ -51,8 +51,8 @@ class MapPageViewController: UIViewController {
         menu = buildDummyDefaultMenu()
         
        
-        print("\n\nFrame", menu?.frame ?? "no value")
-        print("\n\nFrame", view.frame ?? "no value")
+       // print("\n\nFrame", menu?.frame ?? "no value")
+        //print("\n\nFrame", view.frame ?? "no value")
 
 
         
@@ -99,7 +99,7 @@ class MapPageViewController: UIViewController {
             ListItemService.showListItems(current!, catID: arrayOfCategories[0].key) { (listItem) in
                 if let liIt = listItem {
                     self.pinArray = liIt
-                    print("pinArray in completion is: \(self.pinArray.count)")
+                    //print("pinArray in completion is: \(self.pinArray.count)")
                     for i in 0...self.pinArray.count - 1 {
                         let location: CLLocationCoordinate2D = CLLocationCoordinate2DMake(self.pinArray[i].lat , self.pinArray[i].lng)
                         let annotation = MKPointAnnotation()
@@ -121,13 +121,14 @@ class MapPageViewController: UIViewController {
         }
     }
 
-//    func showDropdown() {
-//        if (self.menu?.isDescendant(of: self.view) == true) {
-//            self.menu?.hideMenu()
-//        } else {
-//            self.menu?.showMenuFromView(self.view)
-//        }
-//    }
+    func removeAllAnnotations() {
+        print("in remove")
+        for annotation in self.mapView.annotations {
+            self.mapView.removeAnnotation(annotation)
+            print("in for loop")
+        }
+        print("mapView annotations are: \(self.mapView.annotations)")
+    }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
@@ -183,11 +184,14 @@ extension MapPageViewController {
             //self?.pushNewViewController(titleArray[indexPath.row])
             var pinArray = [ListItem]()
              let current = Auth.auth().currentUser
-            print("indePath.row is: \(indexPath.row)")
+           // print("indePath.row is: \(indexPath.row)")
             ListItemService.showListItems(current!, catID: arrayOfCategories[indexPath.row - 1].key) { (listItem) in
+                print("before reomve")
+                self?.removeAllAnnotations()
+                print("after remove")
                 if let liIt = listItem {
                     self?.pinArray = liIt
-                    print("pinArray in completion is: \(self?.pinArray.count)")
+                  //  print("pinArray in completion is: \(self?.pinArray.count)")
                     for i in 0...(self?.pinArray.count)! - 1 {
                         let location: CLLocationCoordinate2D = CLLocationCoordinate2DMake(self!.pinArray[i].lat , self!.pinArray[i].lng)
                         let annotation = MKPointAnnotation()
