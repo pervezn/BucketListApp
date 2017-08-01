@@ -9,13 +9,13 @@
 import UIKit
 
 
-//protocol ViewCategoryCellDelegate: class {
-//    func didTapCompleteButton(_ completeButton: UIButton, on cell: ViewCategoryTableViewCell)
-//}
+protocol ViewCategoryCellDelegate: class {
+    func didTapCompleteButton(_ completeButton: UIButton, on cell: ViewCategoryTableViewCell)
+}
 
 class ViewCategoryTableViewCell: UITableViewCell {
 
-    //weak var delegate: ViewCategoryCellDelegate?
+    weak var delegate: ViewCategoryCellDelegate?
     
     @IBOutlet weak var completeButton: UIButton!
     @IBOutlet weak var itemLabel: UILabel!
@@ -25,13 +25,7 @@ class ViewCategoryTableViewCell: UITableViewCell {
 
     
     @IBAction func completeButtonPressed(_ sender: UIButton) {
-      // delegate?.didTapCompleteButton(sender, on: self)
-        //print("complete button pressed")
-        if completeButton.currentImage == UIImage(named: "Icon-60") {
-            completeButton.setImage(UIImage(named: "gIcon-60.png"), for: .normal)
-        } else {
-            completeButton.setImage(UIImage(named: "Icon-60.png"), for: .normal)
-        }
+       delegate?.didTapCompleteButton(sender, on: self)
         
     }
     

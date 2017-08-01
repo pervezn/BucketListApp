@@ -461,10 +461,10 @@
             </objects>
             <point key="canvasLocation" x="-3066.4000000000001" y="3216.3418290854574"/>
         </scene>
-        <!--viewCatergory-->
+        <!--View Category Table View Controller-->
         <scene sceneID="vcO-Sx-6vc">
             <objects>
-                <tableViewController title="viewCatergory" id="4F4-mc-jqu" customClass="ViewCategoryTableViewController" customModule="BucketListApp" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="4F4-mc-jqu" customClass="ViewCategoryTableViewController" customModule="BucketListApp" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="71" sectionHeaderHeight="28" sectionFooterHeight="28" id="Ccn-Qq-p1c">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -532,7 +532,6 @@
                             <outlet property="delegate" destination="4F4-mc-jqu" id="1xn-UI-DW4"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Title" id="btr-cV-eBH"/>
                     <connections>
                         <outlet property="viewTableView" destination="Ccn-Qq-p1c" id="Rye-6L-zD9"/>
                     </connections>

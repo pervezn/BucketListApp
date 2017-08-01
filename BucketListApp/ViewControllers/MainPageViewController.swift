@@ -109,6 +109,8 @@ class MainPageViewController: UIViewController, UICollectionViewDelegate, UIColl
                     }
                 }
                 
+                viewCategory.title = currentCategory.categoryTitle
+                print("currentCategory.categoryTitle is: \(currentCategory.categoryTitle)")
                 
                 ListItemService.showListItems(current!, catID: currentCategory.key) { (listItem) in
                     if let liIt = listItem {

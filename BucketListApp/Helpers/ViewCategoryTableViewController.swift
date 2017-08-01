@@ -11,7 +11,7 @@ import FirebaseAuth
 import FirebaseAuthUI
 import Firebase
 
-class ViewCategoryTableViewController: UITableViewController{
+class ViewCategoryTableViewController: UITableViewController  {
 
     var currentCategory : Category?
     
@@ -23,6 +23,7 @@ class ViewCategoryTableViewController: UITableViewController{
     
         //print("in ViewDidLoad")
     
+        
         
         viewTableView.delegate = self
         viewTableView.dataSource = self
@@ -54,17 +55,17 @@ class ViewCategoryTableViewController: UITableViewController{
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
       
         return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
+       
         print("Array count: \(arrayOfListItems2.count)")
        
         return arrayOfListItems2.count
     }
+    
     func removeListItem(category: Category, listItem: ListItem) {
         
         let current = Auth.auth().currentUser
@@ -90,10 +91,46 @@ class ViewCategoryTableViewController: UITableViewController{
         
         cell.itemLabel.text = arrayOfListItems2[indexPath.row].itemTitle
         cell.itemAddress.text = arrayOfListItems2[indexPath.row].address
-    
-       // print("collectionIndex is: \(collectionIndex)")
+        cell.delegate = self
 
        return cell
    
+    }
+}
+
+extension ViewCategoryTableViewController: ViewCategoryCellDelegate {
+    func didTapCompleteButton(_ completeButton: UIButton, on
+        cell: ViewCategoryTableViewCell) {
+        let current = Auth.auth().currentUser
+        
+        var currentCategory = Category(categoryTitle: "", listItemsArray: [], listItemIDs: [""], key: "")
+        
+        for i in 0...arrayOfCategories.count - 1 {
+            if self.title == arrayOfCategories[i].categoryTitle
+            {
+                currentCategory = arrayOfCategories[i]
+            }
+        }
+    
+        guard let indexPath = viewTableView.indexPath(for: cell)
+            else { return }
+        
+        if completeButton.currentImage == UIImage(named: "Icon-60") {
+            completeButton.setImage(UIImage(named: "gIcon-60.png"), for: .normal)
+            //then isChecked = true
+            //setValue
+            let listItemRef = Database.database().reference().child("listItem").child((current?.uid)!).child(currentCategory.key).child(arrayOfListItems2[indexPath.row].key).child("complete?")
+            //arrayOfListItems2[indexPath.row].isChecked = true
+            listItemRef.setValue(true)
+            
+        } else {
+            completeButton.setImage(UIImage(named: "Icon-60.png"), for: .normal)
+            //then isChecked = false
+            //setValue
+            let listItemRef = Database.database().reference().child("listItem").child((current?.uid)!).child(currentCategory.key).child(arrayOfListItems2[indexPath.row].key).child("complete?")
+             //arrayOfListItems2[indexPath.row].isChecked = false
+            listItemRef.setValue(false)
+        }
+
     }
 }
