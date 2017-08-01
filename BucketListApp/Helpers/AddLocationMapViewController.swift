@@ -129,22 +129,25 @@ class AddLocationMapViewController: UIViewController, UITextFieldDelegate
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-       
+        print("in prepare segue")
         if segue.identifier == "unwindToNewCategoryTableViewController" {
             if locationName.text == "" {
                 createAlert(title: "WARNING", messege: "Must have a name.")
             } else {
-        let current = Auth.auth().currentUser
-        UserDefaults.standard.set(locationName.text, forKey: "locationName")
-            
-        let place = Places(formatted_Address: locationAddress.text!, lat: lat, lng: long, name: locationName.text!)
-        ListItemService.makeListItems(current!, catID: arrayOfCategories[arrayOfCategories.count-1].key, lat: lat, lng: long, isChecked: false, itemTitle: locationName.text!, address: locationAddress.text!, completion:  { (listItem) in
-                arrayOfListItems2.append(listItem!)
-            })
+                let current = Auth.auth().currentUser
+                UserDefaults.standard.set(locationName.text, forKey: "locationName")
+                arrayOfListItems2.removeAll()
+                //let place = Places(formatted_Address: locationAddress.text!, lat: lat, lng: long, name: locationName.text!)
+                ListItemService.makeListItems(current!, catID: arrayOfCategories[arrayOfCategories.count-1].key, lat: lat, lng: long, isChecked: false, itemTitle: locationName.text!, address: locationAddress.text!, completion:  { (listItem) in
+                    arrayOfListItems2.append(listItem!)
+                    print(listItem?.itemTitle)
+                    print(arrayOfListItems2.count)
+                    print("item appeneded")
+                })
             }
         }
     }
-
+    
 }
 
 extension AddLocationMapViewController: GMSAutocompleteResultsViewControllerDelegate {

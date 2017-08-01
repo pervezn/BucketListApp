@@ -90,6 +90,13 @@ class NewCategoryTableViewController: UIViewController, UITableViewDelegate, UIT
         //if indexPath.section == 0
       //  {
         let cell = tableView.dequeueReusableCell(withIdentifier: "newTableViewCell", for: indexPath) as! NewTableViewCell
+        print("arrayOfListItems2.count is: \(arrayOfListItems2.count)")
+        print("indePath.row is: \(indexPath.row)")
+    
+        print("cell.locationAddressDisplay.text is: \(cell.locationAddressDisplay.text)")
+        
+        print("arrayOfListItems2[indexPath.row].address is: \(arrayOfListItems2[indexPath.row].itemTitle)")
+        
         cell.locationAddressDisplay.text = arrayOfListItems2[indexPath.row].address //locAddress
         cell.locationNameDisplay.text = arrayOfListItems2[indexPath.row].itemTitle  //locName
         
@@ -108,7 +115,6 @@ class NewCategoryTableViewController: UIViewController, UITableViewDelegate, UIT
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        arrayOfListItems2 = []
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

@@ -183,11 +183,18 @@
                                             <rect key="frame" x="0.0" y="0.0" width="118" height="118"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1aW-yG-byL">
-                                                    <rect key="frame" x="0.0" y="-18" width="118" height="136"/>
-                                                    <fontDescription key="fontDescription" name="HelveticaNeue-UltraLight" family="Helvetica Neue" pointSize="90"/>
-                                                    <state key="normal" title="+">
-                                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1aW-yG-byL">
+                                                    <rect key="frame" x="0.0" y="0.0" width="118" height="118"/>
+                                                    <state key="normal">
+                                                        <attributedString key="attributedTitle">
+                                                            <fragment content="+">
+                                                                <attributes>
+                                                                    <color key="NSColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                    <font key="NSFont" size="90" name="HelveticaNeue-UltraLight"/>
+                                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="2" tighteningFactorForTruncation="0.0"/>
+                                                                </attributes>
+                                                            </fragment>
+                                                        </attributedString>
                                                     </state>
                                                     <connections>
                                                         <action selector="addButtonTapped:" destination="llp-ml-4rJ" eventType="touchUpInside" id="Qzc-Rt-eDR"/>
@@ -232,7 +239,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="GPL-gR-dpk" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Home" image="tab_home_black" selectedImage="tab_home_black" id="Y50-Xo-UiI"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="uej-Nl-FNA">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="uej-Nl-FNA">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -545,7 +552,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="87e-7o-9e7" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Map" image="iconmonstr-map-9-32" selectedImage="iconmonstr-map-9-32" id="h9l-OA-UK6"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="vTM-hI-rF2">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="vTM-hI-rF2">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
