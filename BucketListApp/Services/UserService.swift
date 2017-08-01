@@ -20,7 +20,7 @@ struct UserService {
         ref.setValue(userAttrs) { (error, ref) in
             if let error = error {
                 assertionFailure(error.localizedDescription)
-                print("in error")
+               // print("in error")
                 return completion(nil)
             }
             

@@ -46,7 +46,7 @@ class AddLocationMapViewController: UIViewController, UITextFieldDelegate
         
         self.locationName.delegate = self
         
-        let controller = GooglePlacesSearchController(apiKey: googleSearchPlacesAPIKey, placeType: PlaceType.address)
+        let controller = GooglePlacesSearchController(apiKey: googleSearchPlacesAPIKey, placeType: PlaceType.all)
       /*  if locationAddress.text != nil {
             print("1: contatines a value!")
         } else {

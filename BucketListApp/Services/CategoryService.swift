@@ -47,7 +47,7 @@ struct CategoryService {
                 else { return completion([]) }
             
             var emptyArray = [Category]()
-            print(snapshot.count)
+            //print(snapshot.count)
             for eachCat in snapshot {
                 if let category = Category(snapshot: eachCat) {
                 emptyArray.append(category)
@@ -85,7 +85,7 @@ struct CategoryService {
             if let dict = snapshot.value as? [String : Any],
             let categories = dict["categories"] as? [String],
             let username = dict["username"] as? String {
-                print("here 1")
+                //print("here 1")
                 var newArray = [String]()
                 newArray.append(contentsOf: categories)
                 newArray.append(catID)
@@ -103,7 +103,7 @@ struct CategoryService {
                 dict2["username"] = username
                 dict2["categories"] = newArray
                 
-                print("here 2")
+               // print("here 2")
                 
                 userRef.setValue(dict2)
             }

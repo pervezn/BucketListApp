@@ -36,6 +36,7 @@ class NewCategoryTableViewController: UIViewController, UITableViewDelegate, UIT
     var locName : String?
     var locAddress : String?
     var locPlace : Places?
+    var saveProgressStatus = false
     
     var ref: DatabaseReference?
     
@@ -105,14 +106,23 @@ class NewCategoryTableViewController: UIViewController, UITableViewDelegate, UIT
         }*/
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        arrayOfListItems2 = []
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         //, _ firUser: FIRUser
         if let identifier = segue.identifier {
             if identifier == "cancel" {
-                print("Cancel button tapped")
+               // print("Cancel button tapped")
                 
+                if self.saveProgressStatus == true {
+                arrayOfCategories.remove(at: (arrayOfCategories.count - 1))
                 MainPageViewController.removeCategory(category: arrayOfCategories[arrayOfCategories.count - 1])
-                print("arrayOfCategories.count - 1] is: \(arrayOfCategories.count - 1)")
+                //print("arrayOfCategories.count - 1] is: \(arrayOfCategories.count - 1)")
+                }
+                
                 
                 //need to delete the list items still !!!!!!
                 arrayOfListItems2 = []
@@ -170,7 +180,7 @@ class NewCategoryTableViewController: UIViewController, UITableViewDelegate, UIT
     }
     
     @IBAction func pressedAddButton(_ sender: Any) {
-        print("pressed add button")
+       // print("pressed add button")
         
        /* guard let indexPath = newTableView.indexPath(for: cell)
             else { return }
@@ -194,6 +204,7 @@ class NewCategoryTableViewController: UIViewController, UITableViewDelegate, UIT
         self.saveProgressButton.isHidden = true
         self.instructionLabel.isHidden = false
         self.addButton.isHidden = false
+        self.saveProgressStatus = true
         }
     }
 }

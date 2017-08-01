@@ -30,7 +30,7 @@ class CollectionViewCell: UICollectionViewCell {
     }
     
     @IBAction func deleteButtonTapped(_ sender: Any) {
-        print("in delete button tapped")
+        //print("in delete button tapped")
         delegate?.delete(cell: self)
     }
    

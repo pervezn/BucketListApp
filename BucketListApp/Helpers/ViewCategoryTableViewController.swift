@@ -21,8 +21,8 @@ class ViewCategoryTableViewController: UITableViewController  {
     override func viewDidLoad() {
         super.viewDidLoad()
     
-        //print("in ViewDidLoad")
-   // self.viewTableView.separatorStyle = UITableViewCellSeparatorStyle.none
+    //removes tableView Lines
+    self.viewTableView.separatorStyle = UITableViewCellSeparatorStyle.none
         
         
         viewTableView.delegate = self
@@ -61,7 +61,7 @@ class ViewCategoryTableViewController: UITableViewController  {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
        
-        print("Array count: \(arrayOfListItems2.count)")
+       // print("Array count: \(arrayOfListItems2.count)")
        
         return arrayOfListItems2.count
     }

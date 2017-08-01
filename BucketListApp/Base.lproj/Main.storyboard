@@ -264,21 +264,21 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="65" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="H8F-Y9-yOs">
-                                <rect key="frame" x="0.0" y="273" width="375" height="295"/>
+                                <rect key="frame" x="8" y="273" width="359" height="295"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="newTableViewCell" rowHeight="65" id="CwU-tE-h6W" customClass="NewTableViewCell" customModule="BucketListApp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="65"/>
+                                        <rect key="frame" x="0.0" y="28" width="359" height="65"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="CwU-tE-h6W" id="uGX-vl-Iiz" customClass="AddNewTableViewCell" customModule="BucketListApp" customModuleProvider="target">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="64.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="359" height="64.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="mu7-da-pZ4">
-                                                    <rect key="frame" x="8" y="2" width="359" height="53"/>
+                                                    <rect key="frame" x="15" y="3" width="329" height="53"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="locationNameDisplay" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XbF-Np-WhE">
-                                                            <rect key="frame" x="0.0" y="0.0" width="359" height="21"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="329" height="21"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="21" id="akZ-9x-aSX"/>
                                                             </constraints>
@@ -287,7 +287,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="locationAddressDisplay" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="32d-jQ-pax">
-                                                            <rect key="frame" x="0.0" y="33" width="359" height="20"/>
+                                                            <rect key="frame" x="0.0" y="33" width="329" height="20"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -296,10 +296,10 @@
                                                 </stackView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="mu7-da-pZ4" firstAttribute="top" secondItem="uGX-vl-Iiz" secondAttribute="topMargin" constant="-6" id="HIy-4U-f7C"/>
-                                                <constraint firstItem="mu7-da-pZ4" firstAttribute="leading" secondItem="uGX-vl-Iiz" secondAttribute="leading" constant="8" id="WIQ-FI-Nsl"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="mu7-da-pZ4" secondAttribute="bottom" constant="1.5" id="Y98-ri-b71"/>
-                                                <constraint firstAttribute="trailing" secondItem="mu7-da-pZ4" secondAttribute="trailing" constant="8" id="ewu-lY-xWv"/>
+                                                <constraint firstItem="mu7-da-pZ4" firstAttribute="leading" secondItem="uGX-vl-Iiz" secondAttribute="leading" constant="15" id="FS2-Qw-ofn"/>
+                                                <constraint firstItem="mu7-da-pZ4" firstAttribute="top" secondItem="uGX-vl-Iiz" secondAttribute="topMargin" constant="-5" id="HIy-4U-f7C"/>
+                                                <constraint firstAttribute="trailing" secondItem="mu7-da-pZ4" secondAttribute="trailing" constant="15" id="RKA-4c-F0C"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="mu7-da-pZ4" secondAttribute="bottom" constant="0.5" id="Y98-ri-b71"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -321,36 +321,36 @@
                                     <segue destination="0XZ-gB-OZC" kind="show" id="Xjk-oH-s73"/>
                                 </connections>
                             </button>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Press the + Button to Add Locations!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TnG-ia-sb7">
+                                <rect key="frame" x="50" y="202" width="276" height="21"/>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sre-Wc-5WT">
-                                <rect key="frame" x="121" y="146" width="103" height="30"/>
-                                <state key="normal" title="Save Progress!"/>
+                                <rect key="frame" x="168.5" y="157" width="37" height="30"/>
+                                <state key="normal" title="Next!"/>
                                 <connections>
                                     <action selector="pressedSaveProgressButton:" destination="9NQ-Bt-MaH" eventType="touchUpInside" id="rrA-Mr-HHt"/>
                                 </connections>
                             </button>
-                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Press the + to add some fun Places!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TnG-ia-sb7">
-                                <rect key="frame" x="50" y="176" width="275" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="Grv-QE-sa8" firstAttribute="centerX" secondItem="H8F-Y9-yOs" secondAttribute="centerX" id="2e4-6H-SfE"/>
+                            <constraint firstItem="H8F-Y9-yOs" firstAttribute="leading" secondItem="b6b-hy-jJO" secondAttribute="leading" constant="8" id="B1T-HV-dL4"/>
                             <constraint firstItem="TnG-ia-sb7" firstAttribute="leading" secondItem="b6b-hy-jJO" secondAttribute="leadingMargin" constant="34" id="BPX-Qk-L9e"/>
                             <constraint firstItem="IzE-Nb-hfw" firstAttribute="top" secondItem="H8F-Y9-yOs" secondAttribute="bottom" id="EBh-Vf-Z1U"/>
                             <constraint firstItem="IzE-Nb-hfw" firstAttribute="leading" secondItem="b6b-hy-jJO" secondAttribute="leadingMargin" id="FUE-34-WNo"/>
-                            <constraint firstItem="Sre-Wc-5WT" firstAttribute="top" secondItem="Grv-QE-sa8" secondAttribute="bottom" constant="18" id="Ia5-cD-ggG"/>
+                            <constraint firstItem="Sre-Wc-5WT" firstAttribute="top" secondItem="Grv-QE-sa8" secondAttribute="bottom" constant="29" id="Ia5-cD-ggG"/>
+                            <constraint firstAttribute="trailing" secondItem="H8F-Y9-yOs" secondAttribute="trailing" constant="8" id="T5K-j2-eyG"/>
                             <constraint firstItem="Grv-QE-sa8" firstAttribute="leading" secondItem="b6b-hy-jJO" secondAttribute="leadingMargin" constant="-8" id="Vaq-Fn-Q1v"/>
-                            <constraint firstItem="Sre-Wc-5WT" firstAttribute="leading" secondItem="b6b-hy-jJO" secondAttribute="leading" constant="121" id="Zqm-Og-auu"/>
-                            <constraint firstAttribute="trailing" secondItem="H8F-Y9-yOs" secondAttribute="trailing" id="cHq-BS-Xsu"/>
-                            <constraint firstItem="H8F-Y9-yOs" firstAttribute="top" secondItem="Sre-Wc-5WT" secondAttribute="bottom" constant="97" id="e7i-Sq-xbc"/>
+                            <constraint firstItem="H8F-Y9-yOs" firstAttribute="top" secondItem="Sre-Wc-5WT" secondAttribute="bottom" constant="86" id="e7i-Sq-xbc"/>
                             <constraint firstItem="Grv-QE-sa8" firstAttribute="top" secondItem="HdN-JW-Jx0" secondAttribute="bottom" constant="34" id="eE2-fF-AlO"/>
-                            <constraint firstItem="H8F-Y9-yOs" firstAttribute="leading" secondItem="b6b-hy-jJO" secondAttribute="leading" id="htc-Jb-u4G"/>
-                            <constraint firstItem="TnG-ia-sb7" firstAttribute="top" secondItem="Sre-Wc-5WT" secondAttribute="bottom" id="kAu-z1-pHR"/>
+                            <constraint firstItem="TnG-ia-sb7" firstAttribute="top" secondItem="Sre-Wc-5WT" secondAttribute="bottom" constant="15" id="kAu-z1-pHR"/>
+                            <constraint firstItem="Sre-Wc-5WT" firstAttribute="centerX" secondItem="TnG-ia-sb7" secondAttribute="centerX" constant="-1" id="nbd-uW-L7f"/>
                             <constraint firstItem="H8F-Y9-yOs" firstAttribute="centerX" secondItem="IzE-Nb-hfw" secondAttribute="centerX" id="tuC-P8-1b5"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="TnG-ia-sb7" secondAttribute="trailing" constant="34" id="uN5-tO-Hl4"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="TnG-ia-sb7" secondAttribute="trailing" constant="33" id="uN5-tO-Hl4"/>
                             <constraint firstItem="IzE-Nb-hfw" firstAttribute="bottom" secondItem="Kgq-UB-V0b" secondAttribute="top" id="zGW-tc-Nhc"/>
                         </constraints>
                     </view>

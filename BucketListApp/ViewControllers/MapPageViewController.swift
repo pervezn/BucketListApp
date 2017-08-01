@@ -48,7 +48,6 @@ class MapPageViewController: UIViewController {
         
         navigationItem.rightBarButtonItem = button
         
-        menu = buildDummyDefaultMenu()
         
        
        // print("\n\nFrame", menu?.frame ?? "no value")
@@ -122,12 +121,18 @@ class MapPageViewController: UIViewController {
     }
 
     func removeAllAnnotations() {
-        print("in remove")
+        //print("in remove")
         for annotation in self.mapView.annotations {
             self.mapView.removeAnnotation(annotation)
-            print("in for loop")
+            //print("in for loop")
         }
-        print("mapView annotations are: \(self.mapView.annotations)")
+        //print("mapView annotations are: \(self.mapView.annotations)")
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        menu = buildDummyDefaultMenu()
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -168,7 +173,7 @@ extension MapPageViewController {
      - returns: The dummy menu
      */
     fileprivate func buildDummyDefaultMenu() -> AZDropdownMenu {
-        var titleArray = [""]
+        var titleArray = [String]()
         
         for i in 0...arrayOfCategories.count - 1 {
             titleArray.append(arrayOfCategories[i].categoryTitle)
@@ -178,8 +183,6 @@ extension MapPageViewController {
         menu.itemFontSize = 16.0
         menu.itemFontName = "Helvetica"
         menu.translatesAutoresizingMaskIntoConstraints = true
-//        menu.frame.offsetBy(dx: 0, dy: 100)
-//        menu.autoresizingMask
         menu.cellTapHandler = { [weak self] (indexPath: IndexPath) -> Void in
             //self?.pushNewViewController(titleArray[indexPath.row])
             var pinArray = [ListItem]()
@@ -200,7 +203,7 @@ extension MapPageViewController {
                         self?.mapView.addAnnotation(annotation)
                     }
                     self?.reloadInputViews()
-                    print("arrayOfCategories.count is: \(arrayOfCategories.count)")
+                   // print("arrayOfCategories.count is: \(arrayOfCategories.count)")
                 }
             }
         }

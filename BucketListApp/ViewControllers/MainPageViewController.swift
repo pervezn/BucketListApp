@@ -17,7 +17,7 @@ var arrayOfCategories: [Category] = []
 
 class MainPageViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
-    
+
     
     @IBOutlet weak var collectionView: UICollectionView!
     var numberOfCollection1 = arrayOfCategories.count + 1
@@ -110,7 +110,7 @@ class MainPageViewController: UIViewController, UICollectionViewDelegate, UIColl
                 }
                 
                 viewCategory.title = currentCategory.categoryTitle
-                print("currentCategory.categoryTitle is: \(currentCategory.categoryTitle)")
+               // print("currentCategory.categoryTitle is: \(currentCategory.categoryTitle)")
                 
                 ListItemService.showListItems(current!, catID: currentCategory.key) { (listItem) in
                     if let liIt = listItem {
@@ -187,11 +187,21 @@ class MainPageViewController: UIViewController, UICollectionViewDelegate, UIColl
         catRef2.removeValue()
        
     }
-    func createAlert(title: String, messege: String) {
-        let alert = UIAlertController(title: title, message: messege, preferredStyle: UIAlertControllerStyle.alert)
+    
+}
+
+extension MainPageViewController: CollectionViewDelegate {
+    func delete(cell: CollectionViewCell) {
+        let alert = UIAlertController(title: "Warning", message: "Are you sure you want to delete this list?", preferredStyle: UIAlertControllerStyle.alert)
         
         alert.addAction(UIAlertAction(title: "Yes", style: UIAlertActionStyle.destructive, handler: { (action) in
             //somehow delete stuff!!
+            if let indexPath = self.collectionView?.indexPath(for: cell) {
+                
+                MainPageViewController.removeCategory(category: arrayOfCategories[indexPath.item])
+                arrayOfCategories.remove(at: indexPath.item)
+                self.collectionView.reloadData()
+            }
         }))
         
         alert.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.default, handler: { (action) in
@@ -199,18 +209,6 @@ class MainPageViewController: UIViewController, UICollectionViewDelegate, UIColl
         }))
         
         self.present(alert, animated: true, completion: nil)
-    }
-}
-
-extension MainPageViewController: CollectionViewDelegate {
-    func delete(cell: CollectionViewCell) {
-        createAlert(title: "WARNING!", messege: "Are you sure you want to delete this list?")
-        
-        if let indexPath = collectionView?.indexPath(for: cell) {
-            MainPageViewController.removeCategory(category: arrayOfCategories[indexPath.item])
-            arrayOfCategories.remove(at: indexPath.item)
-            collectionView.reloadData()
-        }
         
     }
 }
