@@ -20,7 +20,7 @@ var arrayOfListItems2: [ListItem] = []
 
 var listItemIDsArray: [String] = []
 
-class NewCategoryTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class NewCategoryTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource,UITextFieldDelegate {
     
     
     @IBOutlet weak var addButton: UIButton!
@@ -44,6 +44,7 @@ class NewCategoryTableViewController: UIViewController, UITableViewDelegate, UIT
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.categoryNameTextField.delegate = self
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
         
@@ -108,7 +109,10 @@ class NewCategoryTableViewController: UIViewController, UITableViewDelegate, UIT
         //, _ firUser: FIRUser
         if let identifier = segue.identifier {
             if identifier == "cancel" {
-               // print("Cancel button tapped")
+                print("Cancel button tapped")
+                MainPageViewController.removeCategory(category: arrayOfCategories[arrayOfCategories.count - 1])
+                //need to delete the list items still !!!!!!
+                arrayOfListItems2 = []
             } else if identifier == "save" {
                //print("Save button tapped")
         
@@ -121,9 +125,9 @@ class NewCategoryTableViewController: UIViewController, UITableViewDelegate, UIT
         
        locName = UserDefaults.standard.string(forKey: "locationName")
        locAddress = UserDefaults.standard.string(forKey: "locationAddress")
-       print("UserDefault LocationName: \(UserDefaults.standard.string(forKey: "locationName"))")
-        print("locName is: \(locName)")
-        print("locAddress is: \(locAddress)")
+   //    print("UserDefault LocationName: \(UserDefaults.standard.string(forKey: "locationName"))")
+    //    print("locName is: \(locName)")
+ //       print("locAddress is: \(locAddress)")
 
         newTableView.reloadData()
         
@@ -142,6 +146,26 @@ class NewCategoryTableViewController: UIViewController, UITableViewDelegate, UIT
         }
     }
     
+    func createAlert(title: String, messege: String) {
+        let alert = UIAlertController(title: title, message: messege, preferredStyle: UIAlertControllerStyle.alert)
+        
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: { (action) in alert.dismiss(animated: true, completion: nil)
+        }))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+        self.newTableView.endEditing(true) //why doesn't this work?
+        
+    }
+
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        categoryNameTextField.resignFirstResponder()
+        return(true)
+    }
+    
     @IBAction func pressedAddButton(_ sender: Any) {
         print("pressed add button")
         
@@ -150,13 +174,15 @@ class NewCategoryTableViewController: UIViewController, UITableViewDelegate, UIT
         
         arrayOfListItems.insert("added", at: indexPath.row)
         self.newTableView.reloadData()*/
-        arrayOfListItems.append("added")
+        //arrayOfListItems.append("added")
         self.newTableView.reloadData()
     }
     
     @IBAction func pressedSaveProgressButton(_ sender: Any) {
         let current = Auth.auth().currentUser
-        
+        if categoryNameTextField.text == "" {
+            createAlert(title: "WARNING", messege: "Must have a list title.")
+        } else {
         CategoryService.makeCategory(current!, catTitle: categoryNameTextField.text!, completion: { (category) in
             arrayOfCategories.append(category!)
             //print("\(category)")
@@ -165,6 +191,7 @@ class NewCategoryTableViewController: UIViewController, UITableViewDelegate, UIT
         self.saveProgressButton.isHidden = true
         self.instructionLabel.isHidden = false
         self.addButton.isHidden = false
+        }
     }
 }
 extension NewCategoryTableViewController: AddNewCellDelegate {

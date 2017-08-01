@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Foundation
 import FirebaseAuthUI
 import FirebaseAuth
 import FirebaseDatabase
@@ -49,7 +50,7 @@ class MainPageViewController: UIViewController, UICollectionViewDelegate, UIColl
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if section == 0 {
-            print("arrayOfCategories.count in numberOfItemsInSection is: \(arrayOfCategories.count)")
+           // print("arrayOfCategories.count in numberOfItemsInSection is: \(arrayOfCategories.count)")
             return arrayOfCategories.count
         } else {
             return 1
@@ -71,6 +72,9 @@ class MainPageViewController: UIViewController, UICollectionViewDelegate, UIColl
             cell.deleteButtonBackgroundView.layer.masksToBounds = true
             cell.deleteButtonBackgroundView.isHidden = !isEditing
             cell.titleButton.setTitle(arrayOfCategories[indexPath.row].categoryTitle, for: [])
+            cell.titleButton.titleLabel?.numberOfLines = 0; // Dynamic number of lines
+           // NSLineBreakByWordWrapping = 0
+           // cell.titleButton.titleLabel.lineBreakMode = NSLineBreakByWordWrapping;
             
             
             //print("titleButton.titleLabel.text is: \(cell.titleButton.titleLabel?.text)")
@@ -119,11 +123,11 @@ class MainPageViewController: UIViewController, UICollectionViewDelegate, UIColl
             } else if identifier == "newCategory" {
                 // print("Transitioning to the new Catergory View Controller")
             }
-            else if identifier == "cancel" { //cancel and save do not print
-                //print("Cancel button tapped")
-            } else if identifier == "save" {
-                //print("Save button tapped")
-            }
+//            else if identifier == "cancel" { //cancel and save do not print
+//                //print("Cancel button tapped")
+//            } else if identifier == "save" {
+//                //print("Save button tapped")
+//            }
         }
     }
     
@@ -146,7 +150,7 @@ class MainPageViewController: UIViewController, UICollectionViewDelegate, UIColl
         
     }
     
-    func removeCategory(category: Category) {
+    static func removeCategory(category: Category) {
         let current = Auth.auth().currentUser
        // FIRUser.cre
     
@@ -181,26 +185,31 @@ class MainPageViewController: UIViewController, UICollectionViewDelegate, UIColl
         catRef2.removeValue()
        
     }
+    func createAlert(title: String, messege: String) {
+        let alert = UIAlertController(title: title, message: messege, preferredStyle: UIAlertControllerStyle.alert)
+        
+        alert.addAction(UIAlertAction(title: "Yes", style: UIAlertActionStyle.destructive, handler: { (action) in
+            //somehow delete stuff!!
+        }))
+        
+        alert.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.default, handler: { (action) in
+            alert.dismiss(animated: true, completion: nil)
+        }))
+        
+        self.present(alert, animated: true, completion: nil)
+    }
 }
 
 extension MainPageViewController: CollectionViewDelegate {
     func delete(cell: CollectionViewCell) {
-        //print("in delete function")
+        createAlert(title: "WARNING!", messege: "Are you sure you want to delete this list?")
+        
         if let indexPath = collectionView?.indexPath(for: cell) {
-                    //1. delte the cell from our data source
-            
-            
-            //print("number of items in collectionView is: \(collectionView.numberOfItems(inSection: 0))")
-            removeCategory(category: arrayOfCategories[indexPath.item])
+            MainPageViewController.removeCategory(category: arrayOfCategories[indexPath.item])
             arrayOfCategories.remove(at: indexPath.item)
-            //print("error indexPath is: \(indexPath)")
-            
-            
-            //2. delete the cell from out collection view
             collectionView.reloadData()
-            //print("arrayOfCategories.count in delete is: \(arrayOfCategories.count)")
         }
-         //print("in delete function")
+        
     }
 }
 

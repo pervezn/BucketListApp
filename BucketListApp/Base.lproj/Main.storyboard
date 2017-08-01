@@ -264,7 +264,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="65" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="H8F-Y9-yOs">
-                                <rect key="frame" x="0.0" y="205" width="375" height="363"/>
+                                <rect key="frame" x="0.0" y="273" width="375" height="295"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="newTableViewCell" rowHeight="65" id="CwU-tE-h6W" customClass="NewTableViewCell" customModule="BucketListApp" customModuleProvider="target">
@@ -345,7 +345,7 @@
                             <constraint firstItem="Grv-QE-sa8" firstAttribute="leading" secondItem="b6b-hy-jJO" secondAttribute="leadingMargin" constant="-8" id="Vaq-Fn-Q1v"/>
                             <constraint firstItem="Sre-Wc-5WT" firstAttribute="leading" secondItem="b6b-hy-jJO" secondAttribute="leading" constant="121" id="Zqm-Og-auu"/>
                             <constraint firstAttribute="trailing" secondItem="H8F-Y9-yOs" secondAttribute="trailing" id="cHq-BS-Xsu"/>
-                            <constraint firstItem="H8F-Y9-yOs" firstAttribute="top" secondItem="Sre-Wc-5WT" secondAttribute="bottom" constant="29" id="e7i-Sq-xbc"/>
+                            <constraint firstItem="H8F-Y9-yOs" firstAttribute="top" secondItem="Sre-Wc-5WT" secondAttribute="bottom" constant="97" id="e7i-Sq-xbc"/>
                             <constraint firstItem="Grv-QE-sa8" firstAttribute="top" secondItem="HdN-JW-Jx0" secondAttribute="bottom" constant="34" id="eE2-fF-AlO"/>
                             <constraint firstItem="H8F-Y9-yOs" firstAttribute="leading" secondItem="b6b-hy-jJO" secondAttribute="leading" id="htc-Jb-u4G"/>
                             <constraint firstItem="TnG-ia-sb7" firstAttribute="top" secondItem="Sre-Wc-5WT" secondAttribute="bottom" id="kAu-z1-pHR"/>

@@ -21,7 +21,7 @@ import Firebase
  
 var arrayOfPlaces = [Places]()
 
-class AddLocationMapViewController: UIViewController
+class AddLocationMapViewController: UIViewController, UITextFieldDelegate
 
 {
 
@@ -43,6 +43,8 @@ class AddLocationMapViewController: UIViewController
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.locationName.delegate = self
         
         let controller = GooglePlacesSearchController(apiKey: googleSearchPlacesAPIKey, placeType: PlaceType.address)
       /*  if locationAddress.text != nil {
@@ -74,7 +76,7 @@ class AddLocationMapViewController: UIViewController
             //print(place.description)
             //print(place.formattedAddress)
             self.locationAddress.text = place.formattedAddress
-        
+            self.locationAddress.sizeToFit()
             self.lat = place.coordinate.latitude
             self.long = place.coordinate.longitude
         print("Place latitude coordinate: \(place.coordinate.latitude)")
@@ -109,10 +111,29 @@ class AddLocationMapViewController: UIViewController
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        locationName.resignFirstResponder()
+        return(true)
+    }
+    
+    func createAlert(title: String, messege: String) {
+        let alert = UIAlertController(title: title, message: messege, preferredStyle: UIAlertControllerStyle.alert)
+        
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: { (action) in alert.dismiss(animated: true, completion: nil)
+        }))
+        self.present(alert, animated: true, completion: nil)
+    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
        
         if segue.identifier == "unwindToNewCategoryTableViewController" {
+            if locationName.text == "" {
+                createAlert(title: "WARNING", messege: "Must have a name.")
+            } else {
         let current = Auth.auth().currentUser
         UserDefaults.standard.set(locationName.text, forKey: "locationName")
             
@@ -120,7 +141,7 @@ class AddLocationMapViewController: UIViewController
         ListItemService.makeListItems(current!, catID: arrayOfCategories[arrayOfCategories.count-1].key, lat: lat, lng: long, itemTitle: locationName.text!, address: locationAddress.text!, completion:  { (listItem) in
                 arrayOfListItems2.append(listItem!)
             })
-           // print("arrayOfListItem2 is: \(arrayOfListItems2.count)")
+            }
         }
     }
 

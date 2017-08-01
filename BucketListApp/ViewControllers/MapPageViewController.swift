@@ -186,9 +186,9 @@ extension MapPageViewController {
              let current = Auth.auth().currentUser
            // print("indePath.row is: \(indexPath.row)")
             ListItemService.showListItems(current!, catID: arrayOfCategories[indexPath.row - 1].key) { (listItem) in
-                print("before reomve")
+               
                 self?.removeAllAnnotations()
-                print("after remove")
+               
                 if let liIt = listItem {
                     self?.pinArray = liIt
                   //  print("pinArray in completion is: \(self?.pinArray.count)")
@@ -200,6 +200,7 @@ extension MapPageViewController {
                         self?.mapView.addAnnotation(annotation)
                     }
                     self?.reloadInputViews()
+                    print("arrayOfCategories.count is: \(arrayOfCategories.count)")
                 }
             }
         }
