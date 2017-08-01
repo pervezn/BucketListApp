@@ -47,16 +47,7 @@ class AddLocationMapViewController: UIViewController, UITextFieldDelegate
         self.locationName.delegate = self
         
         let controller = GooglePlacesSearchController(apiKey: googleSearchPlacesAPIKey, placeType: PlaceType.all)
-      /*  if locationAddress.text != nil {
-            print("1: contatines a value!")
-        } else {
-            print("1: does not caontain an Int")
-        }
-        if locationName.text != nil {
-            print("2: contatines a value!")
-        } else {
-            print("2: does not caontain an Int")
-        }*/
+
         
         resultsViewController = GMSAutocompleteResultsViewController()
         resultsViewController?.delegate = self

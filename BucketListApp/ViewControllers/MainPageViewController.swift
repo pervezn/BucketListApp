@@ -124,6 +124,7 @@ class MainPageViewController: UIViewController, UICollectionViewDelegate, UIColl
                 //Work for Thursday!!!
             } else if identifier == "newCategory" {
                 // print("Transitioning to the new Catergory View Controller")
+                arrayOfListItems2.removeAll()
             }
 //            else if identifier == "cancel" { //cancel and save do not print
 //                //print("Cancel button tapped")
