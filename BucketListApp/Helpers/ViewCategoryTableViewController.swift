@@ -22,7 +22,7 @@ class ViewCategoryTableViewController: UITableViewController  {
         super.viewDidLoad()
     
         //print("in ViewDidLoad")
-    
+   // self.viewTableView.separatorStyle = UITableViewCellSeparatorStyle.none
         
         
         viewTableView.delegate = self
@@ -115,21 +115,26 @@ extension ViewCategoryTableViewController: ViewCategoryCellDelegate {
         guard let indexPath = viewTableView.indexPath(for: cell)
             else { return }
         
-        if completeButton.currentImage == UIImage(named: "Icon-60") {
-            completeButton.setImage(UIImage(named: "gIcon-60.png"), for: .normal)
+        if completeButton.currentImage == UIImage(named: "iconmonstr-circle-6-32.png") {
+            completeButton.setImage(UIImage(named: "iconmonstr-circle-1-32.png"), for: .normal)
             //then isChecked = true
             //setValue
             let listItemRef = Database.database().reference().child("listItem").child((current?.uid)!).child(currentCategory.key).child(arrayOfListItems2[indexPath.row].key).child("complete?")
             //arrayOfListItems2[indexPath.row].isChecked = true
             listItemRef.setValue(true)
             
+            cell.itemAddress.textColor = UIColor.gray
+            cell.itemLabel.textColor = UIColor.gray
+            
         } else {
-            completeButton.setImage(UIImage(named: "Icon-60.png"), for: .normal)
+            completeButton.setImage(UIImage(named: "iconmonstr-circle-6-32.png"), for: .normal)
             //then isChecked = false
             //setValue
             let listItemRef = Database.database().reference().child("listItem").child((current?.uid)!).child(currentCategory.key).child(arrayOfListItems2[indexPath.row].key).child("complete?")
              //arrayOfListItems2[indexPath.row].isChecked = false
             listItemRef.setValue(false)
+            cell.itemAddress.textColor = UIColor.black
+            cell.itemLabel.textColor = UIColor.black
         }
 
     }

@@ -215,13 +215,7 @@ extension MainPageViewController: CollectionViewDelegate {
     }
 }
 
-//extension MainPageViewController: ViewCategoryCellDelegate {
-//    func didTapCompleteButton(_ completeButton: UIButton, on cell: ViewCategoryTableViewCell) {
-//        print("did tap complete button")
-//    
-//        
-//    }
-//}
+
 
 
 

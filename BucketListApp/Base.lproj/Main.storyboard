@@ -502,14 +502,13 @@
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="43" id="iY5-wl-YPY"/>
                                             </constraints>
-                                            <state key="normal" image="Icon-60"/>
-                                            <state key="selected" image="gIcon-60"/>
+                                            <state key="normal" image="iconmonstr-circle-6-32"/>
+                                            <state key="selected" image="iconmonstr-circle-1-32"/>
                                             <connections>
                                                 <action selector="completeButtonPressed:" destination="1RH-68-43A" eventType="touchUpInside" id="vw9-7k-AoB"/>
                                             </connections>
                                         </button>
                                     </subviews>
-                                    <color key="backgroundColor" red="0.90264435259999998" green="0.96569136779999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     <constraints>
                                         <constraint firstAttribute="bottomMargin" secondItem="rJC-KI-LoP" secondAttribute="bottom" constant="2.5" id="1CV-ic-Eoi"/>
                                         <constraint firstItem="rsu-ft-XWU" firstAttribute="leading" secondItem="Me8-U5-99k" secondAttribute="leadingMargin" constant="10" id="GeJ-Fv-McM"/>
@@ -563,7 +562,8 @@
     <resources>
         <image name="Icon-60" width="60" height="60"/>
         <image name="download" width="187" height="269"/>
-        <image name="gIcon-60" width="60" height="60"/>
+        <image name="iconmonstr-circle-1-32" width="24" height="24"/>
+        <image name="iconmonstr-circle-6-32" width="24" height="24"/>
         <image name="iconmonstr-map-9-32" width="24" height="24"/>
         <image name="iconmonstr-menu-2-32" width="24" height="24"/>
         <image name="iconmonstr-x-mark-7-12" width="8" height="8"/>

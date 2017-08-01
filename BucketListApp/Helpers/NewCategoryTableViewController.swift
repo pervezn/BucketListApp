@@ -110,7 +110,10 @@ class NewCategoryTableViewController: UIViewController, UITableViewDelegate, UIT
         if let identifier = segue.identifier {
             if identifier == "cancel" {
                 print("Cancel button tapped")
+                
                 MainPageViewController.removeCategory(category: arrayOfCategories[arrayOfCategories.count - 1])
+                print("arrayOfCategories.count - 1] is: \(arrayOfCategories.count - 1)")
+                
                 //need to delete the list items still !!!!!!
                 arrayOfListItems2 = []
             } else if identifier == "save" {
