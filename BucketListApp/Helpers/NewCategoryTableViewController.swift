@@ -108,19 +108,20 @@ class NewCategoryTableViewController: UIViewController, UITableViewDelegate, UIT
         //, _ firUser: FIRUser
         if let identifier = segue.identifier {
             if identifier == "cancel" {
-               // print("Cancel button tapped")
+                // print("Cancel button tapped")
                 
                 if self.saveProgressStatus == true {
-                arrayOfCategories.remove(at: (arrayOfCategories.count - 1))
-                MainPageViewController.removeCategory(category: arrayOfCategories[arrayOfCategories.count - 1])
-                //print("arrayOfCategories.count - 1] is: \(arrayOfCategories.count - 1)")
+                    
+                    MainPageViewController.removeCategory(category: arrayOfCategories[arrayOfCategories.count - 1])
+                    arrayOfCategories.remove(at: (arrayOfCategories.count - 1))
+                    
                 }
                 
                 
                 //need to delete the list items still !!!!!!
                 arrayOfListItems2 = []
             } else if identifier == "save" {
-               //print("Save button tapped")
+                //print("Save button tapped")
         
                 arrayOfListItems2 = []
             } else if identifier == "toAddLocMapView2" {

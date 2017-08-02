@@ -31,7 +31,7 @@ class ViewCategoryTableViewController: UITableViewController  {
         
 //        self.navigationItem.rightBarButtonItem = self.editButtonItem
 //        self.navigationItem.rightBarButtonItems?.append(self.editButtonItem)
-        self.navigationItem.rightBarButtonItems = [self.editButtonItem, self.addListItemButton]
+        self.navigationItem.rightBarButtonItems = [self.editButtonItem, self.addListItemButton] //don't touch
         viewTableView.delegate = self
         viewTableView.dataSource = self
         
@@ -46,8 +46,15 @@ class ViewCategoryTableViewController: UITableViewController  {
         let backgroundImage = UIImage(named: "hotAirBalloon.png")
         let imageView = UIImageView(image: backgroundImage)
         self.tableView.backgroundView = imageView
-        self.addListItemButton.isEnabled = false
-        self.addListItemButton.tintColor = UIColor.clear
+        if isEditing == true {
+            self.addListItemButton.isEnabled = true
+            self.addListItemButton.tintColor = UIColor.blue
+            //this is your problem
+        } else {
+            self.addListItemButton.isEnabled = false
+            self.addListItemButton.tintColor = UIColor.clear
+        }
+    
         
     }
     
@@ -118,14 +125,7 @@ class ViewCategoryTableViewController: UITableViewController  {
         return cell
         
     }
-    
-//    @IBAction func editListItemButtonTapped(_ sender: Any) {
-//        print("editListItemButtonTapped")
-//        
-//        self.addListItemButton.isEnabled = true
-//        self.addListItemButton.tintColor = UIColor.blue
-//        
-//    }
+
     
     override func setEditing (_ editing:Bool, animated:Bool) {
         super.setEditing(editing,animated:animated)
@@ -141,7 +141,6 @@ class ViewCategoryTableViewController: UITableViewController  {
     }
     
     @IBAction func addListItemButtonTapped(_ sender: Any) {
-        
     }
     
     @IBAction func unwindToViewCategoryTableViewController(_ segue: UIStoryboardSegue) {
