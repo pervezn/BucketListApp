@@ -36,6 +36,16 @@ class ViewCategoryTableViewController: UITableViewController  {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        //self.clearsSelectionOnViewWillAppear = self.splitViewController!.isCollapsed
+        super.viewWillAppear(animated)
+        
+        // Add a background view to the table view
+        let backgroundImage = UIImage(named: "hotAirBalloon.png")
+        let imageView = UIImageView(image: backgroundImage)
+        self.tableView.backgroundView = imageView
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -70,14 +80,18 @@ class ViewCategoryTableViewController: UITableViewController  {
         
         let current = Auth.auth().currentUser
         
-         let listItemRef = Database.database().reference().child("listItem").child((current?.uid)!).child(category.key).child(listItem.key)
+        let listItemRef = Database.database().reference().child("listItem").child((current?.uid)!).child(category.key).child(listItem.key)
         
         let listItemRef2 = Database.database().reference().child("category").child((current?.uid)!).child(category.key).child("itemsArray")
-        
-        for i in 0...(currentCategory?.listItemIDs.count)! - 1 {
-            if currentCategory?.listItemIDs[i] == listItem.key {
-                currentCategory?.listItemIDs.remove(at: i)
-                break
+        print("currentCategory.listItemsIDs.count is: \(currentCategory?.listItemIDs.count)")
+        if currentCategory?.listItemIDs.count == 1 {
+            currentCategory?.listItemIDs.remove(at: 0)
+        } else {
+            for i in 0...(currentCategory?.listItemIDs.count)! - 1 {
+                if currentCategory?.listItemIDs[i] == listItem.key {
+                    currentCategory?.listItemIDs.remove(at: i)
+                    break
+                }
             }
         }
         
@@ -123,8 +137,8 @@ extension ViewCategoryTableViewController: ViewCategoryCellDelegate {
             //arrayOfListItems2[indexPath.row].isChecked = true
             listItemRef.setValue(true)
             
-            cell.itemAddress.textColor = UIColor.gray
-            cell.itemLabel.textColor = UIColor.gray
+            cell.itemAddress.textColor = UIColor.darkGray
+            cell.itemLabel.textColor = UIColor.darkGray
             
         } else {
             completeButton.setImage(UIImage(named: "iconmonstr-circle-6-32.png"), for: .normal)
@@ -133,8 +147,8 @@ extension ViewCategoryTableViewController: ViewCategoryCellDelegate {
             let listItemRef = Database.database().reference().child("listItem").child((current?.uid)!).child(currentCategory.key).child(arrayOfListItems2[indexPath.row].key).child("complete?")
              //arrayOfListItems2[indexPath.row].isChecked = false
             listItemRef.setValue(false)
-            cell.itemAddress.textColor = UIColor.black
-            cell.itemLabel.textColor = UIColor.black
+            cell.itemAddress.textColor = UIColor.white
+            cell.itemLabel.textColor = UIColor.white
         }
 
     }

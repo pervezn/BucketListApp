@@ -27,6 +27,7 @@ class AddLocationMapViewController: UIViewController, UITextFieldDelegate
 
    let googleSearchPlacesAPIKey = "AIzaSyAg0qIZOgb4PR8pYdgB1HRZKD2FWJDcG9M"
     
+    @IBOutlet weak var doneButton: UIButton!
     @IBOutlet weak var locationMapView: MKMapView!
     @IBOutlet weak var locationName: UITextField! 
     @IBOutlet weak var locationAddress: UILabel!
@@ -43,6 +44,9 @@ class AddLocationMapViewController: UIViewController, UITextFieldDelegate
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        doneButton.layer.cornerRadius = 3
+        doneButton.clipsToBounds = true
         
         self.locationName.delegate = self
         
@@ -127,13 +131,14 @@ class AddLocationMapViewController: UIViewController, UITextFieldDelegate
             } else {
                 let current = Auth.auth().currentUser
                 UserDefaults.standard.set(locationName.text, forKey: "locationName")
-                arrayOfListItems2.removeAll()
-                //let place = Places(formatted_Address: locationAddress.text!, lat: lat, lng: long, name: locationName.text!)
+                //arrayOfListItems2.removeAll()
+
                 ListItemService.makeListItems(current!, catID: arrayOfCategories[arrayOfCategories.count-1].key, lat: lat, lng: long, isChecked: false, itemTitle: locationName.text!, address: locationAddress.text!, completion:  { (listItem) in
                     arrayOfListItems2.append(listItem!)
                     print(listItem?.itemTitle)
                     print(arrayOfListItems2.count)
                     print("item appeneded")
+                    print("listItemIDs.count is: \(arrayOfCategories[0].listItemIDs)")
                 })
             }
         }

@@ -189,28 +189,32 @@ extension MapPageViewController {
              let current = Auth.auth().currentUser
            // print("indePath.row is: \(indexPath.row)")
             ListItemService.showListItems(current!, catID: arrayOfCategories[indexPath.row].key) { (listItem) in
-               
+               //print("index.row is: \(arrayOfCategories[indexPath.row].key)")
+                
                 self?.removeAllAnnotations()
+                print("removed all Annotations")
                
                 if let liIt = listItem {
                     for item in liIt {
                         pinArray.append(item)
+                        
                     }
                     print("printArray.count 0 is: \(pinArray.count)")
-                  //  print("pinArray in completion is: \(self?.pinArray.count)")
-                    for i in 0...(self?.pinArray.count)! - 1 {
+                   
+                    for i in 0...(pinArray.count) - 1 {
                         print("printArray.count 1 is: \(pinArray.count)")
-                        let location: CLLocationCoordinate2D = CLLocationCoordinate2DMake(self!.pinArray[i].lat , self!.pinArray[i].lng)
+                        let location: CLLocationCoordinate2D = CLLocationCoordinate2DMake(pinArray[i].lat, pinArray[i].lng)
                         let annotation = MKPointAnnotation()
-                        annotation.title = self?.pinArray[i].itemTitle
+                        annotation.title = pinArray[i].itemTitle
                         annotation.coordinate = location
                         self?.mapView.addAnnotation(annotation)
-                        print("printArray.count 2 is: \(pinArray.count)")
+                        print("made annotation")
+                       // print("printArray.count 2 is: \(pinArray.count)")
                     }
                     let span = MKCoordinateSpanMake(0.075, 0.075)
-                    print("printArray.count 3 is: \(pinArray.count)")
-                    print("pinArray[0].lat is: \(pinArray[0].lat)")
-                    print("pinArray[0].lng is: \(pinArray[0].lng)")
+                  //  print("printArray.count 3 is: \(pinArray.count)")
+                  //  print("pinArray[0].lat is: \(pinArray[0].lat)")
+                 //   print("pinArray[0].lng is: \(pinArray[0].lng)")
                     let region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: pinArray[0].lat, longitude: pinArray[0].lng), span: span)
                     self?.mapView.setRegion(region, animated: true)
                     self?.reloadInputViews()

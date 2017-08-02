@@ -83,34 +83,21 @@ class NewCategoryTableViewController: UIViewController, UITableViewDelegate, UIT
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-
-        //var cell = UITableViewCell()
-        
-        //if indexPath.row != arrayOfListItems.count - 1
-        //if indexPath.section == 0
-      //  {
         let cell = tableView.dequeueReusableCell(withIdentifier: "newTableViewCell", for: indexPath) as! NewTableViewCell
-        print("arrayOfListItems2.count is: \(arrayOfListItems2.count)")
-        print("indePath.row is: \(indexPath.row)")
-    
-        print("cell.locationAddressDisplay.text is: \(cell.locationAddressDisplay.text)")
         
-        print("arrayOfListItems2[indexPath.row].address is: \(arrayOfListItems2[indexPath.row].itemTitle)")
+        print("arrayOfListItems2.count is: \(arrayOfListItems2.count)")
+        
+        print("indexPath.row is: \(indexPath.row)")
+    
+       // print("cell.locationAddressDisplay.text is: \(cell.locationAddressDisplay.text)")
+        
+        
+       // print("arrayOfListItems2[indexPath.row].address is: \(arrayOfListItems2[indexPath.row].itemTitle)")
         
         cell.locationAddressDisplay.text = arrayOfListItems2[indexPath.row].address //locAddress
         cell.locationNameDisplay.text = arrayOfListItems2[indexPath.row].itemTitle  //locName
-        
-      //  print("locName in cellForRowAt is: \(locName)")
-      //  print("locAddress in cellForRowAt is: \(locAddress)")
-      //  print("locationAddressDisplay.text is: \(cell.locationAddressDisplay.text)")
-      //  print("lcoationNameDisplay.text is: \(cell.locationNameDisplay.text)")
+     
             return cell
-      /*  } else {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "addNewTableViewCell", for: indexPath) as! AddNewTableViewCell
-            cell.delegate = self
-            return cell
-            
-        }*/
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -222,22 +209,7 @@ extension NewCategoryTableViewController: AddNewCellDelegate {
         guard let indexPath = newTableView.indexPath(for: cell)
             else { return }
       
-        
-//       arrayOfListItems.insert("added", at: indexPath.row)
-//       self.newTableView.reloadData()
-//
         let current = Auth.auth().currentUser
-        
-       //        
-//        let category = Category(snapshot: 
-//        
-//        
-//        for i in category.listItemsIDs {
-//            ListItemService.makeListItems(current!, category.listItemIDs[i], listItemArray: arrayOfListItems2)
-//        }
-//        print("arrayOfListItem2 is: \(arrayOfListItems2)")
-        
+   
     }
-    
-    
 }
