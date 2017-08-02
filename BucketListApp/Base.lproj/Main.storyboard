@@ -331,7 +331,7 @@
                                 </state>
                                 <connections>
                                     <action selector="pressedAddButton:" destination="9NQ-Bt-MaH" eventType="touchUpInside" id="L5u-Yw-9q6"/>
-                                    <segue destination="0XZ-gB-OZC" kind="show" id="Xjk-oH-s73"/>
+                                    <segue destination="0XZ-gB-OZC" kind="show" identifier="toAddLocMapView2" id="Xjk-oH-s73"/>
                                 </connections>
                             </button>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Press the + Button to Add Locations!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TnG-ia-sb7">
@@ -424,18 +424,15 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FE6-mI-LmO">
                                 <rect key="frame" x="32" y="462" width="311" height="57"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="57" id="paf-du-WBo"/>
+                                    <constraint firstAttribute="height" constant="57" id="ELG-YO-ABO"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pE7-WB-BBU">
-                                <rect key="frame" x="151" y="552" width="46" height="30"/>
+                                <rect key="frame" x="151" y="559" width="46" height="30"/>
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="46" id="3TA-fk-Oxm"/>
-                                </constraints>
                                 <state key="normal" title="Done">
                                     <color key="titleColor" red="0.92124342920000002" green="0.89856457710000004" blue="0.8666810989" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
@@ -443,27 +440,44 @@
                                     <segue destination="pn3-cW-RLA" kind="unwind" identifier="unwindToNewCategoryTableViewController" unwindAction="unwindToNewCategoryTableViewController:" id="CxH-8C-9FL"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yPk-cl-6Ry">
+                                <rect key="frame" x="151" y="528" width="46" height="30"/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="46" id="fWT-o4-cot"/>
+                                </constraints>
+                                <state key="normal" title="Done">
+                                    <color key="titleColor" red="0.92124342920000002" green="0.89856457710000004" blue="0.8666810989" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </state>
+                                <connections>
+                                    <segue destination="pn3-cW-RLA" kind="unwind" identifier="unwindToViewCategoryTableViewController" unwindAction="unwindToViewCategoryTableViewController:" id="70b-K9-4bD"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="yqt-Ap-Wyk" firstAttribute="centerX" secondItem="FE6-mI-LmO" secondAttribute="centerX" id="7AK-E8-ata"/>
-                            <constraint firstItem="yvr-1I-meo" firstAttribute="top" secondItem="pE7-WB-BBU" secondAttribute="bottom" constant="41" id="7sg-hP-4nL"/>
-                            <constraint firstItem="qUS-J4-z46" firstAttribute="leading" secondItem="zKA-Fh-Np3" secondAttribute="leadingMargin" constant="18" id="8iD-Sb-GRi"/>
-                            <constraint firstAttribute="trailing" secondItem="yqt-Ap-Wyk" secondAttribute="trailing" id="9rS-OC-7LK"/>
-                            <constraint firstItem="qUS-J4-z46" firstAttribute="trailing" secondItem="FE6-mI-LmO" secondAttribute="trailing" id="AOV-85-oCe"/>
-                            <constraint firstItem="yqt-Ap-Wyk" firstAttribute="top" secondItem="Zpk-4E-u3v" secondAttribute="bottom" id="GpL-7W-uqh"/>
-                            <constraint firstItem="FE6-mI-LmO" firstAttribute="leading" secondItem="zKA-Fh-Np3" secondAttribute="leadingMargin" constant="16" id="N7a-Aq-4dS"/>
-                            <constraint firstItem="FE6-mI-LmO" firstAttribute="top" secondItem="qUS-J4-z46" secondAttribute="bottom" constant="55" id="XjG-Ag-oF7"/>
-                            <constraint firstItem="yqt-Ap-Wyk" firstAttribute="leading" secondItem="zKA-Fh-Np3" secondAttribute="leading" id="ZTQ-ab-J57"/>
-                            <constraint firstItem="qUS-J4-z46" firstAttribute="top" secondItem="yqt-Ap-Wyk" secondAttribute="bottom" constant="45" id="kwb-SS-BgH"/>
-                            <constraint firstItem="pE7-WB-BBU" firstAttribute="top" secondItem="FE6-mI-LmO" secondAttribute="bottom" constant="33" id="tAq-VS-PHN"/>
-                            <constraint firstItem="pE7-WB-BBU" firstAttribute="leading" secondItem="zKA-Fh-Np3" secondAttribute="leading" constant="151" id="uAt-tR-jaa"/>
+                            <constraint firstItem="yqt-Ap-Wyk" firstAttribute="leading" secondItem="zKA-Fh-Np3" secondAttribute="leading" id="2Yo-IC-Zh4"/>
+                            <constraint firstItem="yPk-cl-6Ry" firstAttribute="trailing" secondItem="pE7-WB-BBU" secondAttribute="trailing" id="5tE-FG-FQs"/>
+                            <constraint firstItem="FE6-mI-LmO" firstAttribute="top" secondItem="qUS-J4-z46" secondAttribute="bottom" constant="55" id="6aG-gh-8Lk"/>
+                            <constraint firstItem="FE6-mI-LmO" firstAttribute="leading" secondItem="zKA-Fh-Np3" secondAttribute="leadingMargin" constant="16" id="HCq-61-gVS"/>
+                            <constraint firstItem="yPk-cl-6Ry" firstAttribute="leading" secondItem="zKA-Fh-Np3" secondAttribute="leading" constant="151" id="HCy-3L-qlJ"/>
+                            <constraint firstAttribute="trailing" secondItem="yqt-Ap-Wyk" secondAttribute="trailing" id="Ji4-w0-6X9"/>
+                            <constraint firstItem="qUS-J4-z46" firstAttribute="trailing" secondItem="FE6-mI-LmO" secondAttribute="trailing" id="OQb-1t-IBa"/>
+                            <constraint firstItem="yqt-Ap-Wyk" firstAttribute="top" secondItem="Zpk-4E-u3v" secondAttribute="bottom" id="Pv4-P7-1Pw"/>
+                            <constraint firstItem="yvr-1I-meo" firstAttribute="top" secondItem="pE7-WB-BBU" secondAttribute="bottom" constant="34" id="STd-KQ-FuU"/>
+                            <constraint firstItem="qUS-J4-z46" firstAttribute="leading" secondItem="zKA-Fh-Np3" secondAttribute="leadingMargin" constant="18" id="asa-et-Vzh"/>
+                            <constraint firstItem="yqt-Ap-Wyk" firstAttribute="centerX" secondItem="FE6-mI-LmO" secondAttribute="centerX" id="bqr-nB-omh"/>
+                            <constraint firstItem="pE7-WB-BBU" firstAttribute="top" secondItem="yPk-cl-6Ry" secondAttribute="bottom" constant="1" id="dhm-LL-Pb3"/>
+                            <constraint firstItem="yPk-cl-6Ry" firstAttribute="top" secondItem="FE6-mI-LmO" secondAttribute="bottom" constant="9" id="dyc-vz-Sea"/>
+                            <constraint firstItem="yPk-cl-6Ry" firstAttribute="leading" secondItem="pE7-WB-BBU" secondAttribute="leading" id="gcG-2m-XY9"/>
+                            <constraint firstItem="qUS-J4-z46" firstAttribute="top" secondItem="yqt-Ap-Wyk" secondAttribute="bottom" constant="45" id="t22-cD-8J9"/>
                         </constraints>
                     </view>
                     <toolbarItems/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="doneButton" destination="pE7-WB-BBU" id="GMd-Yr-h7H"/>
+                        <outlet property="doneButton" destination="pE7-WB-BBU" id="1cp-06-Uea"/>
+                        <outlet property="doneButton2" destination="yPk-cl-6Ry" id="LHP-sW-6FX"/>
                         <outlet property="locationAddress" destination="FE6-mI-LmO" id="QcS-3R-4rI"/>
                         <outlet property="locationMapView" destination="yqt-Ap-Wyk" id="NCC-tO-BoD"/>
                         <outlet property="locationName" destination="qUS-J4-z46" id="Wcg-uw-mP8"/>
@@ -483,7 +497,7 @@
             </objects>
             <point key="canvasLocation" x="-3066.4000000000001" y="3216.3418290854574"/>
         </scene>
-        <!--View Category Table View Controller-->
+        <!--Title-->
         <scene sceneID="vcO-Sx-6vc">
             <objects>
                 <tableViewController id="4F4-mc-jqu" customClass="ViewCategoryTableViewController" customModule="BucketListApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -554,7 +568,18 @@
                             <outlet property="delegate" destination="4F4-mc-jqu" id="1xn-UI-DW4"/>
                         </connections>
                     </tableView>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Title" id="LFZ-mt-Ylc">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Yvp-g5-qTc">
+                            <connections>
+                                <action selector="addListItemButtonTapped:" destination="4F4-mc-jqu" id="PUH-Ob-rZ2"/>
+                                <segue destination="0XZ-gB-OZC" kind="show" identifier="toAddLocMapView" id="N9I-jl-iUC"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="addListItemButton" destination="Yvp-g5-qTc" id="Xio-go-oEe"/>
                         <outlet property="viewTableView" destination="Ccn-Qq-p1c" id="Rye-6L-zD9"/>
                     </connections>
                 </tableViewController>
@@ -592,4 +617,7 @@
         <image name="iconmonstr-x-mark-7-12" width="8" height="8"/>
         <image name="tab_home_black" width="25" height="25"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="Xjk-oH-s73"/>
+    </inferredMetricsTieBreakers>
 </document>

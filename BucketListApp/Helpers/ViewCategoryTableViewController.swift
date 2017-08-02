@@ -12,30 +12,32 @@ import FirebaseAuthUI
 import Firebase
 
 class ViewCategoryTableViewController: UITableViewController  {
-
+    
     var currentCategory : Category?
     
     @IBOutlet var viewTableView: UITableView!
+    @IBOutlet weak var addListItemButton: UIBarButtonItem!
     
-//    @IBOutlet var viewTableView: UITableView!
+    
+    var editingItems: Bool = false
+    
+    
+    //    @IBOutlet var viewTableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
-    
-    //removes tableView Lines
-    self.viewTableView.separatorStyle = UITableViewCellSeparatorStyle.none
         
+        //removes tableView Lines
+        self.viewTableView.separatorStyle = UITableViewCellSeparatorStyle.none
         
+//        self.navigationItem.rightBarButtonItem = self.editButtonItem
+//        self.navigationItem.rightBarButtonItems?.append(self.editButtonItem)
+        self.navigationItem.rightBarButtonItems = [self.editButtonItem, self.addListItemButton]
         viewTableView.delegate = self
         viewTableView.dataSource = self
         
         
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
-
+    
     override func viewWillAppear(_ animated: Bool) {
         //self.clearsSelectionOnViewWillAppear = self.splitViewController!.isCollapsed
         super.viewWillAppear(animated)
@@ -44,6 +46,9 @@ class ViewCategoryTableViewController: UITableViewController  {
         let backgroundImage = UIImage(named: "hotAirBalloon.png")
         let imageView = UIImageView(image: backgroundImage)
         self.tableView.backgroundView = imageView
+        self.addListItemButton.isEnabled = false
+        self.addListItemButton.tintColor = UIColor.clear
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -61,18 +66,18 @@ class ViewCategoryTableViewController: UITableViewController  {
             self.viewTableView.reloadData()
         }
     }
-
+    
     // MARK: - Table view data source
-
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
-      
+        
         return 1
     }
-
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-       
-       // print("Array count: \(arrayOfListItems2.count)")
-       
+        
+        // print("Array count: \(arrayOfListItems2.count)")
+        
         return arrayOfListItems2.count
     }
     
@@ -109,10 +114,78 @@ class ViewCategoryTableViewController: UITableViewController  {
         cell.itemLabel.text = arrayOfListItems2[indexPath.row].itemTitle
         cell.itemAddress.text = arrayOfListItems2[indexPath.row].address
         cell.delegate = self
-
-       return cell
-   
+        
+        return cell
+        
     }
+    
+//    @IBAction func editListItemButtonTapped(_ sender: Any) {
+//        print("editListItemButtonTapped")
+//        
+//        self.addListItemButton.isEnabled = true
+//        self.addListItemButton.tintColor = UIColor.blue
+//        
+//    }
+    
+    override func setEditing (_ editing:Bool, animated:Bool) {
+        super.setEditing(editing,animated:animated)
+        if isEditing == false {
+            addListItemButton.isEnabled = editing
+            self.addListItemButton.tintColor = UIColor.clear
+        } else {
+            print("editingItems in the else is:\(editingItems)")
+            
+            self.addListItemButton.isEnabled = !editingItems
+            self.addListItemButton.tintColor = UIColor.blue
+        }
+    }
+    
+    @IBAction func addListItemButtonTapped(_ sender: Any) {
+        
+    }
+    
+    @IBAction func unwindToViewCategoryTableViewController(_ segue: UIStoryboardSegue) {
+        
+        print("here!!!")
+        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toAddLocMapView" {
+            var vc = segue.destination as! AddLocationMapViewController
+            vc.fromNewCategory = false
+        }
+    }
+    
+    //    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    //        if let identifier = segue.identifier {
+    //            if identifier == "newCategory" {
+    //                let newCategory: NewCategoryTableViewController = segue.destination as! NewCategoryTableViewController
+    //
+    //                let current = Auth.auth().currentUser
+    //
+    //                newCategory.categoryNameTextField.text = self.currentCategory?.categoryTitle
+    //
+    //                newCategory.saveProgressButton.isHidden = true
+    //                newCategory.instructionLabel.isHidden = false
+    //                newCategory.addButton.isHidden = false
+    //
+    //                ListItemService.showListItems(current!, catID: (currentCategory?.key)!) { (listItem) in
+    //                    if let liIt = listItem {
+    //                        arrayOfListItems2 = liIt
+    //                        //print("In the main \(arrayOfListItems2.count)")
+    //                        newCategory.newTableView.reloadData()
+    //                        //viewCategory.currentCategory = currentCategory
+    //
+    //                    }
+    //                }
+    //
+    //
+    //            }
+    //        }
+    //    }
+    
+    
 }
 
 extension ViewCategoryTableViewController: ViewCategoryCellDelegate {
@@ -128,7 +201,7 @@ extension ViewCategoryTableViewController: ViewCategoryCellDelegate {
                 currentCategory = arrayOfCategories[i]
             }
         }
-    
+        
         guard let indexPath = viewTableView.indexPath(for: cell)
             else { return }
         
@@ -148,11 +221,11 @@ extension ViewCategoryTableViewController: ViewCategoryCellDelegate {
             //then isChecked = false
             //setValue
             let listItemRef = Database.database().reference().child("listItem").child((current?.uid)!).child(currentCategory.key).child(arrayOfListItems2[indexPath.row].key).child("complete?")
-             //arrayOfListItems2[indexPath.row].isChecked = false
+            //arrayOfListItems2[indexPath.row].isChecked = false
             listItemRef.setValue(false)
             cell.itemAddress.textColor = UIColor.white
             cell.itemLabel.textColor = UIColor.white
         }
-
+        
     }
 }

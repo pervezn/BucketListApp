@@ -123,6 +123,9 @@ class NewCategoryTableViewController: UIViewController, UITableViewDelegate, UIT
                //print("Save button tapped")
         
                 arrayOfListItems2 = []
+            } else if identifier == "toAddLocMapView2" {
+                var vc = segue.destination as! AddLocationMapViewController
+                vc.fromNewCategory = true
             }
         }
     }
