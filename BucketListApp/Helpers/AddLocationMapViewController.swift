@@ -138,7 +138,7 @@ class AddLocationMapViewController: UIViewController, UITextFieldDelegate
                     print(listItem?.itemTitle)
                     print(arrayOfListItems2.count)
                     print("item appeneded")
-                    print("listItemIDs.count is: \(arrayOfCategories[0].listItemIDs)")
+                    //print("listItemIDs.count is: \(arrayOfCategories[0].listItemIDs)")
                 })
             }
         }

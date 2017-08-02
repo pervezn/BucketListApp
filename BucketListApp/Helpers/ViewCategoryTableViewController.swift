@@ -81,13 +81,16 @@ class ViewCategoryTableViewController: UITableViewController  {
         let current = Auth.auth().currentUser
         
         let listItemRef = Database.database().reference().child("listItem").child((current?.uid)!).child(category.key).child(listItem.key)
+        //gets a listItemID
         
         let listItemRef2 = Database.database().reference().child("category").child((current?.uid)!).child(category.key).child("itemsArray")
+        //gets all of the list item IDs for a Category
+        
         print("currentCategory.listItemsIDs.count is: \(currentCategory?.listItemIDs.count)")
         if currentCategory?.listItemIDs.count == 1 {
             currentCategory?.listItemIDs.remove(at: 0)
         } else {
-            for i in 0...(currentCategory?.listItemIDs.count)! - 1 {
+            for i in 0..<(currentCategory?.listItemIDs.count)! {
                 if currentCategory?.listItemIDs[i] == listItem.key {
                     currentCategory?.listItemIDs.remove(at: i)
                     break

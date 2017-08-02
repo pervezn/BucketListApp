@@ -191,7 +191,7 @@ class NewCategoryTableViewController: UIViewController, UITableViewDelegate, UIT
         } else {
         CategoryService.makeCategory(current!, catTitle: categoryNameTextField.text!, completion: { (category) in
             arrayOfCategories.append(category!)
-            //print("\(category)")
+            print("listItemIDs for newly created Category is: \(category?.listItemIDs.count)")
         })
         
         self.saveProgressButton.isHidden = true
