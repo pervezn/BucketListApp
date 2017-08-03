@@ -187,7 +187,7 @@ open class GooglePlacesSearchController: UISearchController, UISearchBarDelegate
         self.searchResultsUpdater = gpaViewController
         self.hidesNavigationBarDuringPresentation = false
 //        self.dimsBackgroundDuringPresentation = false
-        self.searchBar.placeholder = "Enter Address"
+        self.searchBar.placeholder = "Enter Location"
     }
     
     override open var searchBar: UISearchBar {

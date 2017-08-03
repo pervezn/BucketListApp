@@ -76,8 +76,7 @@ class AddLocationMapViewController: UIViewController, UITextFieldDelegate
         // Keep the navigation bar visible.
         
         controller.didSelectGooglePlace { (place) -> Void in //allows you to select a location in the search bar.
-            //print(place.description)
-            //print(place.formattedAddress)
+            
             self.locationAddress.text = place.formattedAddress
             self.locationAddress.sizeToFit()
             self.lat = place.coordinate.latitude
