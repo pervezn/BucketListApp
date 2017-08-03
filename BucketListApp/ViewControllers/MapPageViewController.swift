@@ -20,54 +20,55 @@ import AZDropdownMenu
 
 
 class MapPageViewController: UIViewController {
-
+    
     @IBOutlet weak var mapView: MKMapView!
     
     var menu : AZDropdownMenu?
     
-     var placesClient: GMSPlacesClient!
+    var placesClient: GMSPlacesClient!
     let url = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=landmarks+in+chicago&key=AIzaSyAg0qIZOgb4PR8pYdgB1HRZKD2FWJDcG9M"
     var pinArray = [ListItem]()
-   // var titleArray = [""]
-  
+    // var titleArray = [""]
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-    
         
         
-//        for i in 0...arrayOfCategories.count - 1 {
-//            titleArray.append(arrayOfCategories[i].categoryTitle)
-//        }
         
-         //menu = AZDropdownMenu(titles: titleArray)
-
-       // menu = AZDropdownMenu(titles: titleArray)
+        //        for i in 0...arrayOfCategories.count - 1 {
+        //            titleArray.append(arrayOfCategories[i].categoryTitle)
+        //        }
+        
+        //menu = AZDropdownMenu(titles: titleArray)
+        
+        // menu = AZDropdownMenu(titles: titleArray)
         let button = UIBarButtonItem(image: UIImage(named: "iconmonstr-menu-2-32"), style: .plain, target: self, action: "showDropdown")
         
         navigationItem.rightBarButtonItem = button
         
+        mapView.isZoomEnabled = true
         
-       
-       // print("\n\nFrame", menu?.frame ?? "no value")
+        
+        // print("\n\nFrame", menu?.frame ?? "no value")
         //print("\n\nFrame", view.frame ?? "no value")
-
-
         
         
         
-//        let span:MKCoordinateSpan = MKCoordinateSpanMake(0.1, 0.1)
-//        let location: CLLocationCoordinate2D = CLLocationCoordinate2DMake(41.888543, -87.635444)
-//       // let initialLocation = CLLocation(latitude: 41.888543, longitude: -87.635444) //change this to the person's initial location
-//        let region: MKCoordinateRegion = MKCoordinateRegionMake(location, span)
-//        mapView.setRegion(region, animated: true)
-//        
-//        let annotation = MKPointAnnotation()
-//        
-//        annotation.coordinate = location
-//        annotation.title = "Hello there!"
-//        mapView.addAnnotation(annotation)
+        
+        
+        //        let span:MKCoordinateSpan = MKCoordinateSpanMake(0.1, 0.1)
+        //        let location: CLLocationCoordinate2D = CLLocationCoordinate2DMake(41.888543, -87.635444)
+        //       // let initialLocation = CLLocation(latitude: 41.888543, longitude: -87.635444) //change this to the person's initial location
+        //        let region: MKCoordinateRegion = MKCoordinateRegionMake(location, span)
+        //        mapView.setRegion(region, animated: true)
+        //
+        //        let annotation = MKPointAnnotation()
+        //
+        //        annotation.coordinate = location
+        //        annotation.title = "Hello there!"
+        //        mapView.addAnnotation(annotation)
         
         
         
@@ -85,28 +86,28 @@ class MapPageViewController: UIViewController {
             //print(placesArray)
         }
         
-       
         
-       // centerMapOnLocation(location: location) //right when you open the map it will go to this initial location
-    
+        
+        // centerMapOnLocation(location: location) //right when you open the map it will go to this initial location
+        
         
         
         let current = Auth.auth().currentUser
         
-      //  for i in 0...arrayOfCategories.count - 1 {
-            
-            ListItemService.showListItems(current!, catID: arrayOfCategories[0].key) { (listItem) in
-                if let liIt = listItem {
-                    self.pinArray = liIt
-                    //print("pinArray in completion is: \(self.pinArray.count)")
-                    for i in 0...self.pinArray.count - 1 {
-                        let location: CLLocationCoordinate2D = CLLocationCoordinate2DMake(self.pinArray[i].lat , self.pinArray[i].lng)
-                        let annotation = MKPointAnnotation()
-                        annotation.title = self.pinArray[i].itemTitle
-                        annotation.coordinate = location
-                        self.mapView.addAnnotation(annotation)
-                    }
+        //  for i in 0...arrayOfCategories.count - 1 {
+        
+        ListItemService.showListItems(current!, catID: arrayOfCategories[0].key) { (listItem) in
+            if let liIt = listItem {
+                self.pinArray = liIt
+                //print("pinArray in completion is: \(self.pinArray.count)")
+                for i in 0...self.pinArray.count - 1 {
+                    let location: CLLocationCoordinate2D = CLLocationCoordinate2DMake(self.pinArray[i].lat , self.pinArray[i].lng)
+                    let annotation = MKPointAnnotation()
+                    annotation.title = self.pinArray[i].itemTitle
+                    annotation.coordinate = location
+                    self.mapView.addAnnotation(annotation)
                 }
+            }
             //}
         }
         
@@ -119,7 +120,7 @@ class MapPageViewController: UIViewController {
             self.menu?.showMenuFromView(self.view)
         }
     }
-
+    
     func removeAllAnnotations() {
         //print("in remove")
         for annotation in self.mapView.annotations {
@@ -152,17 +153,21 @@ class MapPageViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
+    
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destinationViewController.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
+    func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
+        
     }
-    */
-
+    
 }
 
 extension MapPageViewController {
@@ -186,14 +191,15 @@ extension MapPageViewController {
         menu.cellTapHandler = { [weak self] (indexPath: IndexPath) -> Void in
             //self?.pushNewViewController(titleArray[indexPath.row])
             var pinArray = [ListItem]()
-             let current = Auth.auth().currentUser
-           // print("indePath.row is: \(indexPath.row)")
+            var pinArray2 = [MKAnnotation]()
+            let current = Auth.auth().currentUser
+            // print("indePath.row is: \(indexPath.row)")
             ListItemService.showListItems(current!, catID: arrayOfCategories[indexPath.row].key) { (listItem) in
-               //print("index.row is: \(arrayOfCategories[indexPath.row].key)")
+                //print("index.row is: \(arrayOfCategories[indexPath.row].key)")
                 
                 self?.removeAllAnnotations()
                 print("removed all Annotations")
-               
+                
                 if let liIt = listItem {
                     for item in liIt {
                         pinArray.append(item)
@@ -203,31 +209,29 @@ extension MapPageViewController {
                     if pinArray.count == 0 {
                         self?.removeAllAnnotations()
                     } else {
-                    for i in 0...(pinArray.count) - 1 {
+                        for i in 0...(pinArray.count) - 1 {
+                            
+                            let location: CLLocationCoordinate2D = CLLocationCoordinate2DMake(pinArray[i].lat, pinArray[i].lng)
+                            let annotation = MKPointAnnotation()
+                            annotation.title = pinArray[i].itemTitle
+                            annotation.coordinate = location
+                            self?.mapView.addAnnotation(annotation)
+                            pinArray2.append(annotation)
+                            
+                        }
                         
-                        let location: CLLocationCoordinate2D = CLLocationCoordinate2DMake(pinArray[i].lat, pinArray[i].lng)
-                        let annotation = MKPointAnnotation()
-                        annotation.title = pinArray[i].itemTitle
-                        annotation.coordinate = location
-                        self?.mapView.addAnnotation(annotation)
-                    
-                       // print("printArray.count 2 is: \(pinArray.count)")
-                    }
-                    let span = MKCoordinateSpanMake(0.075, 0.075)
-                  //  print("printArray.count 3 is: \(pinArray.count)")
-                  //  print("pinArray[0].lat is: \(pinArray[0].lat)")
-                 //   print("pinArray[0].lng is: \(pinArray[0].lng)")
-                    let region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: pinArray[0].lat, longitude: pinArray[0].lng), span: span)
-                    self?.mapView.setRegion(region, animated: true)
+                        self?.mapView.showAnnotations(pinArray2, animated: true)
                     }
                     self?.reloadInputViews()
-                   // print("arrayOfCategories.count is: \(arrayOfCategories.count)")
+                    // print("arrayOfCategories.count is: \(arrayOfCategories.count)")
                 }
             }
         }
-        
         return menu
     }
+    
+    
+    
     
     /**
      Create dummy menu with some custom configuration

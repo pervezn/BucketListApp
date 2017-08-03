@@ -55,7 +55,10 @@ class NewCategoryTableViewController: UIViewController, UITableViewDelegate, UIT
         newTableView.delegate = self
         newTableView.dataSource = self
         
-    
+        self.newTableView.layer.cornerRadius = 10
+        self.newTableView.layer.masksToBounds = true
+        
+    //self.view.backgroundColor = UIColor(patternImage: UIImage(named: "Image"))
         //self.newTableView.register(UITableViewCell.self, forCellReuseIdentifier: "newTableViewCell")
         
     }
@@ -102,6 +105,7 @@ class NewCategoryTableViewController: UIViewController, UITableViewDelegate, UIT
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+       // self.view.backgroundColor = UIColor(patternImage: UIImage(named: "hotAirBalloon.png")!)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

@@ -215,6 +215,14 @@ extension MainPageViewController: CollectionViewDelegate {
     }
 }
 
+extension UIColor
+{
+    class func myGreenColor() -> UIColor
+    {
+        return UIColor(red:0.04, green:0.66, blue:0.47, alpha:1.0)
+    }
+}
+
 
 
 

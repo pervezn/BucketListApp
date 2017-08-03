@@ -28,7 +28,8 @@ class ViewCategoryTableViewController: UITableViewController  {
         
         //removes tableView Lines
         self.viewTableView.separatorStyle = UITableViewCellSeparatorStyle.none
-        
+        self.tableView.layer.cornerRadius = 10
+        self.tableView.layer.masksToBounds = true
 //        self.navigationItem.rightBarButtonItem = self.editButtonItem
 //        self.navigationItem.rightBarButtonItems?.append(self.editButtonItem)
         self.navigationItem.rightBarButtonItems = [self.editButtonItem, self.addListItemButton] //don't touch
@@ -42,10 +43,16 @@ class ViewCategoryTableViewController: UITableViewController  {
         //self.clearsSelectionOnViewWillAppear = self.splitViewController!.isCollapsed
         super.viewWillAppear(animated)
         
+        
+       // self.view.backgroundColor = UIColor(patternImage: UIImage(named: "hotAirBalloon.png")!)
+        
         // Add a background view to the table view
         let backgroundImage = UIImage(named: "hotAirBalloon.png")
+        
         let imageView = UIImageView(image: backgroundImage)
+        imageView.contentMode = UIViewContentMode.scaleAspectFill
         self.tableView.backgroundView = imageView
+        
         if isEditing == true {
             self.addListItemButton.isEnabled = true
             self.addListItemButton.tintColor = UIColor.blue
@@ -122,6 +129,16 @@ class ViewCategoryTableViewController: UITableViewController  {
         cell.itemAddress.text = arrayOfListItems2[indexPath.row].address
         cell.delegate = self
         
+        cell.completeButton.isSelected = arrayOfListItems2[indexPath.row].isChecked
+        
+        if cell.completeButton.isSelected == true { //dark color
+            cell.itemAddress.textColor = UIColor.darkGray
+            cell.itemLabel.textColor = UIColor.darkGray
+        } else {
+            cell.itemAddress.textColor = UIColor.white
+            cell.itemLabel.textColor = UIColor.white
+        }
+        
         return cell
         
     }
@@ -155,36 +172,6 @@ class ViewCategoryTableViewController: UITableViewController  {
             vc.fromNewCategory = false
         }
     }
-    
-    //    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    //        if let identifier = segue.identifier {
-    //            if identifier == "newCategory" {
-    //                let newCategory: NewCategoryTableViewController = segue.destination as! NewCategoryTableViewController
-    //
-    //                let current = Auth.auth().currentUser
-    //
-    //                newCategory.categoryNameTextField.text = self.currentCategory?.categoryTitle
-    //
-    //                newCategory.saveProgressButton.isHidden = true
-    //                newCategory.instructionLabel.isHidden = false
-    //                newCategory.addButton.isHidden = false
-    //
-    //                ListItemService.showListItems(current!, catID: (currentCategory?.key)!) { (listItem) in
-    //                    if let liIt = listItem {
-    //                        arrayOfListItems2 = liIt
-    //                        //print("In the main \(arrayOfListItems2.count)")
-    //                        newCategory.newTableView.reloadData()
-    //                        //viewCategory.currentCategory = currentCategory
-    //
-    //                    }
-    //                }
-    //
-    //
-    //            }
-    //        }
-    //    }
-    
-    
 }
 
 extension ViewCategoryTableViewController: ViewCategoryCellDelegate {
@@ -204,27 +191,14 @@ extension ViewCategoryTableViewController: ViewCategoryCellDelegate {
         guard let indexPath = viewTableView.indexPath(for: cell)
             else { return }
         
-        if completeButton.currentImage == UIImage(named: "iconmonstr-circle-6-32.png") {
-            completeButton.setImage(UIImage(named: "iconmonstr-circle-1-32.png"), for: .normal)
-            //then isChecked = true
-            //setValue
+        
+        arrayOfListItems2[indexPath.row].isChecked = !arrayOfListItems2[indexPath.row].isChecked
+        
             let listItemRef = Database.database().reference().child("listItem").child((current?.uid)!).child(currentCategory.key).child(arrayOfListItems2[indexPath.row].key).child("complete?")
-            //arrayOfListItems2[indexPath.row].isChecked = true
-            listItemRef.setValue(true)
             
-            cell.itemAddress.textColor = UIColor.darkGray
-            cell.itemLabel.textColor = UIColor.darkGray
-            
-        } else {
-            completeButton.setImage(UIImage(named: "iconmonstr-circle-6-32.png"), for: .normal)
-            //then isChecked = false
-            //setValue
-            let listItemRef = Database.database().reference().child("listItem").child((current?.uid)!).child(currentCategory.key).child(arrayOfListItems2[indexPath.row].key).child("complete?")
-            //arrayOfListItems2[indexPath.row].isChecked = false
-            listItemRef.setValue(false)
-            cell.itemAddress.textColor = UIColor.white
-            cell.itemLabel.textColor = UIColor.white
-        }
+            listItemRef.setValue(arrayOfListItems2[indexPath.row].isChecked)
+
+        tableView.reloadData()
         
     }
 }

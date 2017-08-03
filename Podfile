@@ -17,5 +17,6 @@ target 'BucketListApp' do
   pod 'GooglePlacePicker'
   pod 'GooglePlacesSearchController'
   pod 'AZDropdownMenu'
+  pod 'RAMAnimatedTabBarController', "~> 2.0.13"
 
 end

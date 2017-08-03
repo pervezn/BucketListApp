@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BucketListApp/Helpers/ViewCategoryTableViewController.swift"
-            timestampString = "523401472.911341"
+            timestampString = "523479938.262474"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "149"
-            endingLineNumber = "149"
+            startingLineNumber = "166"
+            endingLineNumber = "166"
             landmarkName = "unwindToViewCategoryTableViewController(_:)"
             landmarkType = "7">
          </BreakpointContent>

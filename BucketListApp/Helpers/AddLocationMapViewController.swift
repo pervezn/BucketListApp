@@ -59,6 +59,7 @@ class AddLocationMapViewController: UIViewController, UITextFieldDelegate
         
         let controller = GooglePlacesSearchController(apiKey: googleSearchPlacesAPIKey, placeType: PlaceType.all)
         
+        //definesPresentationContext = true
         
         resultsViewController = GMSAutocompleteResultsViewController()
         resultsViewController?.delegate = self
@@ -111,6 +112,8 @@ class AddLocationMapViewController: UIViewController, UITextFieldDelegate
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "hotAirBalloon.png")!)
         
         if fromNewCategory == true {
             doneButton.isHidden = false
