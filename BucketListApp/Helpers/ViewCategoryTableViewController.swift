@@ -32,6 +32,8 @@ class ViewCategoryTableViewController: UITableViewController  {
         self.tableView.layer.masksToBounds = true
 //        self.navigationItem.rightBarButtonItem = self.editButtonItem
 //        self.navigationItem.rightBarButtonItems?.append(self.editButtonItem)
+        navigationItem.backBarButtonItem?.tintColor = UIColor.myOrangeColor()
+        self.editButtonItem.tintColor = UIColor.myOrangeColor()
         self.navigationItem.rightBarButtonItems = [self.editButtonItem, self.addListItemButton] //don't touch
         viewTableView.delegate = self
         viewTableView.dataSource = self
@@ -55,7 +57,7 @@ class ViewCategoryTableViewController: UITableViewController  {
         
         if isEditing == true {
             self.addListItemButton.isEnabled = true
-            self.addListItemButton.tintColor = UIColor.blue
+            self.addListItemButton.tintColor = UIColor.myOrangeColor()
             //this is your problem
         } else {
             self.addListItemButton.isEnabled = false
@@ -153,7 +155,7 @@ class ViewCategoryTableViewController: UITableViewController  {
             print("editingItems in the else is:\(editingItems)")
             
             self.addListItemButton.isEnabled = !editingItems
-            self.addListItemButton.tintColor = UIColor.blue
+            self.addListItemButton.tintColor = UIColor.myOrangeColor()
         }
     }
     

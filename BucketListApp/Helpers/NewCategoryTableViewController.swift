@@ -58,9 +58,7 @@ class NewCategoryTableViewController: UIViewController, UITableViewDelegate, UIT
         self.newTableView.layer.cornerRadius = 10
         self.newTableView.layer.masksToBounds = true
         
-    //self.view.backgroundColor = UIColor(patternImage: UIImage(named: "Image"))
-        //self.newTableView.register(UITableViewCell.self, forCellReuseIdentifier: "newTableViewCell")
-        
+        navigationItem.titleView?.tintColor = UIColor.myOrangeColor()
     }
     
     override func didReceiveMemoryWarning() {
@@ -77,11 +75,8 @@ class NewCategoryTableViewController: UIViewController, UITableViewDelegate, UIT
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-      /*  if section == 1 {
-            return 1
-        } else {*/
+
             return arrayOfListItems2.count
-       // }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

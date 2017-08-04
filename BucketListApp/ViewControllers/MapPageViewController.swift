@@ -45,11 +45,16 @@ class MapPageViewController: UIViewController {
         
         // menu = AZDropdownMenu(titles: titleArray)
         let button = UIBarButtonItem(image: UIImage(named: "iconmonstr-menu-2-32"), style: .plain, target: self, action: "showDropdown")
+        button.tintColor = UIColor.myOrangeColor()
+        
         
         navigationItem.rightBarButtonItem = button
         
         mapView.isZoomEnabled = true
-        
+        mapView.showsScale = true
+        mapView.showsCompass = true
+        mapView.showsBuildings = true
+        mapView.showsBuildings = true
         
         // print("\n\nFrame", menu?.frame ?? "no value")
         //print("\n\nFrame", view.frame ?? "no value")

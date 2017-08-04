@@ -67,6 +67,7 @@ class AddLocationMapViewController: UIViewController, UITextFieldDelegate
         searchController = UISearchController(searchResultsController: resultsViewController)
         searchController?.searchResultsUpdater = resultsViewController
         
+        self.navigationItem.backBarButtonItem?.tintColor = UIColor.myOrangeColor()
         
         
         // When UISearchController presents the results view, present it in
@@ -112,7 +113,7 @@ class AddLocationMapViewController: UIViewController, UITextFieldDelegate
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "hotAirBalloon.png")!)
+        //self.view.backgroundColor = UIColor(patternImage: UIImage(named: "hotAirBalloon.png")!)
         
         if fromNewCategory == true {
             doneButton.isHidden = false

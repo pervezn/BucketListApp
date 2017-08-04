@@ -15,6 +15,7 @@
 		3323D35D1F2652F200116E71 /* AddLocationMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3323D35C1F2652F200116E71 /* AddLocationMapViewController.swift */; };
 		33264B161F16726900133F71 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 33264B151F16726900133F71 /* GoogleService-Info.plist */; };
 		33264B181F17CE2100133F71 /* Places.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33264B171F17CE2100133F71 /* Places.swift */; };
+		334588E31F341812006BEA2C /* MorePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334588E21F341812006BEA2C /* MorePageViewController.swift */; };
 		33C254AD1F132FFE0029B421 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33C254AC1F132FFE0029B421 /* AppDelegate.swift */; };
 		33C254B21F132FFE0029B421 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33C254B01F132FFE0029B421 /* Main.storyboard */; };
 		33C254B41F132FFE0029B421 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 33C254B31F132FFE0029B421 /* Assets.xcassets */; };
@@ -51,6 +52,7 @@
 		3323D35C1F2652F200116E71 /* AddLocationMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddLocationMapViewController.swift; path = Helpers/AddLocationMapViewController.swift; sourceTree = "<group>"; };
 		33264B151F16726900133F71 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "BucketListApp/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		33264B171F17CE2100133F71 /* Places.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Places.swift; path = Models/Places.swift; sourceTree = "<group>"; };
+		334588E21F341812006BEA2C /* MorePageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MorePageViewController.swift; path = ViewControllers/MorePageViewController.swift; sourceTree = "<group>"; };
 		33C254A91F132FFE0029B421 /* BucketListApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BucketListApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		33C254AC1F132FFE0029B421 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = BucketListApp/AppDelegate.swift; sourceTree = "<group>"; };
 		33C254B11F132FFE0029B421 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -146,6 +148,7 @@
 				33C254CB1F14085C0029B421 /* SettingsViewController.swift */,
 				33FB67E41F1D18BF001B63E8 /* LoginViewController.swift */,
 				33FB67EB1F1D3CE4001B63E8 /* CreateUsernameViewController.swift */,
+				334588E21F341812006BEA2C /* MorePageViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -357,6 +360,7 @@
 				33C254CC1F14085C0029B421 /* SettingsViewController.swift in Sources */,
 				33C254CA1F1408460029B421 /* MapPageViewController.swift in Sources */,
 				33C254C51F13CD120029B421 /* AddCollectionViewCell.swift in Sources */,
+				334588E31F341812006BEA2C /* MorePageViewController.swift in Sources */,
 				33C254C21F13C1C20029B421 /* CollectionViewCell.swift in Sources */,
 				33C254C71F13D9B90029B421 /* CollectonView+Utility.swift in Sources */,
 				3323D35D1F2652F200116E71 /* AddLocationMapViewController.swift in Sources */,

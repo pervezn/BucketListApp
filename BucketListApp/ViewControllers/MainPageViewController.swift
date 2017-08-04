@@ -37,9 +37,11 @@ class MainPageViewController: UIViewController, UICollectionViewDelegate, UIColl
             }
         }
         
+        self.navigationController?.navigationBar.titleTextAttributes = [ NSFontAttributeName: UIFont(name: "HelveticaNeue", size: 19)!]
         
         
         self.navigationItem.rightBarButtonItem = self.editButtonItem
+        editButtonItem.tintColor = UIColor.myOrangeColor()
     }
     
     override func didReceiveMemoryWarning() {
@@ -72,6 +74,7 @@ class MainPageViewController: UIViewController, UICollectionViewDelegate, UIColl
             cell.deleteButtonBackgroundView.layer.masksToBounds = true
             cell.deleteButtonBackgroundView.isHidden = !isEditing
             cell.titleButton.setTitle(arrayOfCategories[indexPath.row].categoryTitle, for: [])
+            cell.titleButton.tintColor = UIColor.myTanColor()
             cell.titleButton.titleLabel?.numberOfLines = 0; // Dynamic number of lines
            // NSLineBreakByWordWrapping = 0
            // cell.titleButton.titleLabel.lineBreakMode = NSLineBreakByWordWrapping;
@@ -81,6 +84,7 @@ class MainPageViewController: UIViewController, UICollectionViewDelegate, UIColl
             return cell
         } else {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "addCollectionViewCell", for: indexPath) as! AddCollectionViewCell
+             
             return cell
         }
         
@@ -217,9 +221,13 @@ extension MainPageViewController: CollectionViewDelegate {
 
 extension UIColor
 {
-    class func myGreenColor() -> UIColor
+    class func myOrangeColor() -> UIColor
     {
-        return UIColor(red:0.04, green:0.66, blue:0.47, alpha:1.0)
+        return UIColor(red:CGFloat(235), green: CGFloat(229), blue: CGFloat(221), alpha:1.0)
+    }
+    
+    class func myTanColor() -> UIColor {
+        return UIColor(red: CGFloat(221), green: CGFloat(208), blue: CGFloat(163), alpha: 1.0)
     }
 }
 
