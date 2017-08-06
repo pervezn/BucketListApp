@@ -30,15 +30,25 @@ class ViewCategoryTableViewController: UITableViewController  {
         self.viewTableView.separatorStyle = UITableViewCellSeparatorStyle.none
         self.tableView.layer.cornerRadius = 10
         self.tableView.layer.masksToBounds = true
-//        self.navigationItem.rightBarButtonItem = self.editButtonItem
-//        self.navigationItem.rightBarButtonItems?.append(self.editButtonItem)
+
         navigationItem.backBarButtonItem?.tintColor = UIColor.myOrangeColor()
         self.editButtonItem.tintColor = UIColor.myOrangeColor()
         self.navigationItem.rightBarButtonItems = [self.editButtonItem, self.addListItemButton] //don't touch
         viewTableView.delegate = self
         viewTableView.dataSource = self
         
+        let titleLabel: UILabel = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
         
+        titleLabel.text = self.title
+        titleLabel.textColor = UIColor.myOrangeColor()
+        titleLabel.layer.zPosition = 1000
+        titleLabel.textAlignment = .center
+        titleLabel.font = UIFont(name: "HelveticaNeue", size: 20)
+        self.navigationItem.titleView = titleLabel
+
+
+        
+        self.navigationController?.navigationBar.tintColor = UIColor.myOrangeColor()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -107,7 +117,7 @@ class ViewCategoryTableViewController: UITableViewController  {
         let listItemRef2 = Database.database().reference().child("category").child((current?.uid)!).child(category.key).child("itemsArray")
         //gets all of the list item IDs for a Category
         
-        print("currentCategory.listItemsIDs.count is: \(currentCategory?.listItemIDs.count)")
+        //print("currentCategory.listItemsIDs.count is: \(currentCategory?.listItemIDs.count)")
         if currentCategory?.listItemIDs.count == 1 {
             currentCategory?.listItemIDs.remove(at: 0)
         } else {
@@ -134,12 +144,13 @@ class ViewCategoryTableViewController: UITableViewController  {
         cell.completeButton.isSelected = arrayOfListItems2[indexPath.row].isChecked
         
         if cell.completeButton.isSelected == true { //dark color
-            cell.itemAddress.textColor = UIColor.darkGray
-            cell.itemLabel.textColor = UIColor.darkGray
+            cell.itemAddress.textColor = UIColor.gray
+            cell.itemLabel.textColor = UIColor.gray
         } else {
-            cell.itemAddress.textColor = UIColor.white
-            cell.itemLabel.textColor = UIColor.white
+            cell.itemAddress.textColor = UIColor.myTanColor()
+            cell.itemLabel.textColor = UIColor.myTanColor()
         }
+        
         
         return cell
         

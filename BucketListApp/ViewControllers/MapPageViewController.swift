@@ -103,14 +103,16 @@ class MapPageViewController: UIViewController {
         
         ListItemService.showListItems(current!, catID: arrayOfCategories[0].key) { (listItem) in
             if let liIt = listItem {
-                self.pinArray = liIt
-                //print("pinArray in completion is: \(self.pinArray.count)")
-                for i in 0...self.pinArray.count - 1 {
-                    let location: CLLocationCoordinate2D = CLLocationCoordinate2DMake(self.pinArray[i].lat , self.pinArray[i].lng)
-                    let annotation = MKPointAnnotation()
-                    annotation.title = self.pinArray[i].itemTitle
-                    annotation.coordinate = location
-                    self.mapView.addAnnotation(annotation)
+                if liIt.count > 0 {
+                    self.pinArray = liIt
+                    //print("pinArray in completion is: \(self.pinArray.count)")
+                    for i in 0...self.pinArray.count - 1 {
+                        let location: CLLocationCoordinate2D = CLLocationCoordinate2DMake(self.pinArray[i].lat , self.pinArray[i].lng)
+                        let annotation = MKPointAnnotation()
+                        annotation.title = self.pinArray[i].itemTitle
+                        annotation.coordinate = location
+                        self.mapView.addAnnotation(annotation)
+                    }
                 }
             }
             //}

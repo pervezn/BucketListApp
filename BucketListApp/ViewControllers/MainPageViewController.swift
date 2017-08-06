@@ -39,9 +39,18 @@ class MainPageViewController: UIViewController, UICollectionViewDelegate, UIColl
         
         self.navigationController?.navigationBar.titleTextAttributes = [ NSFontAttributeName: UIFont(name: "HelveticaNeue", size: 19)!]
         
+        self.navigationController?.navigationBar.tintColor = UIColor.myOrangeColor()
         
         self.navigationItem.rightBarButtonItem = self.editButtonItem
         editButtonItem.tintColor = UIColor.myOrangeColor()
+        
+        let titleLabel: UILabel = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
+        titleLabel.text = "Bucket List"
+        titleLabel.textColor = UIColor.myOrangeColor()
+        titleLabel.layer.zPosition = 1000
+        titleLabel.textAlignment = .center
+        titleLabel.font = UIFont(name: "HelveticaNeue", size: 20)
+        self.navigationItem.titleView = titleLabel
     }
     
     override func didReceiveMemoryWarning() {
@@ -68,22 +77,22 @@ class MainPageViewController: UIViewController, UICollectionViewDelegate, UIColl
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         if indexPath.section == 0 {
-            let  cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectionViewCell", for: indexPath) as!CollectionViewCell
+            let  cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectionViewCell", for: indexPath) as! CollectionViewCell
             cell.delegate = self
             cell.deleteButtonBackgroundView.layer.cornerRadius = cell.deleteButtonBackgroundView.bounds.width / 2.0
             cell.deleteButtonBackgroundView.layer.masksToBounds = true
             cell.deleteButtonBackgroundView.isHidden = !isEditing
             cell.titleButton.setTitle(arrayOfCategories[indexPath.row].categoryTitle, for: [])
-            cell.titleButton.tintColor = UIColor.myTanColor()
+           // cell.titleButton.setTitleColor(UIColor.myOrangeColor(), for: .normal)
             cell.titleButton.titleLabel?.numberOfLines = 0; // Dynamic number of lines
-           // NSLineBreakByWordWrapping = 0
-           // cell.titleButton.titleLabel.lineBreakMode = NSLineBreakByWordWrapping;
-            
-            
-            //print("titleButton.titleLabel.text is: \(cell.titleButton.titleLabel?.text)")
+           
             return cell
         } else {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "addCollectionViewCell", for: indexPath) as! AddCollectionViewCell
+            
+            
+            cell.addButton.setTitleColor(UIColor.myTanColor(), for: .normal)
+            
              
             return cell
         }
@@ -115,7 +124,9 @@ class MainPageViewController: UIViewController, UICollectionViewDelegate, UIColl
                 
                 viewCategory.title = currentCategory.categoryTitle
                 
-               // print("currentCategory.categoryTitle is: \(currentCategory.categoryTitle)")
+
+                
+               
                 
                 ListItemService.showListItems(current!, catID: currentCategory.key) { (listItem) in
                     if let liIt = listItem {
@@ -131,11 +142,6 @@ class MainPageViewController: UIViewController, UICollectionViewDelegate, UIColl
                 // print("Transitioning to the new Catergory View Controller")
                 arrayOfListItems2.removeAll()
             }
-//            else if identifier == "cancel" { //cancel and save do not print
-//                //print("Cancel button tapped")
-//            } else if identifier == "save" {
-//                //print("Save button tapped")
-//            }
         }
     }
     
@@ -223,11 +229,13 @@ extension UIColor
 {
     class func myOrangeColor() -> UIColor
     {
-        return UIColor(red:CGFloat(235), green: CGFloat(229), blue: CGFloat(221), alpha:1.0)
+        return UIColor(red:0.95, green:0.67, blue:0.57, alpha:1.0)
+
+       // return UIColor(red:CGFloat(235)/255, green: CGFloat(229)/255, blue: CGFloat(221)/255, alpha:1.0)
     }
     
     class func myTanColor() -> UIColor {
-        return UIColor(red: CGFloat(221), green: CGFloat(208), blue: CGFloat(163), alpha: 1.0)
+       return UIColor(red:0.87, green:0.82, blue:0.64, alpha:1.0)
     }
 }
 

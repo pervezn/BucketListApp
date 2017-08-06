@@ -55,10 +55,25 @@ class NewCategoryTableViewController: UIViewController, UITableViewDelegate, UIT
         newTableView.delegate = self
         newTableView.dataSource = self
         
-        self.newTableView.layer.cornerRadius = 10
-        self.newTableView.layer.masksToBounds = true
+        //self.newTableView.layer.cornerRadius = 10
+        //self.newTableView.layer.masksToBounds = true
         
         navigationItem.titleView?.tintColor = UIColor.myOrangeColor()
+        let titleLabel: UILabel = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
+        titleLabel.text = "Create a List"
+        titleLabel.textColor = UIColor.myOrangeColor()
+        titleLabel.layer.zPosition = 1000
+        titleLabel.textAlignment = .center
+        titleLabel.font = UIFont(name: "HelveticaNeue", size: 20)
+        self.navigationItem.titleView = titleLabel
+       // self.navigationBar.tintColor = UIColor.myOrangeColor()
+        
+       // saveProgressButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: "pressedSaveProgressButton"))
+    }
+    
+    override func viewDidAppear(_ animated: Bool)
+    {
+       
     }
     
     override func didReceiveMemoryWarning() {
@@ -202,6 +217,8 @@ class NewCategoryTableViewController: UIViewController, UITableViewDelegate, UIT
         self.addButton.isHidden = false
         self.saveProgressStatus = true
         }
+        categoryNameTextField.resignFirstResponder()
+        categoryNameTextField.isUserInteractionEnabled = false
     }
 }
 extension NewCategoryTableViewController: AddNewCellDelegate {

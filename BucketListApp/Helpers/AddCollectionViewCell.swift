@@ -12,6 +12,6 @@ class AddCollectionViewCell: UICollectionViewCell {
    
     @IBOutlet weak var addButton: UIButton!
     
-    @IBAction func addButtonTapped(_ sender: Any) {
+    @IBAction func addButtonTapped(_ sender: Any){
     }
 }
