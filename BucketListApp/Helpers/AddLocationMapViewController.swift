@@ -16,8 +16,7 @@ import GooglePlacesSearchController
 import FirebaseAuth
 import FirebaseAuthUI
 import Firebase
-//import CoreLocation  //Reason 1
-//import GoogleMaps
+
 
 var arrayOfPlaces = [Places]()
 
@@ -34,8 +33,6 @@ class AddLocationMapViewController: UIViewController, UITextFieldDelegate
     @IBOutlet weak var locationName: UITextField!
     @IBOutlet weak var locationAddress: UILabel!
     @IBOutlet weak var doneButton2: UIButton!
-    
-    // var marker = GMSMarker() // Reason 1
     
     
     var resultsViewController: GMSAutocompleteResultsViewController?
@@ -59,7 +56,6 @@ class AddLocationMapViewController: UIViewController, UITextFieldDelegate
         
         let controller = GooglePlacesSearchController(apiKey: googleSearchPlacesAPIKey, placeType: PlaceType.all)
         
-        //definesPresentationContext = true
         
         resultsViewController = GMSAutocompleteResultsViewController()
         resultsViewController?.delegate = self
@@ -103,16 +99,12 @@ class AddLocationMapViewController: UIViewController, UITextFieldDelegate
         
         present(controller, animated:  true, completion: nil)
         // Do any additional setup after loading the view.
-        
-        
-        /* let camera: GMSCameraPosition = GMSCameraPosition.camera(withLatitude: place.coordinate.latitude, longitude: place.coordinate.longitude , zoom: 12)
-         self.locationMapView.camera = camera! */ //Reason 1
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        //make the background image a hot air balloon
         //self.view.backgroundColor = UIColor(patternImage: UIImage(named: "hotAirBalloon.png")!)
         
         if fromNewCategory == true {
@@ -127,7 +119,6 @@ class AddLocationMapViewController: UIViewController, UITextFieldDelegate
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
@@ -147,7 +138,6 @@ class AddLocationMapViewController: UIViewController, UITextFieldDelegate
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        //print("in prepare segue")
         let current = Auth.auth().currentUser
         if segue.identifier == "unwindToNewCategoryTableViewController" {
             if locationName.text == "" {
@@ -155,14 +145,12 @@ class AddLocationMapViewController: UIViewController, UITextFieldDelegate
             } else {
                 
                 UserDefaults.standard.set(locationName.text, forKey: "locationName")
-                //arrayOfListItems2.removeAll()
                 
                 ListItemService.makeListItems(current!, catID: arrayOfCategories[arrayOfCategories.count-1].key, lat: lat, lng: long, isChecked: false, itemTitle: locationName.text!, address: locationAddress.text!, completion:  { (listItem) in
                     arrayOfListItems2.append(listItem!)
                     print(listItem?.itemTitle)
                     print(arrayOfListItems2.count)
                     print("item appeneded")
-                    //print("listItemIDs.count is: \(arrayOfCategories[0].listItemIDs)")
                 })
             }
         } else if segue.identifier == "unwindToViewCategoryTableViewController" {
@@ -202,14 +190,7 @@ extension AddLocationMapViewController: GMSAutocompleteResultsViewControllerDele
     func resultsController(_ resultsController: GMSAutocompleteResultsViewController,
                            didAutocompleteWith place: GMSPlace) {
         searchController?.isActive = false
-        //  print("In the delegate")
-        // Do something with the selected place.
-        // print("Place bla name: \(place.name)")
-        // print("Place address: \(place.formattedAddress)")
-        print("Place attributions: \(place.attributions)")
-        
         addressText = place.formattedAddress!
-        //print("\(locationAddress.text)")
     }
     
     func resultsController(_ resultsController: GMSAutocompleteResultsViewController,

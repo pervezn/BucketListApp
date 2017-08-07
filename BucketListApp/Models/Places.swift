@@ -33,7 +33,6 @@ class Places {
             let lat = json["geography"]["location"]["lat"].doubleValue
             let lng = json["geography"]["location"]["lat"].doubleValue
             let id = json["id"].stringValue
-        //print("in initializer!!!!!!!!!!")
         self.id = id
         self.name = name
         self.formatted_Address = formatted_Address

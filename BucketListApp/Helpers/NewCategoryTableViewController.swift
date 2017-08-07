@@ -12,8 +12,6 @@ import FirebaseAuth
 import FirebaseAuthUI
 import Firebase
 
-//typealias FIRUser = FirebaseAuth.User
-
 var arrayOfListItems: [String] = []
 
 var arrayOfListItems2: [ListItem] = []
@@ -46,29 +44,22 @@ class NewCategoryTableViewController: UIViewController, UITableViewDelegate, UIT
         super.viewDidLoad()
         
         self.categoryNameTextField.delegate = self
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-        
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+
         
         newTableView.delegate = self
         newTableView.dataSource = self
         
-        //self.newTableView.layer.cornerRadius = 10
-        //self.newTableView.layer.masksToBounds = true
-        
-        navigationItem.titleView?.tintColor = UIColor.myOrangeColor()
+        navigationItem.titleView?.tintColor = UIColor.myBlueColor()
         let titleLabel: UILabel = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
         titleLabel.text = "Create a List"
-        titleLabel.textColor = UIColor.myOrangeColor()
+        titleLabel.textColor = UIColor.myBlueColor()
         titleLabel.layer.zPosition = 1000
         titleLabel.textAlignment = .center
         titleLabel.font = UIFont(name: "HelveticaNeue", size: 20)
         self.navigationItem.titleView = titleLabel
-       // self.navigationBar.tintColor = UIColor.myOrangeColor()
         
-       // saveProgressButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: "pressedSaveProgressButton"))
+        
+        categoryNameTextField.textColor = UIColor.myOrangeColor()
     }
     
     override func viewDidAppear(_ animated: Bool)
@@ -78,7 +69,7 @@ class NewCategoryTableViewController: UIViewController, UITableViewDelegate, UIT
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        
     }
     
     // MARK: - Table view data source
@@ -101,11 +92,6 @@ class NewCategoryTableViewController: UIViewController, UITableViewDelegate, UIT
         print("arrayOfListItems2.count is: \(arrayOfListItems2.count)")
         
         print("indexPath.row is: \(indexPath.row)")
-    
-       // print("cell.locationAddressDisplay.text is: \(cell.locationAddressDisplay.text)")
-        
-        
-       // print("arrayOfListItems2[indexPath.row].address is: \(arrayOfListItems2[indexPath.row].itemTitle)")
         
         cell.locationAddressDisplay.text = arrayOfListItems2[indexPath.row].address //locAddress
         cell.locationNameDisplay.text = arrayOfListItems2[indexPath.row].itemTitle  //locName
@@ -115,14 +101,13 @@ class NewCategoryTableViewController: UIViewController, UITableViewDelegate, UIT
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        //make the background a hot air balloon
        // self.view.backgroundColor = UIColor(patternImage: UIImage(named: "hotAirBalloon.png")!)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        //, _ firUser: FIRUser
         if let identifier = segue.identifier {
             if identifier == "cancel" {
-                // print("Cancel button tapped")
                 
                 if self.saveProgressStatus == true {
                     
@@ -131,11 +116,8 @@ class NewCategoryTableViewController: UIViewController, UITableViewDelegate, UIT
                     
                 }
                 
-                
-                //need to delete the list items still !!!!!!
                 arrayOfListItems2 = []
             } else if identifier == "save" {
-                //print("Save button tapped")
         
                 arrayOfListItems2 = []
             } else if identifier == "toAddLocMapView2" {
@@ -149,23 +131,15 @@ class NewCategoryTableViewController: UIViewController, UITableViewDelegate, UIT
         
        locName = UserDefaults.standard.string(forKey: "locationName")
        locAddress = UserDefaults.standard.string(forKey: "locationAddress")
-   //    print("UserDefault LocationName: \(UserDefaults.standard.string(forKey: "locationName"))")
-    //    print("locName is: \(locName)")
- //       print("locAddress is: \(locAddress)")
 
         newTableView.reloadData()
-        
-        
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        // 2
+        
         if editingStyle == .delete {
-            // 3
-            // print("the before indexPath is: \(indexPath.row)")
             arrayOfListItems2.remove(at: indexPath.row)
             print("in table View")
-            // print("the after indexPath is: \(indexPath.row)")
             self.newTableView.reloadData()
         }
     }
@@ -180,8 +154,7 @@ class NewCategoryTableViewController: UIViewController, UITableViewDelegate, UIT
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
-        self.newTableView.endEditing(true) //why doesn't this work?
-        
+        self.newTableView.endEditing(true)
     }
 
     
@@ -190,17 +163,6 @@ class NewCategoryTableViewController: UIViewController, UITableViewDelegate, UIT
         return(true)
     }
     
-    @IBAction func pressedAddButton(_ sender: Any) {
-       // print("pressed add button")
-        
-       /* guard let indexPath = newTableView.indexPath(for: cell)
-            else { return }
-        
-        arrayOfListItems.insert("added", at: indexPath.row)
-        self.newTableView.reloadData()*/
-        //arrayOfListItems.append("added")
-        self.newTableView.reloadData()
-    }
     
     @IBAction func pressedSaveProgressButton(_ sender: Any) {
         let current = Auth.auth().currentUser
@@ -209,7 +171,6 @@ class NewCategoryTableViewController: UIViewController, UITableViewDelegate, UIT
         } else {
         CategoryService.makeCategory(current!, catTitle: categoryNameTextField.text!, completion: { (category) in
             arrayOfCategories.append(category!)
-            print("listItemIDs for newly created Category is: \(category?.listItemIDs.count)")
         })
         
         self.saveProgressButton.isHidden = true
@@ -219,17 +180,5 @@ class NewCategoryTableViewController: UIViewController, UITableViewDelegate, UIT
         }
         categoryNameTextField.resignFirstResponder()
         categoryNameTextField.isUserInteractionEnabled = false
-    }
-}
-extension NewCategoryTableViewController: AddNewCellDelegate {
-    
-    
-    func didPressAddButton(_ addListItemButton: UIButton, on cell: AddNewTableViewCell) {
-        
-        guard let indexPath = newTableView.indexPath(for: cell)
-            else { return }
-      
-        let current = Auth.auth().currentUser
-   
     }
 }

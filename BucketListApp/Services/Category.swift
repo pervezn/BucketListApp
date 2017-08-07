@@ -14,9 +14,6 @@ var arrayOfCategoryNames: [String] = [] //[Category] = []
 
 class Category {
     // MARK: - Singleton
-    // 1
-    
-    //static var arrayOfCategoryNames: [String] = []
     
     let categoryTitle: String
     var listItemsArray: [ListItem]?
@@ -24,18 +21,13 @@ class Category {
     var key: String
     
 
-
-    
     init(categoryTitle: String, listItemsArray: [ListItem], listItemIDs: [String], key: String) {
         self.categoryTitle = categoryTitle
         self.listItemsArray = listItemsArray
         self.listItemIDs = listItemIDs
         self.key = key
     }
-//
-//    
-//    
-//    
+   
     init?(snapshot: DataSnapshot) {
         guard let dict = snapshot.value as? [String : Any],
             let title = dict["title"] as? String
@@ -50,10 +42,6 @@ class Category {
             self.categoryTitle = title
             self.listItemIDs = [String]()
         }
-
-        
-        
- 
     }
 
 }

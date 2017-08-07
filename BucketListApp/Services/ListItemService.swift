@@ -74,12 +74,8 @@ struct ListItemService {
                     dict2["itemsArray"] = newArray
                     
                     categoryRef.setValue(dict2)
-                }
-             
-                
-               
+                }               
             })
-        
     }
 }
 

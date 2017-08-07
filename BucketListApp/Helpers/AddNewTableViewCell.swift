@@ -35,5 +35,4 @@ class AddNewTableViewCell: UITableViewCell {
         delegate?.didPressAddButton(sender as! UIButton, on: self)
         
     }
-
 }

@@ -23,18 +23,9 @@ class NewTableViewCell: UITableViewCell {
     
     
     weak var delegate: NewTableViewCell?
-//    var editing: Bool = false {
-//        didSet {
-//            self.
-//        }
-//    }
-    
-    
-    
+
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
-       // print("in Nib")      
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

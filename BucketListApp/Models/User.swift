@@ -58,7 +58,6 @@ class User: NSObject {
     init?(snapshot: DataSnapshot) {
         guard let dict = snapshot.value as? [String : Any],
             let username = dict["username"] as? String
-            //let categories = dict["categories"] as? [String]
             
             else { return nil }
         
@@ -68,7 +67,6 @@ class User: NSObject {
         
         self.uid = snapshot.key
         self.username = username
-       // self.categories = categories
         super.init()
     }
     

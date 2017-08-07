@@ -11,33 +11,6 @@ import FirebaseDatabase
 
 struct CategoryService {
     
-    //1
-//    static func showCategoryNames(_ firUser: FIRUser, completion: @escaping ([String]?) -> Void) { //prepares to send category names to firebase
-//        
-//        let catNameRef = Database.database().reference().child("catergoryName").child(firUser.uid) //making the nodes in firebase DISCLAIMER: only for the catergoryNAMES node in firebase
-//           // print("userid in CatergoryWhatevr: \(firUser.uid)")
-//        catNameRef.observeSingleEvent(of: .value, with: { (snapshot) in
-//            let names = snapshot.value as? [String]
-//            //print("snapshot is: \//(snapshot.value)")
-//            // print("names is \(names)")
-//            if let names = names {
-//                arrayOfCategoryNames = names
-//               // print("Catgory.arrayOfCategoryNames is: \(Category.arrayOfCategoryNames)")
-//                completion(names)
-//            }else {
-//                let tempArray : [String] = []
-//                catNameRef.setValue(tempArray)
-//                completion(names)
-//            }
-//            // print("About to print names")
-//            // print(names)
-//            // makes it so that you can convert the DatabaseReference types
-//        })
-//        
-//       // print("in showCategoryNames")
-//    }
-    
-    //2
     static func showCategory(_ firUser: FIRUser, completion: @escaping ([Category]?) -> Void) {
         
         let categoryRef = Database.database().reference().child("category").child(firUser.uid)
@@ -48,7 +21,6 @@ struct CategoryService {
             
             var emptyArray = [Category]()
             var emptyArrayOfListIDs = [String]()
-            //print(snapshot.count)
             for eachCat in snapshot {
                 if let category = Category(snapshot: eachCat) {
                     emptyArray.append(category)
@@ -69,7 +41,6 @@ struct CategoryService {
         dict["itemsArray"] = itemIdArray
         
         categoryRef.setValue(dict)// created it in Catergory still need to add to User
-        
             
         updateUserCategories(firUser, catID: categoryRef.key) //added User
        
@@ -103,61 +74,9 @@ struct CategoryService {
                 dict2["username"] = username
                 dict2["categories"] = newArray
                 
-               // print("here 2")
                 
                 userRef.setValue(dict2)
             }
-        }) //added to User
-        //ListItemService.makeListItems(firUser, catID: catID, itemTitle: "item 1", address: "xx", completion: { (listItem) in
-             //   arrayOfListItems2.append(listItem!)
-      //  })
+        })
     }
-
-    //3
-//    static func makeCategoryNames(_ firUser: FIRUser, catNameArray: [String]) { //send the names of the catergory to firebase DISCLAIMER: only for the catergoryNAMES node in firebase
-//        
-//        
-//        showCategoryNames(firUser){  names in
-//            //  print("In cat names")
-//            let subArray = catNameArray
-//            let catNameRef = Database.database().reference().child("catergoryName").child(firUser.uid)
-//            
-//            if let names = names {
-//                //sppend and then set value
-//                let newArray = subArray + names
-//                //print("Over here")
-//                catNameRef.setValue(newArray)
-//            }else{
-//                //setvalue
-//                // print ("In else statement")
-//                //print (names)
-//                catNameRef.setValue(catNameArray)
-//            }
-//        }
-//    //    print("in makeCategoryNames")
-//    }
-//}
-    //4
-
-
-//showCategory(firUser, catName: catName){  listItems in
-//    let subArray = listItemArray
-//    let categoryRef = Database.database().reference().child("category").child(firUser.uid).child(catName)
-//
-//    if let listItems = listItems {
-//        let newArray = subArray + listItems
-//        categoryRef.setValue(newArray)
-//        print("listItemArray is: \(newArray)")
-//    }
-//}
-//print("in makeCategory")
-//}
-//}
-
-
-
-//modify database setValue
 }
-
-
-

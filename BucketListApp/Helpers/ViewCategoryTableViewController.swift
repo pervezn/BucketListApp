@@ -27,12 +27,12 @@ class ViewCategoryTableViewController: UITableViewController  {
         super.viewDidLoad()
         
         //removes tableView Lines
-        self.viewTableView.separatorStyle = UITableViewCellSeparatorStyle.none
+       // self.viewTableView.separatorStyle = UITableViewCellSeparatorStyle.none
         self.tableView.layer.cornerRadius = 10
         self.tableView.layer.masksToBounds = true
 
-        navigationItem.backBarButtonItem?.tintColor = UIColor.myOrangeColor()
-        self.editButtonItem.tintColor = UIColor.myOrangeColor()
+        navigationItem.backBarButtonItem?.tintColor = UIColor.myBlueColor()
+        self.editButtonItem.tintColor = UIColor.myBlueColor()
         self.navigationItem.rightBarButtonItems = [self.editButtonItem, self.addListItemButton] //don't touch
         viewTableView.delegate = self
         viewTableView.dataSource = self
@@ -40,7 +40,7 @@ class ViewCategoryTableViewController: UITableViewController  {
         let titleLabel: UILabel = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
         
         titleLabel.text = self.title
-        titleLabel.textColor = UIColor.myOrangeColor()
+        titleLabel.textColor = UIColor.myBlueColor()
         titleLabel.layer.zPosition = 1000
         titleLabel.textAlignment = .center
         titleLabel.font = UIFont(name: "HelveticaNeue", size: 20)
@@ -48,7 +48,7 @@ class ViewCategoryTableViewController: UITableViewController  {
 
 
         
-        self.navigationController?.navigationBar.tintColor = UIColor.myOrangeColor()
+        self.navigationController?.navigationBar.tintColor = UIColor.myBlueColor()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -57,18 +57,18 @@ class ViewCategoryTableViewController: UITableViewController  {
         
         
        // self.view.backgroundColor = UIColor(patternImage: UIImage(named: "hotAirBalloon.png")!)
+        self.view.backgroundColor = UIColor.white
         
-        // Add a background view to the table view
-        let backgroundImage = UIImage(named: "hotAirBalloon.png")
+        // Add the hot air balloon background
+       // let backgroundImage = UIImage(named: "hotAirBalloon.png")
         
-        let imageView = UIImageView(image: backgroundImage)
-        imageView.contentMode = UIViewContentMode.scaleAspectFill
-        self.tableView.backgroundView = imageView
+      //  let imageView = UIImageView(image: backgroundImage)
+      //  imageView.contentMode = UIViewContentMode.scaleAspectFill
+      //  self.tableView.backgroundView = imageView
         
         if isEditing == true {
             self.addListItemButton.isEnabled = true
             self.addListItemButton.tintColor = UIColor.myOrangeColor()
-            //this is your problem
         } else {
             self.addListItemButton.isEnabled = false
             self.addListItemButton.tintColor = UIColor.clear
@@ -101,9 +101,6 @@ class ViewCategoryTableViewController: UITableViewController  {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        // print("Array count: \(arrayOfListItems2.count)")
-        
         return arrayOfListItems2.count
     }
     
@@ -117,7 +114,6 @@ class ViewCategoryTableViewController: UITableViewController  {
         let listItemRef2 = Database.database().reference().child("category").child((current?.uid)!).child(category.key).child("itemsArray")
         //gets all of the list item IDs for a Category
         
-        //print("currentCategory.listItemsIDs.count is: \(currentCategory?.listItemIDs.count)")
         if currentCategory?.listItemIDs.count == 1 {
             currentCategory?.listItemIDs.remove(at: 0)
         } else {
@@ -147,8 +143,8 @@ class ViewCategoryTableViewController: UITableViewController  {
             cell.itemAddress.textColor = UIColor.gray
             cell.itemLabel.textColor = UIColor.gray
         } else {
-            cell.itemAddress.textColor = UIColor.myTanColor()
-            cell.itemLabel.textColor = UIColor.myTanColor()
+            cell.itemAddress.textColor = UIColor.myBlueColor()
+            cell.itemLabel.textColor = UIColor.myBlueColor()
         }
         
         
@@ -163,7 +159,6 @@ class ViewCategoryTableViewController: UITableViewController  {
             addListItemButton.isEnabled = editing
             self.addListItemButton.tintColor = UIColor.clear
         } else {
-            print("editingItems in the else is:\(editingItems)")
             
             self.addListItemButton.isEnabled = !editingItems
             self.addListItemButton.tintColor = UIColor.myOrangeColor()
@@ -175,7 +170,7 @@ class ViewCategoryTableViewController: UITableViewController  {
     
     @IBAction func unwindToViewCategoryTableViewController(_ segue: UIStoryboardSegue) {
         
-        print("here!!!")
+       // print("here!!!")
         
     }
     

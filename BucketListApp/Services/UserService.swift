@@ -20,13 +20,11 @@ struct UserService {
         ref.setValue(userAttrs) { (error, ref) in
             if let error = error {
                 assertionFailure(error.localizedDescription)
-               // print("in error")
                 return completion(nil)
             }
             
             ref.observeSingleEvent(of: .value, with: { (snapshot) in
-                let user = User(snapshot: snapshot)
-                
+                let user = User(snapshot: snapshot)    
                 completion(user)
             })
         }

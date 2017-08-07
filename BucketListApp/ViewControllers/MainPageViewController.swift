@@ -39,14 +39,14 @@ class MainPageViewController: UIViewController, UICollectionViewDelegate, UIColl
         
         self.navigationController?.navigationBar.titleTextAttributes = [ NSFontAttributeName: UIFont(name: "HelveticaNeue", size: 19)!]
         
-        self.navigationController?.navigationBar.tintColor = UIColor.myOrangeColor()
+        self.navigationController?.navigationBar.tintColor = UIColor.myBlueColor()
         
         self.navigationItem.rightBarButtonItem = self.editButtonItem
-        editButtonItem.tintColor = UIColor.myOrangeColor()
+        editButtonItem.tintColor = UIColor.myBlueColor()
         
         let titleLabel: UILabel = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
         titleLabel.text = "Bucket List"
-        titleLabel.textColor = UIColor.myOrangeColor()
+        titleLabel.textColor = UIColor.myBlueColor()
         titleLabel.layer.zPosition = 1000
         titleLabel.textAlignment = .center
         titleLabel.font = UIFont(name: "HelveticaNeue", size: 20)
@@ -61,12 +61,10 @@ class MainPageViewController: UIViewController, UICollectionViewDelegate, UIColl
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if section == 0 {
-           // print("arrayOfCategories.count in numberOfItemsInSection is: \(arrayOfCategories.count)")
             return arrayOfCategories.count
         } else {
             return 1
         }
-        
     }
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -83,7 +81,6 @@ class MainPageViewController: UIViewController, UICollectionViewDelegate, UIColl
             cell.deleteButtonBackgroundView.layer.masksToBounds = true
             cell.deleteButtonBackgroundView.isHidden = !isEditing
             cell.titleButton.setTitle(arrayOfCategories[indexPath.row].categoryTitle, for: [])
-           // cell.titleButton.setTitleColor(UIColor.myOrangeColor(), for: .normal)
             cell.titleButton.titleLabel?.numberOfLines = 0; // Dynamic number of lines
            
             return cell
@@ -91,7 +88,7 @@ class MainPageViewController: UIViewController, UICollectionViewDelegate, UIColl
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "addCollectionViewCell", for: indexPath) as! AddCollectionViewCell
             
             
-            cell.addButton.setTitleColor(UIColor.myTanColor(), for: .normal)
+            cell.addButton.setTitleColor(UIColor.myBlueColor(), for: .normal)
             
              
             return cell
@@ -100,20 +97,13 @@ class MainPageViewController: UIViewController, UICollectionViewDelegate, UIColl
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) { //transitions from the viewCategory and newCetegory view controllers bakc ot the main page view controller. Also transitions back to the main Page view controller after you press cancel or save, but that's not being registered.
-        // print("in prepare")
-        // 1
         if let identifier = segue.identifier {
             if identifier == "viewCategory" {
-                // print("Transitioning to the view Catergory View Controller")
                 let viewCategory: ViewCategoryTableViewController = segue.destination as! ViewCategoryTableViewController
-            
-               
-                
+
                 let current = Auth.auth().currentUser
                 let cell = sender as? UIButton
                 var currentCategory = Category(categoryTitle: "", listItemsArray: [], listItemIDs: [""], key: "")
-                
-                // print("the cell's title is: \(cell?.titleButton.currentTitle)")
                 
                 for i in 0...arrayOfCategories.count - 1 {
                     if cell?.currentTitle == arrayOfCategories[i].categoryTitle
@@ -124,22 +114,15 @@ class MainPageViewController: UIViewController, UICollectionViewDelegate, UIColl
                 
                 viewCategory.title = currentCategory.categoryTitle
                 
-
-                
-               
-                
                 ListItemService.showListItems(current!, catID: currentCategory.key) { (listItem) in
                     if let liIt = listItem {
                         arrayOfListItems2 = liIt
-                        //print("In the main \(arrayOfListItems2.count)")
                         viewCategory.viewTableView.reloadData()
                         viewCategory.currentCategory = currentCategory
                        
                     }
                 }
-                //Work for Thursday!!!
             } else if identifier == "newCategory" {
-                // print("Transitioning to the new Catergory View Controller")
                 arrayOfListItems2.removeAll()
             }
         }
@@ -148,7 +131,6 @@ class MainPageViewController: UIViewController, UICollectionViewDelegate, UIColl
     override func setEditing(_ editing: Bool, animated: Bool) {
         super.setEditing(editing, animated: animated)
         
-        //addButton.isEnabled = !editing
         if let indexPaths = collectionView?.indexPathsForVisibleItems {
             for indexPath in indexPaths {
                 if let cell = collectionView?.cellForItem(at: indexPath) as? CollectionViewCell {
@@ -159,14 +141,11 @@ class MainPageViewController: UIViewController, UICollectionViewDelegate, UIColl
     }
     
     @IBAction func unwindToMainPageViewController(_ segue: UIStoryboardSegue) {
-        // print("in unwindToMainPageViewController")
         collectionView.reloadData()
-        
     }
     
     static func removeCategory(category: Category) {
         let current = Auth.auth().currentUser
-       // FIRUser.cre
     
         let catRef = Database.database().reference().child("category").child((current?.uid)!).child(category.key) //removes category
         
@@ -174,12 +153,9 @@ class MainPageViewController: UIViewController, UICollectionViewDelegate, UIColl
         let catRef3 = Database.database().reference().child("users").child((current?.uid)!).child("categories") //removing categories from
         
         var catArraySub = [""]
-        //print("User.current.categories?.count is:\(User.current.categories)")
-    //need a different way to access the user
         
         catRef3.observeSingleEvent(of: .value, with: { (snapshot) in
             guard let catArray = snapshot.value as? [String] else {
-                //print("error: array doesn't exist")
                 return
             }
             
@@ -190,8 +166,7 @@ class MainPageViewController: UIViewController, UICollectionViewDelegate, UIColl
                     break
                 }
             }
-            
-             catRef3.setValue(catArraySub) //still doesn't work
+             catRef3.setValue(catArraySub)
         })
         
         
@@ -204,10 +179,22 @@ class MainPageViewController: UIViewController, UICollectionViewDelegate, UIColl
 
 extension MainPageViewController: CollectionViewDelegate {
     func delete(cell: CollectionViewCell) {
-        let alert = UIAlertController(title: "Warning", message: "Are you sure you want to delete this list?", preferredStyle: UIAlertControllerStyle.alert)
+        var currentCategory = Category(categoryTitle: "", listItemsArray: [], listItemIDs: [""], key: "")
+        
+        
+        for i in 0...arrayOfCategories.count - 1 {
+            if cell.titleButton.currentTitle == arrayOfCategories[i].categoryTitle
+            {
+                print("in for loop")
+                currentCategory = arrayOfCategories[i]
+                print("currentCategory Title is: \(currentCategory.categoryTitle)")
+            }
+        }
+        
+        
+        let alert = UIAlertController(title: "Warning", message: "Are you sure you want to delete \(currentCategory.categoryTitle)?", preferredStyle: UIAlertControllerStyle.alert)
         
         alert.addAction(UIAlertAction(title: "Yes", style: UIAlertActionStyle.destructive, handler: { (action) in
-            //somehow delete stuff!!
             if let indexPath = self.collectionView?.indexPath(for: cell) {
                 
                 MainPageViewController.removeCategory(category: arrayOfCategories[indexPath.item])
@@ -230,12 +217,14 @@ extension UIColor
     class func myOrangeColor() -> UIColor
     {
         return UIColor(red:0.95, green:0.67, blue:0.57, alpha:1.0)
-
-       // return UIColor(red:CGFloat(235)/255, green: CGFloat(229)/255, blue: CGFloat(221)/255, alpha:1.0)
     }
     
     class func myTanColor() -> UIColor {
        return UIColor(red:0.87, green:0.82, blue:0.64, alpha:1.0)
+    }
+    
+    class func myBlueColor() -> UIColor {
+        return UIColor(red:0.53, green:0.72, blue:0.83, alpha:1.0)
     }
 }
 

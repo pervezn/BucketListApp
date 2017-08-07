@@ -47,7 +47,6 @@ class ListItem {
         self.isChecked = isChecked
     }
     
-    //create an initializer that takes a place
     init(place: Places, key: String)
     {
         itemTitle = place.name

@@ -29,7 +29,6 @@ class MorePageViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let identifier = segue.identifier {
             if identifier == "backUnwind" {
-                print("back button tapped")
             }
         }
     }

@@ -26,48 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         FirebaseApp.configure()
         GMSServices.provideAPIKey("AIzaSyAg0qIZOgb4PR8pYdgB1HRZKD2FWJDcG9M")
-        //do show method from category service
-//        GMSPlacesClient.provideAPIKey("AIzaSyAg0qIZOgb4PR8pYdgB1HRZKD2FWJDcG9M")
-//        GMSServices.provideAPIKey("AIzaSyAg0qIZOgb4PR8pYdgB1HRZKD2FWJDcG9M")
-        
-//        let url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?"
-//        
-//        
-//        var parameters : Parameters = [
-//        "location":"bla"
-//        ,"radius" : "50000"
-//        , "types" :"food"
-//        ,"name" : "cruise"
-//        ,"key" : "AIzaSyAg0qIZOgb4PR8pYdgB1HRZKD2FWJDcG9M"]
-//        
-//        
-//        
-//        
-//        Alamofire.request(url, parameters: parameters).validate().responseJSON() { response in
-//            //print(response.request)
-//            //print(request(url).response)
-//           // print(response.result.value)
-//            //print(response.result.error)
-//            //print(response.request as Any)
-//            switch response.result {
-//            case .success:
-//                if let value = response.result.value {
-//                    let json = JSON(value)
-//                    print(json)
-//                    let array = json["results"].arrayValue
-//                    print("About to print array")
-//                    for result in array {
-//                        print(result["geometry"]["location"]["lat"].doubleValue)
-//                    }
-//                    // Do what you need to with JSON here!
-//                    // The rest is all boiler plate code you'll use for API requests
-//                    
-//                    
-//                }
-//            case .failure(let error):
-//                print(error)
-//            }
-//            }
+
         
        configureInitialRootViewController(for: window)
 
