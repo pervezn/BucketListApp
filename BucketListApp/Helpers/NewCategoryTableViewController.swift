@@ -57,8 +57,6 @@ class NewCategoryTableViewController: UIViewController, UITableViewDelegate, UIT
         titleLabel.textAlignment = .center
         titleLabel.font = UIFont(name: "HelveticaNeue", size: 20)
         self.navigationItem.titleView = titleLabel
-        
-        
         categoryNameTextField.textColor = UIColor.myOrangeColor()
     }
     
@@ -157,7 +155,6 @@ class NewCategoryTableViewController: UIViewController, UITableViewDelegate, UIT
         self.newTableView.endEditing(true)
     }
 
-    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         categoryNameTextField.resignFirstResponder()
         return(true)
@@ -192,6 +189,5 @@ extension NewCategoryTableViewController: AddNewCellDelegate {
             else { return }
         
         let current = Auth.auth().currentUser
-        
     }
 }

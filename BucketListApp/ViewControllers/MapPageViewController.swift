@@ -45,6 +45,7 @@ class MapPageViewController: UIViewController {
         mapView.showsBuildings = true
         
         
+        
         Alamofire.request(url).validate().responseJSON() { response in
             
             let info = JSON(response.result.value)

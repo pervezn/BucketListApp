@@ -53,6 +53,7 @@ class MainPageViewController: UIViewController, UICollectionViewDelegate, UIColl
         self.navigationItem.titleView = titleLabel
     }
     
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -225,6 +226,12 @@ extension UIColor
     
     class func myBlueColor() -> UIColor {
         return UIColor(red:0.53, green:0.72, blue:0.83, alpha:1.0)
+    }
+    class func myLightBlueColor() -> UIColor {
+        return UIColor(red:0.82, green:0.92, blue:1.00, alpha:1.0)
+    }
+    class func myDarkBlueColor() -> UIColor {
+        return UIColor(red:0.27, green:0.53, blue:0.69, alpha:1.0)
     }
 }
 

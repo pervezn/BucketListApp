@@ -16,6 +16,8 @@
 		33264B161F16726900133F71 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 33264B151F16726900133F71 /* GoogleService-Info.plist */; };
 		33264B181F17CE2100133F71 /* Places.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33264B171F17CE2100133F71 /* Places.swift */; };
 		334588E31F341812006BEA2C /* MorePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334588E21F341812006BEA2C /* MorePageViewController.swift */; };
+		33B1EBCD1F38F54F004625C4 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B1EBCC1F38F54F004625C4 /* GradientView.swift */; };
+		33B1EBCF1F3901E7004625C4 /* launchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33B1EBCE1F3901E7004625C4 /* launchScreen.storyboard */; };
 		33C254AD1F132FFE0029B421 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33C254AC1F132FFE0029B421 /* AppDelegate.swift */; };
 		33C254B21F132FFE0029B421 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33C254B01F132FFE0029B421 /* Main.storyboard */; };
 		33C254B41F132FFE0029B421 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 33C254B31F132FFE0029B421 /* Assets.xcassets */; };
@@ -53,6 +55,8 @@
 		33264B151F16726900133F71 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "BucketListApp/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		33264B171F17CE2100133F71 /* Places.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Places.swift; path = Models/Places.swift; sourceTree = "<group>"; };
 		334588E21F341812006BEA2C /* MorePageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MorePageViewController.swift; path = ViewControllers/MorePageViewController.swift; sourceTree = "<group>"; };
+		33B1EBCC1F38F54F004625C4 /* GradientView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
+		33B1EBCE1F3901E7004625C4 /* launchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = launchScreen.storyboard; sourceTree = "<group>"; };
 		33C254A91F132FFE0029B421 /* BucketListApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BucketListApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		33C254AC1F132FFE0029B421 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = BucketListApp/AppDelegate.swift; sourceTree = "<group>"; };
 		33C254B11F132FFE0029B421 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -129,6 +133,7 @@
 		33C254AB1F132FFE0029B421 /* BucketListApp */ = {
 			isa = PBXGroup;
 			children = (
+				33B1EBCC1F38F54F004625C4 /* GradientView.swift */,
 				33FB67E81F1D1A7C001B63E8 /* Stroyboards */,
 				33C254C31F13C1CC0029B421 /* Helpers */,
 				33C254C01F13C19B0029B421 /* ViewControllers */,
@@ -182,6 +187,7 @@
 			isa = PBXGroup;
 			children = (
 				33C254B01F132FFE0029B421 /* Main.storyboard */,
+				33B1EBCE1F3901E7004625C4 /* launchScreen.storyboard */,
 				33FB67E61F1D1A72001B63E8 /* Login.storyboard */,
 			);
 			name = Stroyboards;
@@ -278,6 +284,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				33C254B71F132FFE0029B421 /* LaunchScreen.storyboard in Resources */,
+				33B1EBCF1F3901E7004625C4 /* launchScreen.storyboard in Resources */,
 				33FB67E71F1D1A72001B63E8 /* Login.storyboard in Resources */,
 				33C254B41F132FFE0029B421 /* Assets.xcassets in Resources */,
 				33C254B21F132FFE0029B421 /* Main.storyboard in Resources */,
@@ -348,6 +355,7 @@
 				33FB67EE1F1D4300001B63E8 /* UserService.swift in Sources */,
 				330F88D41F1534270040D87B /* AddNewTableViewCell.swift in Sources */,
 				33FB67E51F1D18BF001B63E8 /* LoginViewController.swift in Sources */,
+				33B1EBCD1F38F54F004625C4 /* GradientView.swift in Sources */,
 				33FB67EA1F1D38CA001B63E8 /* User.swift in Sources */,
 				330F88CE1F147C500040D87B /* ViewCategoryTableViewCell.swift in Sources */,
 				33FE87351F19494B008FAE24 /* Url+location.swift in Sources */,
