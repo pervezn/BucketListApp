@@ -163,6 +163,9 @@ class NewCategoryTableViewController: UIViewController, UITableViewDelegate, UIT
         return(true)
     }
     
+    @IBAction func pressedAddButton(_ sender: Any) {
+            self.newTableView.reloadData()
+    }
     
     @IBAction func pressedSaveProgressButton(_ sender: Any) {
         let current = Auth.auth().currentUser
@@ -180,5 +183,15 @@ class NewCategoryTableViewController: UIViewController, UITableViewDelegate, UIT
         }
         categoryNameTextField.resignFirstResponder()
         categoryNameTextField.isUserInteractionEnabled = false
+    }
+}
+extension NewCategoryTableViewController: AddNewCellDelegate {
+    func didPressAddButton(_ addListItemButton: UIButton, on cell: AddNewTableViewCell) {
+        
+        guard let indexPath = newTableView.indexPath(for: cell)
+            else { return }
+        
+        let current = Auth.auth().currentUser
+        
     }
 }
