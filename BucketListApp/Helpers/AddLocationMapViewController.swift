@@ -96,7 +96,6 @@ class AddLocationMapViewController: UIViewController, UITextFieldDelegate
             self.locationMapView.addAnnotation(annotation)
             
             
-            
             controller.isActive = false
         }
         
