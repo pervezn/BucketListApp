@@ -142,22 +142,16 @@ class ViewCategoryTableViewController: UITableViewController  {
         if cell.completeButton.isSelected == true { //dark color
             cell.itemAddress.textColor = UIColor.gray
             cell.itemLabel.textColor = UIColor.gray
-            cell.itemLabel.font = UIFont(name: "HelveticaNeue", size: 15.0)
+            cell.itemLabel.font = UIFont(name: "HelveticaNeue", size: 17.0)
             cell.itemAddress.font = UIFont(name: "HelveticaNeue", size: 15.0)
             cell.itemLabel.font.withSize(15)
             cell.itemAddress.font.withSize(13)
-            print("in gray")
-            print(cell.itemAddress.font) //13
-            print(cell.itemLabel.font)// 15
             
         } else {
             cell.itemAddress.textColor = UIColor.darkGray
             cell.itemLabel.textColor = UIColor.darkGray
             cell.itemLabel.font = UIFont(name: "HelveticaNeue-Medium", size: 17.0)
             cell.itemAddress.font = UIFont(name: "HelveticaNeue-Medium", size: 15.0)
-            print("in dark gray")
-            print(cell.itemAddress.font) //15
-            print(cell.itemLabel.font) //17
         }
         
         

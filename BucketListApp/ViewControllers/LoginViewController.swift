@@ -23,6 +23,7 @@ class LoginViewController: UIViewController {
         
         loginButton.layer.cornerRadius = 5
         loginButton.clipsToBounds = true
+        
         // Do any additional setup after loading the view.
     }
 
@@ -44,6 +45,7 @@ class LoginViewController: UIViewController {
         let authViewController = authUI.authViewController()
         present(authViewController, animated: true)
     }
+    
 }
 
 extension LoginViewController: FUIAuthDelegate {

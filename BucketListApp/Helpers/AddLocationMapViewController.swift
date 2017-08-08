@@ -87,10 +87,10 @@ class AddLocationMapViewController: UIViewController, UITextFieldDelegate
             
             let location: CLLocationCoordinate2D = CLLocationCoordinate2DMake(self.lat, self.long)
             let annotation = MKPointAnnotation()
-            
+            print(location)
             annotation.coordinate = location
-            
-            let span:MKCoordinateSpan = MKCoordinateSpanMake(self.lat, self.long)
+            let degrees = CLLocationDegrees(0.00189975)
+            let span:MKCoordinateSpan = MKCoordinateSpanMake(degrees, degrees)
             let region: MKCoordinateRegion = MKCoordinateRegionMake(location, span)
             self.locationMapView.setRegion(region, animated: true)
             self.locationMapView.addAnnotation(annotation)
@@ -150,9 +150,6 @@ class AddLocationMapViewController: UIViewController, UITextFieldDelegate
                 
                 ListItemService.makeListItems(current!, catID: arrayOfCategories[arrayOfCategories.count-1].key, lat: lat, lng: long, isChecked: false, itemTitle: locationName.text!, address: locationAddress.text!, completion:  { (listItem) in
                     arrayOfListItems2.append(listItem!)
-                    print(listItem?.itemTitle)
-                    print(arrayOfListItems2.count)
-                    print("item appeneded")
                 })
             }
         } else if segue.identifier == "unwindToViewCategoryTableViewController" {
@@ -171,8 +168,6 @@ class AddLocationMapViewController: UIViewController, UITextFieldDelegate
             
             ListItemService.makeListItems(current!, catID: currentCategory.key, lat: lat, lng: long, isChecked: false, itemTitle: locationName.text!, address: locationAddress.text!, completion:  { (listItem) in
                 arrayOfListItems2.append(listItem!)
-                print(listItem?.itemTitle)
-                print(arrayOfListItems2.count)
             })
            
             

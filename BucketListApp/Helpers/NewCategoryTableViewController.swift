@@ -57,7 +57,7 @@ class NewCategoryTableViewController: UIViewController, UITableViewDelegate, UIT
         titleLabel.textAlignment = .center
         titleLabel.font = UIFont(name: "HelveticaNeue", size: 20)
         self.navigationItem.titleView = titleLabel
-        categoryNameTextField.textColor = UIColor.myOrangeColor()
+        categoryNameTextField.textColor = UIColor.collectionViewOrange()
     }
     
     override func viewDidAppear(_ animated: Bool)
@@ -86,10 +86,6 @@ class NewCategoryTableViewController: UIViewController, UITableViewDelegate, UIT
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "newTableViewCell", for: indexPath) as! NewTableViewCell
-        
-        print("arrayOfListItems2.count is: \(arrayOfListItems2.count)")
-        
-        print("indexPath.row is: \(indexPath.row)")
         
         cell.locationAddressDisplay.text = arrayOfListItems2[indexPath.row].address //locAddress
         cell.locationNameDisplay.text = arrayOfListItems2[indexPath.row].itemTitle  //locName
@@ -137,7 +133,6 @@ class NewCategoryTableViewController: UIViewController, UITableViewDelegate, UIT
         
         if editingStyle == .delete {
             arrayOfListItems2.remove(at: indexPath.row)
-            print("in table View")
             self.newTableView.reloadData()
         }
     }

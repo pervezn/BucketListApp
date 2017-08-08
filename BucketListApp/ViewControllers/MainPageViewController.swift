@@ -51,6 +51,8 @@ class MainPageViewController: UIViewController, UICollectionViewDelegate, UIColl
         titleLabel.textAlignment = .center
         titleLabel.font = UIFont(name: "HelveticaNeue", size: 20)
         self.navigationItem.titleView = titleLabel
+        
+        
     }
     
     
@@ -83,7 +85,7 @@ class MainPageViewController: UIViewController, UICollectionViewDelegate, UIColl
             cell.deleteButtonBackgroundView.isHidden = !isEditing
             cell.titleButton.setTitle(arrayOfCategories[indexPath.row].categoryTitle, for: [])
             cell.titleButton.titleLabel?.numberOfLines = 0; // Dynamic number of lines
-           
+            cell.titleButton.titleLabel?.font = UIFont(name: "HelveticaNeue-Medium", size: 15.0)
             return cell
         } else {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "addCollectionViewCell", for: indexPath) as! AddCollectionViewCell
@@ -186,9 +188,7 @@ extension MainPageViewController: CollectionViewDelegate {
         for i in 0...arrayOfCategories.count - 1 {
             if cell.titleButton.currentTitle == arrayOfCategories[i].categoryTitle
             {
-                print("in for loop")
                 currentCategory = arrayOfCategories[i]
-                print("currentCategory Title is: \(currentCategory.categoryTitle)")
             }
         }
         
@@ -232,6 +232,9 @@ extension UIColor
     }
     class func myDarkBlueColor() -> UIColor {
         return UIColor(red:0.27, green:0.53, blue:0.69, alpha:1.0)
+    }
+    class func collectionViewOrange() -> UIColor {
+        return UIColor(red:1.00, green:0.67, blue:0.54, alpha:1.0)
     }
 }
 

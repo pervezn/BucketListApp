@@ -10,7 +10,7 @@ import UIKit
 import FirebaseAuth
 import FirebaseDatabase
 
-class CreateUsernameViewController: UIViewController {
+class CreateUsernameViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var usernameTextField: UITextField!
     
@@ -20,13 +20,22 @@ class CreateUsernameViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        self.usernameTextField.delegate = self
         nextButton.layer.cornerRadius = 6
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        usernameTextField.resignFirstResponder()
+        return (true)
     }
     
     @IBAction func nextButtonTapped(_ sender: UIButton) {
@@ -48,5 +57,6 @@ class CreateUsernameViewController: UIViewController {
             self.view.window?.makeKeyAndVisible()
         }
         
+        usernameTextField.resignFirstResponder()
     }
 }
