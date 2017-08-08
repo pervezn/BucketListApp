@@ -54,6 +54,12 @@ class AddLocationMapViewController: UIViewController, UITextFieldDelegate
         
         self.locationName.delegate = self
         
+        locationMapView.isZoomEnabled = true
+        locationMapView.showsScale = true
+        locationMapView.showsCompass = true
+        locationMapView.showsBuildings = true
+        locationMapView.showsBuildings = true
+        
         let controller = GooglePlacesSearchController(apiKey: googleSearchPlacesAPIKey, placeType: PlaceType.all)
         
         
@@ -78,20 +84,17 @@ class AddLocationMapViewController: UIViewController, UITextFieldDelegate
             self.locationAddress.sizeToFit()
             self.lat = place.coordinate.latitude
             self.long = place.coordinate.longitude
-            print("Place latitude coordinate: \(place.coordinate.latitude)")
-            print("Place longitude coordinate: \(place.coordinate.longitude)")
             
             let location: CLLocationCoordinate2D = CLLocationCoordinate2DMake(self.lat, self.long)
             let annotation = MKPointAnnotation()
             
             annotation.coordinate = location
+            
+            let span:MKCoordinateSpan = MKCoordinateSpanMake(self.lat, self.long)
+            let region: MKCoordinateRegion = MKCoordinateRegionMake(location, span)
+            self.locationMapView.setRegion(region, animated: true)
             self.locationMapView.addAnnotation(annotation)
             
-            /* let position1 = place.coordinate
-             self.marker = GMSMarker(position: position1)
-             self.marker.title = place.name
-             self.marker.map = self.locationMapView */
-            //Reason1: This doesn't work becasue is uses a GMSMap instead of a mapkit
             
             
             controller.isActive = false
