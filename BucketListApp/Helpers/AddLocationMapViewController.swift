@@ -115,6 +115,7 @@ class AddLocationMapViewController: UIViewController, UITextFieldDelegate
         } else {
             doneButton2.isHidden = false
             doneButton.isHidden = true
+
         }
     }
     
@@ -154,8 +155,10 @@ class AddLocationMapViewController: UIViewController, UITextFieldDelegate
             }
         } else if segue.identifier == "unwindToViewCategoryTableViewController" {
             let viewCategory: ViewCategoryTableViewController = segue.destination as! ViewCategoryTableViewController
-            self.doneButton.isHidden = true
-            self.doneButton2.isHidden = false
+//            self.doneButton.isHidden = true
+            //self.doneButton.isEnabled = false
+//            self.doneButton2.isHidden = false
+            //self.doneButton2.isEnabled = true
             
              var currentCategory = Category(categoryTitle: "", listItemsArray: [], listItemIDs: [""], key: "")
             
