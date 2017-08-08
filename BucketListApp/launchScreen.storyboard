@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -23,7 +22,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="  Copyright © 2017 Nida Pervez. All rights reserved." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="obG-Y5-kRd">
-                                <rect key="frame" x="20" y="627" width="335" height="21"/>
+                                <rect key="frame" x="-9" y="627" width="393" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="F0p-UU-KZ5"/>
                                 </constraints>
@@ -32,18 +31,16 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Screen Shot 2017-08-07 at 3.07.38 PM" translatesAutoresizingMaskIntoConstraints="NO" id="Bka-QM-CTD">
-                                <rect key="frame" x="24" y="75" width="328" height="552"/>
+                                <rect key="frame" x="0.0" y="75" width="375" height="552"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Where Journeys Begin!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="soR-mH-qEk">
-                                <rect key="frame" x="53" y="301" width="277" height="28"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Make Your Own Adventure" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="soR-mH-qEk">
+                                <rect key="frame" x="53" y="301" width="292" height="28"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="23"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="venture" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="35I-95-66m">
-                                <rect key="frame" x="115" y="83" width="144" height="48"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hijinks" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="35I-95-66m">
+                                <rect key="frame" x="123" y="83" width="130" height="48"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="40"/>
                                 <color key="textColor" red="0.22797098093888893" green="0.22796177072227392" blue="0.22796799970498777" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
@@ -51,13 +48,16 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="Bka-QM-CTD" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="2gu-up-Y1O"/>
-                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="obG-Y5-kRd" secondAttribute="bottom" constant="19" id="4uc-0c-4yW"/>
-                            <constraint firstItem="Bka-QM-CTD" firstAttribute="centerX" secondItem="obG-Y5-kRd" secondAttribute="centerX" id="COg-MB-J9R"/>
-                            <constraint firstItem="obG-Y5-kRd" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" constant="4" id="K2I-xJ-dnx"/>
-                            <constraint firstItem="obG-Y5-kRd" firstAttribute="top" secondItem="Bka-QM-CTD" secondAttribute="bottom" id="yWc-0x-Dxz"/>
-                            <constraint firstItem="Bka-QM-CTD" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="55" id="yaz-MS-qxk"/>
-                            <constraint firstItem="Bka-QM-CTD" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" constant="8" id="zwf-A0-ucf"/>
+                            <constraint firstItem="soR-mH-qEk" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" constant="301" id="1hr-YU-ZxY"/>
+                            <constraint firstItem="Bka-QM-CTD" firstAttribute="width" secondItem="Ze5-6b-2t3" secondAttribute="width" id="Bbf-G6-d4A"/>
+                            <constraint firstItem="35I-95-66m" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="63" id="Bbr-h1-jJg"/>
+                            <constraint firstItem="Bka-QM-CTD" firstAttribute="top" relation="greaterThanOrEqual" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="55" id="RUl-H9-NS6"/>
+                            <constraint firstItem="obG-Y5-kRd" firstAttribute="top" secondItem="Bka-QM-CTD" secondAttribute="bottom" id="ZRI-hm-CR3"/>
+                            <constraint firstItem="obG-Y5-kRd" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="dO4-4m-JdI"/>
+                            <constraint firstItem="Bka-QM-CTD" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="jin-3Y-oDB"/>
+                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="obG-Y5-kRd" secondAttribute="bottom" constant="19" id="kib-ko-ett"/>
+                            <constraint firstItem="soR-mH-qEk" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="nAg-RQ-dK2"/>
+                            <constraint firstItem="35I-95-66m" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="vxp-uf-vrY"/>
                         </constraints>
                     </view>
                 </viewController>
