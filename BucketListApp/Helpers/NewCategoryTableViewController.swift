@@ -83,15 +83,32 @@ class NewCategoryTableViewController: UIViewController, UITableViewDelegate, UIT
             return arrayOfListItems2.count
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
+    {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "newTableViewCell", for: indexPath) as! NewTableViewCell
         
         cell.locationAddressDisplay.text = arrayOfListItems2[indexPath.row].address //locAddress
         cell.locationNameDisplay.text = arrayOfListItems2[indexPath.row].itemTitle  //locName
-     
-            return cell
+        cell.layoutIfNeeded()
+        return cell
     }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath)
+    {
+        for subview in cell.contentView.subviews
+        {
+            if subview.tag == 1
+            {
+                subview.frame = CGRect(x: 10, y: 7, width: cell.frame.size.width-20, height: 28)
+            }
+            else if subview.tag == 2
+            {
+                subview.frame = CGRect(x: 10, y: 37, width: cell.frame.size.width-20, height: 28)
+            }
+        }
+    }
+    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
