@@ -33,7 +33,7 @@ class MorePageViewController: UIViewController {
             }
         }
     }
-    let url = URL(string: "https://icons8.com/icon/19788/hot-air-balloon#filled")
+    let url = URL(string: "https://icons8.com/")
     
     @IBAction func iconAttributionsButton(_ sender: Any) {
         UIApplication.shared.open(url!)
