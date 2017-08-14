@@ -45,7 +45,7 @@ class MainPageViewController: UIViewController, UICollectionViewDelegate, UIColl
         editButtonItem.tintColor = UIColor.myBlueColor()
         
         let titleLabel: UILabel = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
-        titleLabel.text = "Bucket List"
+        titleLabel.text = "Hijinks"
         titleLabel.textColor = UIColor.myBlueColor()
         titleLabel.layer.zPosition = 1000
         titleLabel.textAlignment = .center
