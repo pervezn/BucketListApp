@@ -60,6 +60,9 @@ class AddLocationMapViewController: UIViewController, UITextFieldDelegate
         locationMapView.showsBuildings = true
         locationMapView.showsBuildings = true
         
+        locationName.autocapitalizationType = UITextAutocapitalizationType.words
+        locationName.adjustsFontSizeToFitWidth = true
+        
         let controller = GooglePlacesSearchController(apiKey: googleSearchPlacesAPIKey, placeType: PlaceType.all)
         
         
@@ -84,6 +87,8 @@ class AddLocationMapViewController: UIViewController, UITextFieldDelegate
             self.locationAddress.sizeToFit()
             self.lat = place.coordinate.latitude
             self.long = place.coordinate.longitude
+            
+            self.locationName.text = place.name
             
             let location: CLLocationCoordinate2D = CLLocationCoordinate2DMake(self.lat, self.long)
             let annotation = MKPointAnnotation()
@@ -144,6 +149,7 @@ class AddLocationMapViewController: UIViewController, UITextFieldDelegate
         let current = Auth.auth().currentUser
         if segue.identifier == "unwindToNewCategoryTableViewController" {
             if locationName.text == "" {
+                
                 createAlert(title: "WARNING", messege: "Must have a name.")
             } else {
                 
@@ -155,31 +161,32 @@ class AddLocationMapViewController: UIViewController, UITextFieldDelegate
             }
         } else if segue.identifier == "unwindToViewCategoryTableViewController" {
             let viewCategory: ViewCategoryTableViewController = segue.destination as! ViewCategoryTableViewController
-//            self.doneButton.isHidden = true
-            //self.doneButton.isEnabled = false
-//            self.doneButton2.isHidden = false
-            //self.doneButton2.isEnabled = true
-            
-             var currentCategory = Category(categoryTitle: "", listItemsArray: [], listItemIDs: [""], key: "")
-            
-            for i in 0...arrayOfCategories.count - 1 {
-                if viewCategory.title == arrayOfCategories[i].categoryTitle
-                {
-                    currentCategory = arrayOfCategories[i]
+            if locationName.text == "" {
+                
+                createAlert(title: "WARNING", messege: "Must have a name.")
+            } else {
+                
+                
+                var currentCategory = Category(categoryTitle: "", listItemsArray: [], listItemIDs: [""], key: "")
+                
+                for i in 0...arrayOfCategories.count - 1 {
+                    if viewCategory.title == arrayOfCategories[i].categoryTitle
+                    {
+                        currentCategory = arrayOfCategories[i]
+                    }
                 }
-            }
-            
-            ListItemService.makeListItems(current!, catID: currentCategory.key, lat: lat, lng: long, isChecked: false, itemTitle: locationName.text!, address: locationAddress.text!, completion:  { (listItem) in
-                arrayOfListItems2.append(listItem!)
-            })
-           
-            
-            
-            ListItemService.showListItems(current!, catID: currentCategory.key) { (listItem) in
-                if let liIt = listItem {
-                    arrayOfListItems2 = liIt
-                    viewCategory.viewTableView.reloadData()
-                    viewCategory.currentCategory = currentCategory
+                
+                ListItemService.makeListItems(current!, catID: currentCategory.key, lat: lat, lng: long, isChecked: false, itemTitle: locationName.text!, address: locationAddress.text!, completion:  { (listItem) in
+                    arrayOfListItems2.append(listItem!)
+                })
+                
+                
+                ListItemService.showListItems(current!, catID: currentCategory.key) { (listItem) in
+                    if let liIt = listItem {
+                        arrayOfListItems2 = liIt
+                        viewCategory.viewTableView.reloadData()
+                        viewCategory.currentCategory = currentCategory
+                    }
                 }
             }
         }

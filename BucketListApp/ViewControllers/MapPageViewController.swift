@@ -58,22 +58,22 @@ class MapPageViewController: UIViewController {
         }
         
         let current = Auth.auth().currentUser
-        
-        ListItemService.showListItems(current!, catID: arrayOfCategories[0].key) { (listItem) in
-            if let liIt = listItem {
-                if liIt.count > 0 {
-                    self.pinArray = liIt
-                    for i in 0...self.pinArray.count - 1 {
-                        let location: CLLocationCoordinate2D = CLLocationCoordinate2DMake(self.pinArray[i].lat , self.pinArray[i].lng)
-                        let annotation = MKPointAnnotation()
-                        annotation.title = self.pinArray[i].itemTitle
-                        annotation.coordinate = location
-                        self.mapView.addAnnotation(annotation)
+        if arrayOfCategories.count != 0 {
+            ListItemService.showListItems(current!, catID: arrayOfCategories[0].key) { (listItem) in
+                if let liIt = listItem {
+                    if liIt.count > 0 {
+                        self.pinArray = liIt
+                        for i in 0...self.pinArray.count - 1 {
+                            let location: CLLocationCoordinate2D = CLLocationCoordinate2DMake(self.pinArray[i].lat , self.pinArray[i].lng)
+                            let annotation = MKPointAnnotation()
+                            annotation.title = self.pinArray[i].itemTitle
+                            annotation.coordinate = location
+                            self.mapView.addAnnotation(annotation)
+                        }
                     }
                 }
             }
         }
-        
     }
     
     func showDropdown() {
@@ -138,11 +138,11 @@ extension MapPageViewController {
      */
     fileprivate func buildDummyDefaultMenu() -> AZDropdownMenu {
         var titleArray = [String]()
-        
-        for i in 0...arrayOfCategories.count - 1 {
-            titleArray.append(arrayOfCategories[i].categoryTitle)
+        if arrayOfCategories.count != 0 {
+            for i in 0...arrayOfCategories.count - 1 {
+                titleArray.append(arrayOfCategories[i].categoryTitle)
+            }
         }
-        
         let menu = AZDropdownMenu(titles: titleArray)
         menu.itemFontSize = 16.0
         menu.itemFontName = "Helvetica"
@@ -152,6 +152,7 @@ extension MapPageViewController {
             var pinArray2 = [MKAnnotation]()
             let current = Auth.auth().currentUser
             ListItemService.showListItems(current!, catID: arrayOfCategories[indexPath.row].key) { (listItem) in
+                
                 
                 self?.removeAllAnnotations()
                 
