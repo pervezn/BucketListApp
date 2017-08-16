@@ -18,5 +18,8 @@ target 'BucketListApp' do
   pod 'GooglePlacesSearchController'
   pod 'AZDropdownMenu'
   pod 'RAMAnimatedTabBarController', "~> 2.0.13"
+  pod 'FBSDKCoreKit'
+  pod 'FBSDKShareKit'
+  pod 'FBSDKLoginKit'
 
 end

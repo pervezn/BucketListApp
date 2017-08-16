@@ -14,6 +14,26 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Bolts.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>FBSDKCoreKit.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>FBSDKLoginKit.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>FBSDKShareKit.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>FirebaseUI-FirebaseAuthUI.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -52,11 +72,6 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>0163D51549A1E33B83CFC1A28A511CE5</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>0BA6525597C1B817693051CCA494E16A</key>
 		<dict>
 			<key>primary</key>
@@ -67,12 +82,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>22C700F10A167B4CCEA845C683A1F839</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>3380590F973AFAFA30255D504B7DEDAC</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>3A75EEBDB31ED7DDE7E609BC2CA6C359</key>
+		<key>44CAD6CE523055ED339E87154473A254</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>84A6491FD68454554A2D7D3D25E7F9C4</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -82,7 +107,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>8A4EBB23A8EF10B1D9D948409A9B871F</key>
+		<key>BC5000D645EEAF961C85907CDC796FE1</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>BEF7E6E85DB5CDE5D7A18F4F2EB8494B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -93,6 +123,16 @@
 			<true/>
 		</dict>
 		<key>D424923B38A9B9256D68251269F79873</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E396A93E4C79B22B7816E9F02F62ECED</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F2E9C1807271CE5C542514555F3FC4ED</key>
 		<dict>
 			<key>primary</key>
 			<true/>

@@ -10,24 +10,42 @@ import UIKit
 import FirebaseAuth
 import FirebaseAuthUI
 import FirebaseDatabase
+import FBSDKLoginKit
 
 typealias FIRUser = FirebaseAuth.User
 
-class LoginViewController: UIViewController {
+class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
 
     @IBOutlet weak var loginButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
         loginButton.layer.cornerRadius = 5
         loginButton.clipsToBounds = true
+        
+        let fbLoginButton = FBSDKLoginButton()
+        view.addSubview(fbLoginButton)
+        fbLoginButton.frame = CGRect(x: 45, y: 375, width: view.frame.width - 100, height: 40)
+        //must put in constraints
+        
+        fbLoginButton.delegate = self
         
         // Do any additional setup after loading the view.
     }
 
-   
+    func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {
+        print("Did log out of Facebook")
+    }
+    
+    func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
+        if error != nil {
+            print(error)
+            return
+        }
+        
+        print("Successfully logged in with facebook...")
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

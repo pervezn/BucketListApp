@@ -55,6 +55,7 @@
 		33264B151F16726900133F71 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "BucketListApp/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		33264B171F17CE2100133F71 /* Places.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Places.swift; path = Models/Places.swift; sourceTree = "<group>"; };
 		334588E21F341812006BEA2C /* MorePageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MorePageViewController.swift; path = ViewControllers/MorePageViewController.swift; sourceTree = "<group>"; };
+		339DC4E31F43E19B005F7BCE /* BucketListApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BucketListApp.entitlements; sourceTree = "<group>"; };
 		33B1EBCC1F38F54F004625C4 /* GradientView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		33B1EBCE1F3901E7004625C4 /* launchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = launchScreen.storyboard; sourceTree = "<group>"; };
 		33C254A91F132FFE0029B421 /* BucketListApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BucketListApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -133,6 +134,7 @@
 		33C254AB1F132FFE0029B421 /* BucketListApp */ = {
 			isa = PBXGroup;
 			children = (
+				339DC4E31F43E19B005F7BCE /* BucketListApp.entitlements */,
 				33B1EBCC1F38F54F004625C4 /* GradientView.swift */,
 				33FB67E81F1D1A7C001B63E8 /* Stroyboards */,
 				33C254C31F13C1CC0029B421 /* Helpers */,
@@ -257,6 +259,11 @@
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = 4YEH54R3V3;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -499,6 +506,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_ENTITLEMENTS = BucketListApp/BucketListApp.entitlements;
 				DEVELOPMENT_TEAM = 4YEH54R3V3;
 				INFOPLIST_FILE = BucketListApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -514,6 +522,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_ENTITLEMENTS = BucketListApp/BucketListApp.entitlements;
 				DEVELOPMENT_TEAM = 4YEH54R3V3;
 				INFOPLIST_FILE = BucketListApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
