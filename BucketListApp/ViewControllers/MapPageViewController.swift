@@ -170,6 +170,7 @@ extension MapPageViewController {
                             let annotation = MKPointAnnotation()
                             annotation.title = pinArray[i].itemTitle
                             annotation.coordinate = location
+                            annotation
                             self?.mapView.addAnnotation(annotation)
                             pinArray2.append(annotation)
                             

@@ -185,6 +185,14 @@ class ViewCategoryTableViewController: UITableViewController  {
             vc.fromNewCategory = false
         }
     }
+    
+    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    override func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        
+    }
 }
 
 extension ViewCategoryTableViewController: ViewCategoryCellDelegate {

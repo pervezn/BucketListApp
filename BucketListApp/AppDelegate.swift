@@ -29,7 +29,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
         
-       configureInitialRootViewController(for: window)
+        configureInitialRootViewController(for: window)
 
             
         return true

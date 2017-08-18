@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 import FirebaseAuth
 import FirebaseAuthUI
 import FirebaseDatabase
@@ -15,7 +16,7 @@ import FBSDKLoginKit
 typealias FIRUser = FirebaseAuth.User
 
 class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
-
+    
     @IBOutlet weak var loginButton: UIButton!
     
     override func viewDidLoad() {
@@ -26,14 +27,42 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
         
         let fbLoginButton = FBSDKLoginButton()
         view.addSubview(fbLoginButton)
-        fbLoginButton.frame = CGRect(x: 45, y: 375, width: view.frame.width - 100, height: 40)
-        //must put in constraints
+        fbLoginButton.frame = CGRect(x: 0, y: 0, width: view.frame.width - 100, height: 40)
+        
+        fbLoginButton.center.x = view.frame.width/2
+        
+        var verticalSpace = NSLayoutConstraint(item: self.imageView, attribute: .Bottom, relatedBy: .Equal, toItem: self.button, attribute: .Bottom, multiplier: 0.75, constant: 0)
+        
+        
+        // activate the constraints
+        NSLayoutConstraint.activateConstraints([verticalSpace])
         
         fbLoginButton.delegate = self
+        fbLoginButton.readPermissions = ["email", "public_profile"]
         
-        // Do any additional setup after loading the view.
+        //add custom login button
+        
+        let customFBButton = UIButton()
+        customFBButton.backgroundColor = .blue
+        customFBButton.frame =  CGRect(x: 45, y: 425, width: view.frame.width - 100, height: 40)
+        customFBButton.setTitle("Custom FB login here", for: .normal)
+        customFBButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 12)
+        customFBButton.setTitleColor(.white, for: .normal)
+        view.addSubview(customFBButton)
+        
+        customFBButton.addTarget(self, action: #selector(handleCusotmFBLogin), for: .touchUpInside)
     }
-
+    
+    func handleCusotmFBLogin() {
+        FBSDKLoginManager().logIn(withReadPermissions: ["email", "public_profile"], from: self) { (result, err) in
+            if err != nil {
+                print("Cusotm fb Login Failed", err)
+                return
+            }
+            self.showEmailAddress()
+        }
+    }
+    
     func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {
         print("Did log out of Facebook")
     }
@@ -43,8 +72,40 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
             print(error)
             return
         }
+        showEmailAddress()
+    }
+    
+    func showEmailAddress() {
+        let accessToken = FBSDKAccessToken.current()
+        guard let accessTokenString = accessToken?.tokenString else {
+            return
+        }
         
-        print("Successfully logged in with facebook...")
+        let credentials = FacebookAuthProvider.credential(withAccessToken: accessTokenString)
+        Auth.auth().signIn(with: credentials, completion: { (user, error) in
+            if error != nil {
+                print("Something went wrong with our FB user: ", error)
+                return
+            }
+            
+            print("Sucessfully logged in with out user", user ?? "")
+            
+            let appDelegate = UIApplication.shared.delegate! as! AppDelegate
+            
+            let storyboard = UIStoryboard(name: "Main", bundle: .main)
+            
+            if let initialViewController = storyboard.instantiateInitialViewController() {
+                self.view.window?.rootViewController = initialViewController
+            }
+        })
+        FBSDKGraphRequest(graphPath: "/me", parameters: ["fields": "id, name, email"]).start { (connection, result, err) in
+            if err != nil {
+                print("Failed to start graph request:", err)
+                return
+            }
+            print(result)//get the email address of your user
+        }
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -63,6 +124,8 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
         let authViewController = authUI.authViewController()
         present(authViewController, animated: true)
     }
+    
+    
     
 }
 
@@ -90,7 +153,7 @@ extension LoginViewController: FUIAuthDelegate {
             } else {
                 self.performSegue(withIdentifier: Constants.Segue.toCreateUsername, sender: self)
             }
-        })        
+        })
         UserService.show(forUID: user.uid) { (user) in
             if let user = user {
                 // handle existing user
