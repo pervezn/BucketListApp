@@ -22,6 +22,7 @@ struct ListItemService {
             var emptyArray = [ListItem]()
             for eachListItem in snapshot {
                 if let items = ListItem(snapshot: eachListItem) {
+               // print("HEREEEEE")
                 emptyArray.append(items)
                 }
             }

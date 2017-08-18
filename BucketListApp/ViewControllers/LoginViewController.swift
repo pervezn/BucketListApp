@@ -22,6 +22,8 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+        
         loginButton.layer.cornerRadius = 5
         loginButton.clipsToBounds = true
         
@@ -29,13 +31,16 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
         view.addSubview(fbLoginButton)
         fbLoginButton.frame = CGRect(x: 0, y: 0, width: view.frame.width - 100, height: 40)
         
+       // self.view.addSubview(fbLoginButton)
+        
         fbLoginButton.center.x = view.frame.width/2
         
-        var verticalSpace = NSLayoutConstraint(item: self.imageView, attribute: .Bottom, relatedBy: .Equal, toItem: self.button, attribute: .Bottom, multiplier: 0.75, constant: 0)
+      //  let verticalSpace = NSLayoutConstraint(item: self, attribute: .bottom, relatedBy: .equal, toItem: fbLoginButton, attribute: .bottom, multiplier: 0.75, constant: 0)
+        
         
         
         // activate the constraints
-        NSLayoutConstraint.activateConstraints([verticalSpace])
+       // NSLayoutConstraint.activate([verticalSpace])
         
         fbLoginButton.delegate = self
         fbLoginButton.readPermissions = ["email", "public_profile"]

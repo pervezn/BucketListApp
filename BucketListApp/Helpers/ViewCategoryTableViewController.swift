@@ -27,10 +27,10 @@ class ViewCategoryTableViewController: UITableViewController  {
         super.viewDidLoad()
         
         //removes tableView Lines
-       // self.viewTableView.separatorStyle = UITableViewCellSeparatorStyle.none
+        // self.viewTableView.separatorStyle = UITableViewCellSeparatorStyle.none
         self.tableView.layer.cornerRadius = 10
         self.tableView.layer.masksToBounds = true
-
+        
         navigationItem.backBarButtonItem?.tintColor = UIColor.myBlueColor()
         self.editButtonItem.tintColor = UIColor.myBlueColor()
         self.navigationItem.rightBarButtonItems = [self.editButtonItem, self.addListItemButton] //don't touch
@@ -45,8 +45,8 @@ class ViewCategoryTableViewController: UITableViewController  {
         titleLabel.textAlignment = .center
         titleLabel.font = UIFont(name: "HelveticaNeue", size: 20)
         self.navigationItem.titleView = titleLabel
-
-
+        
+        
         
         self.navigationController?.navigationBar.tintColor = UIColor.myBlueColor()
     }
@@ -56,15 +56,15 @@ class ViewCategoryTableViewController: UITableViewController  {
         super.viewWillAppear(animated)
         
         
-       // self.view.backgroundColor = UIColor(patternImage: UIImage(named: "hotAirBalloon.png")!)
+        // self.view.backgroundColor = UIColor(patternImage: UIImage(named: "hotAirBalloon.png")!)
         self.view.backgroundColor = UIColor.white
         
         // Add the hot air balloon background
-       // let backgroundImage = UIImage(named: "hotAirBalloon.png")
+        // let backgroundImage = UIImage(named: "hotAirBalloon.png")
         
-      //  let imageView = UIImageView(image: backgroundImage)
-      //  imageView.contentMode = UIViewContentMode.scaleAspectFill
-      //  self.tableView.backgroundView = imageView
+        //  let imageView = UIImageView(image: backgroundImage)
+        //  imageView.contentMode = UIViewContentMode.scaleAspectFill
+        //  self.tableView.backgroundView = imageView
         
         if isEditing == true {
             self.addListItemButton.isEnabled = true
@@ -73,7 +73,7 @@ class ViewCategoryTableViewController: UITableViewController  {
             self.addListItemButton.isEnabled = false
             self.addListItemButton.tintColor = UIColor.clear
         }
-    
+        
         
     }
     
@@ -129,6 +129,81 @@ class ViewCategoryTableViewController: UITableViewController  {
         listItemRef2.setValue(currentCategory?.listItemIDs)
     }
     
+    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    override func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        
+        let current = Auth.auth().currentUser
+        let cellToMove = arrayOfListItems2[sourceIndexPath.row]
+        
+        
+        ListItemService.makeListItems((current)!, catID: (currentCategory?.key)!, lat: cellToMove.lat, lng: cellToMove.lng, isChecked: cellToMove.isChecked, itemTitle: cellToMove.itemTitle, address: cellToMove.address, completion:  { (listItem) in
+            
+            
+            if sourceIndexPath.row < destinationIndexPath.row {
+                
+                print("Here 1")
+                
+                arrayOfListItems2.insert(listItem!, at: destinationIndexPath.row + 1)
+                
+                print("destinationIndexPath.row is: \(destinationIndexPath.row)")
+                
+                print(arrayOfListItems2.count)
+                for i in 0...arrayOfListItems2.count - 1 {
+                    print("\(arrayOfListItems2[i].itemTitle): index is \(i)")
+                }
+                
+                self.removeListItem(category: self.currentCategory!, listItem: arrayOfListItems2[sourceIndexPath.row])
+                print("")
+                print("removing: \(arrayOfListItems2[sourceIndexPath.row + 1].itemTitle)")
+                
+                arrayOfListItems2.remove(at: sourceIndexPath.row    )
+                print("")
+                print("sourceIndexPath.row is: \(sourceIndexPath.row + 1)")
+                print("removing 2: \(arrayOfListItems2[sourceIndexPath.row].itemTitle)")
+                print("")
+                
+                print(arrayOfListItems2.count)
+                for i in 0...arrayOfListItems2.count - 1 {
+                    print("\(arrayOfListItems2[i].itemTitle): index is \(i)")
+                }
+            } else {
+                
+                print("Here 2")
+                print("")
+                print("")
+                arrayOfListItems2.insert(listItem!, at: destinationIndexPath.row)
+                
+                print("destinationIndexPath.row is: \(destinationIndexPath.row)")
+                
+                print(arrayOfListItems2.count)
+                
+                for i in 0...arrayOfListItems2.count - 1 {
+                    print("\(arrayOfListItems2[i].itemTitle): index is \(i)")
+                }
+                //-----------good
+                self.removeListItem(category: self.currentCategory!, listItem: arrayOfListItems2[sourceIndexPath.row + 1])
+                print("")
+                print("sourceIndexPath.row is: \(sourceIndexPath.row + 1)")
+                print("removing: \(arrayOfListItems2[sourceIndexPath.row + 1].itemTitle)")
+                
+                arrayOfListItems2.remove(at: sourceIndexPath.row + 1)
+                print("")
+                print("sourceIndexPath.row is: \(sourceIndexPath.row + 1)")
+                print("removing 2: \(arrayOfListItems2[sourceIndexPath.row].itemTitle)")
+                print("")
+            }
+            
+            print(arrayOfListItems2.count)
+            for i in 0...arrayOfListItems2.count - 1 {
+                print("\(arrayOfListItems2[i].itemTitle): index is \(i)")
+            }
+            
+        })
+    }
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "viewCategoryTableViewCell", for: indexPath) as! ViewCategoryTableViewCell
@@ -158,7 +233,7 @@ class ViewCategoryTableViewController: UITableViewController  {
         return cell
         
     }
-
+    
     
     override func setEditing (_ editing:Bool, animated:Bool) {
         super.setEditing(editing,animated:animated)
@@ -185,14 +260,6 @@ class ViewCategoryTableViewController: UITableViewController  {
             vc.fromNewCategory = false
         }
     }
-    
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-    
-    override func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
-        
-    }
 }
 
 extension ViewCategoryTableViewController: ViewCategoryCellDelegate {
@@ -215,12 +282,12 @@ extension ViewCategoryTableViewController: ViewCategoryCellDelegate {
         
         arrayOfListItems2[indexPath.row].isChecked = !arrayOfListItems2[indexPath.row].isChecked
         //cell.completeButton.isSelected = arrayOfListItems2[indexPath.row].isChecked
-
-            let listItemRef = Database.database().reference().child("listItem").child((current?.uid)!).child(currentCategory.key).child(arrayOfListItems2[indexPath.row].key).child("complete?")
-            
-            listItemRef.setValue(arrayOfListItems2[indexPath.row].isChecked)
         
-
+        let listItemRef = Database.database().reference().child("listItem").child((current?.uid)!).child(currentCategory.key).child(arrayOfListItems2[indexPath.row].key).child("complete?")
+        
+        listItemRef.setValue(arrayOfListItems2[indexPath.row].isChecked)
+        
+        
         tableView.reloadData()
         
     }
