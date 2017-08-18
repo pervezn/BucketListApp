@@ -95,13 +95,26 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
             
             print("Sucessfully logged in with out user", user ?? "")
             
-            let appDelegate = UIApplication.shared.delegate! as! AppDelegate
+            //let appDelegate = UIApplication.shared.delegate! as! AppDelegate
             
-            let storyboard = UIStoryboard(name: "Main", bundle: .main)
+            guard let user = user
+                else { return }
             
-            if let initialViewController = storyboard.instantiateInitialViewController() {
-                self.view.window?.rootViewController = initialViewController
-            }
+            let userRef = Database.database().reference().child("users").child(user.uid)
+            
+            
+            userRef.observeSingleEvent(of: .value, with: { [unowned self] (snapshot) in
+                if let user = User(snapshot: snapshot) {
+                    User.setCurrent(user)
+                    
+                    let storyboard = UIStoryboard(name: "Main", bundle: .main)
+                    if let initialViewController = storyboard.instantiateInitialViewController() {
+                        self.view.window?.rootViewController = initialViewController
+                    }
+                } else {
+                    self.performSegue(withIdentifier: Constants.Segue.toCreateUsername, sender: self)
+                }
+            })
         })
         FBSDKGraphRequest(graphPath: "/me", parameters: ["fields": "id, name, email"]).start { (connection, result, err) in
             if err != nil {
