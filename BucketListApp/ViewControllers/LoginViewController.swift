@@ -24,38 +24,47 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
         
         
         
-        loginButton.layer.cornerRadius = 5
+        loginButton.layer.cornerRadius = 2
         loginButton.clipsToBounds = true
         
         let fbLoginButton = FBSDKLoginButton()
-        view.addSubview(fbLoginButton)
+        
         fbLoginButton.frame = CGRect(x: 0, y: 0, width: view.frame.width - 100, height: 40)
         
-       // self.view.addSubview(fbLoginButton)
+        fbLoginButton.translatesAutoresizingMaskIntoConstraints = false
+        self.view.addSubview(fbLoginButton)
         
-        fbLoginButton.center.x = view.frame.width/2
+       
+        fbLoginButton.leftAnchor.constraint(equalTo: loginButton.leftAnchor, constant: 0).isActive = true
+        fbLoginButton.rightAnchor.constraint(equalTo: loginButton.rightAnchor, constant: 0).isActive = true
+        fbLoginButton.topAnchor.constraint(equalTo: loginButton.bottomAnchor, constant: 10).isActive = true
+        //fbLoginButton.widthAnchor.constraint(equalToConstant: 80).isActive = true
+        fbLoginButton.heightAnchor.constraint(equalTo: loginButton.heightAnchor).isActive = true
         
-      //  let verticalSpace = NSLayoutConstraint(item: self, attribute: .bottom, relatedBy: .equal, toItem: fbLoginButton, attribute: .bottom, multiplier: 0.75, constant: 0)
         
+       //fbLoginButton.center.x = view.frame.width/2
+      // let verticalSpace = NSLayoutConstraint(item: self.view, attribute: .bottom, relatedBy: .equal, toItem: fbLoginButton, attribute: .bottom, multiplier: 1, constant: 150)
+   
+      
         
         
         // activate the constraints
-       // NSLayoutConstraint.activate([verticalSpace])
+        //NSLayoutConstraint.activate([verticalSpace])
         
         fbLoginButton.delegate = self
         fbLoginButton.readPermissions = ["email", "public_profile"]
         
         //add custom login button
         
-        let customFBButton = UIButton()
-        customFBButton.backgroundColor = .blue
-        customFBButton.frame =  CGRect(x: 45, y: 425, width: view.frame.width - 100, height: 40)
-        customFBButton.setTitle("Custom FB login here", for: .normal)
-        customFBButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 12)
-        customFBButton.setTitleColor(.white, for: .normal)
-        view.addSubview(customFBButton)
-        
-        customFBButton.addTarget(self, action: #selector(handleCusotmFBLogin), for: .touchUpInside)
+//        let customFBButton = UIButton()
+//        customFBButton.backgroundColor = .blue
+//        customFBButton.frame =  CGRect(x: 45, y: 425, width: view.frame.width - 100, height: 40)
+//        customFBButton.setTitle("Custom FB login here", for: .normal)
+//        customFBButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 12)
+//        customFBButton.setTitleColor(.white, for: .normal)
+//        view.addSubview(customFBButton)
+//        
+//        customFBButton.addTarget(self, action: #selector(handleCusotmFBLogin), for: .touchUpInside)
     }
     
     func handleCusotmFBLogin() {

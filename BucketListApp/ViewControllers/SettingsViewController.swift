@@ -8,6 +8,7 @@
 
 import UIKit
 import FirebaseAuth
+import FBSDKLoginKit
 
 class SettingsViewController: UIViewController {
 
@@ -25,10 +26,13 @@ class SettingsViewController: UIViewController {
                     if Auth.auth().currentUser == nil {
                         let loginVC = UIStoryboard(name: "Login", bundle: nil).instantiateViewController(withIdentifier: "Login") as! LoginViewController
                         
+                        FBSDKAccessToken.setCurrent(nil)
+                        
                         self.present(loginVC, animated: true, completion: nil)
                     }
                 }
             }
+                
         }))
         
         alert.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.default, handler: { (action) in
